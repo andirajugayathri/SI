@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Designs</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    
+    <div id="navbar"></div>
+
+     <section class="hero-section">
+         <img src="/assets/images/PORTFOLIO.jpg" alt="Hero Banner Mobile" class="hero-image img-fluid d-block d-md-none">
+
+        <img src="assets/images/home banner.png" alt="Hero Banner" class="hero-image img-fluid d-none d-md-block">
+    </section>
+
+<section class="portfolio-section">
+        <div class="container">
+            <h2 class="portfolio-title">
+                Our <span class="portfolio-highlight">Portfolio</span>
+            </h2>
+            <p class="portfolio-subtitle">
+                Explore Our Interior Designs | Space Designs
+            </p>
+            
+            <div class="portfolio-filters">
+                <button class="portfolio-filter-btn active" data-filter="all">All</button>
+                <button class="portfolio-filter-btn" data-filter="modulars">Modular Kitchen</button>
+                <button class="portfolio-filter-btn" data-filter="offices">Office</button>
+                <button class="portfolio-filter-btn" data-filter="tv">TV Unit</button>
+                <button class="portfolio-filter-btn" data-filter="wardrobes">Wardrobe</button>
+                <button class="portfolio-filter-btn" data-filter="guest">Guest Bedroom</button>
+                <button class="portfolio-filter-btn" data-filter="living-rooms">Living Room</button>
+                <button class="portfolio-filter-btn" data-filter="pooja-units">Pooja Units</button>
+            </div>
+
+            <div class="portfolio-filter active" id="all">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/portfolio kitchen.png" alt="Modern Kitchen Design" />
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/portfolio living room.png" alt="Living Room Interior" />
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/portfolio wardrobe.png" alt="Wardrobe Design" />
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/portfolio kitchen-1.png" alt="Kitchen Interior" />
+                    </div>
+
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/portfolio interrior.png" alt="Interior Design" />
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/portfolio modular.png" alt="Modular Design" />
+                    </div>  
+                </div>
+            </div>
+
+            <div class="portfolio-filter" id="modulars">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/modular.png" alt="Modern Kitchen Design" />
+                    </div> 
+                </div>
+            </div>
+
+            <div class="portfolio-filter" id="offices">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/office.png" alt="Modern Kitchen Design" />
+                    </div> 
+                </div>
+            </div>
+
+            <div class="portfolio-filter" id="tv">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/Tv unit.png" alt="Modern Kitchen Design" />
+                    </div> 
+                </div>
+            </div>
+
+            <div class="portfolio-filter" id="wardrobes">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/wardrobess.png" alt="Modern Kitchen Design" />
+                    </div> 
+                </div>
+            </div>
+
+            <div class="portfolio-filter" id="guest">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/Guest bedrrom.png" alt="Modern Kitchen Design" />
+                    </div> 
+                </div>
+            </div>
+            
+            <div class="portfolio-filter" id="living-rooms">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/Living room.png" alt="Modern Kitchen Design" />
+                    </div> 
+                </div>
+            </div>
+
+            <div class="portfolio-filter" id="pooja-units">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img class="portfolio-image" src="assets/images/pooja unit.png" alt="Modern Kitchen Design" />
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <div id="footer"></div>
+
+ <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('navbar').innerHTML = data);
+
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+
+      function setActiveNavbarLink() {
+            // Get current page filename (e.g., 'wardbose.html')
+            const path = window.location.pathname;
+            const page = path.substring(path.lastIndexOf('/') + 1);
+
+            // Wait for navbar to be loaded
+            const navbar = document.getElementById('navbar');
+            if (!navbar) return;
+
+            // Find all nav links and dropdown items
+            const navLinks = navbar.querySelectorAll('.nav-link');
+            const dropdownItems = navbar.querySelectorAll('.dropdown-item');
+
+            let foundActive = false;
+
+            // Check top-level nav links
+            navLinks.forEach(link => {
+                // Ignore dropdown toggles
+                if (link.classList.contains('dropdown-toggle')) return;
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && page === href) {
+                    link.classList.add('active');
+                    foundActive = true;
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Check dropdown items
+            dropdownItems.forEach(item => {
+                const href = item.getAttribute('href');
+                if (href && href !== '#' && page === href) {
+                    item.classList.add('active');
+                    // Also highlight parent dropdown toggle
+                    const parentDropdown = item.closest('.dropdown');
+                    if (parentDropdown) {
+                        const toggle = parentDropdown.querySelector('.nav-link.dropdown-toggle');
+                        if (toggle) toggle.classList.add('active');
+                    }
+                    foundActive = true;
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // After navbar is loaded, set active link
+        const navbarInterval = setInterval(() => {
+            const navbar = document.getElementById('navbar');
+            if (navbar && navbar.querySelector('.nav-link')) {
+                setActiveNavbarLink();
+                clearInterval(navbarInterval);
+            }
+        }, 50);
+  </script>
+
+ <script>
+  const buttons = document.querySelectorAll('.portfolio-filter-btn');
+  const sections = document.querySelectorAll('.portfolio-filter');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+
+      // Remove 'active' class from all buttons
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // Hide all sections
+      sections.forEach(section => section.classList.remove('active'));
+
+      // Show the selected section
+      const targetSection = document.getElementById(filter);
+      if (targetSection) {
+        targetSection.classList.add('active');
+      }
+    });
+  });
+</script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+</body>
+</html>
