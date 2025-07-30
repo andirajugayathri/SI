@@ -4802,3 +4802,7 @@ input {
 .dropdown-item.active, .dropdown-item:active {
   background-color: #a27327!important;
 }
+.wp-upv{
+  width:100%;
+  height: auto;
+}

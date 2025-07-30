@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Space Designs</title>
+    <link rel="icon" href="../assets/images/logo.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/styles.css">
+   
+    <style>
+        body {
+            background-color: #f3f3f1;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 50px 0;
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, #c91d25 0%, #c91d25 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .step.active {
+            background: #c91d25;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .step.completed {
+            background: #c91d25;
+            color: white;
+        }
+        
+        .step-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .step-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-control, .form-select {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: #c91d25;
+            box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+        }
+        
+        .btn-custom {
+            background: linear-gradient(135deg, #c91d25 0%, #c91d25 100%);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid #c91d25;
+            color: #c91d25;
+            background: transparent;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-custom:hover {
+            background: #c91d25;
+            color: white;
+        }
+        
+        .option-card {
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .option-card:hover {
+            border-color: #c91d25;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .option-card.selected {
+            border-color: #c91d25;
+            background: rgba(76, 175, 80, 0.1);
+        }
+        
+        .price-display {
+            background: linear-gradient(135deg, #FF6B6B 0%, #c91d25 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .summary-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            color: #c91d25;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h2><i class="fas fa-home"></i> Interior Design Estimate</h2>
+                        <p class="mb-0">Get your personalized interior design quote in 3 simple steps</p>
+                    </div>
+                    
+                    <!-- Step Indicator -->
+                    <div class="step-indicator">
+                        <div class="step active" id="step-1-indicator">1</div>
+                        <div class="step" id="step-2-indicator">2</div>
+                        <div class="step" id="step-3-indicator">3</div>
+                    </div>
+                    
+                    <form id="estimateForm">
+                        <!-- Step 1: Personal Details -->
+                        <div class="step-content active" id="step-1">
+                            <h4 class="text-center mb-4"><i class="fas fa-user"></i> Personal Details</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name *</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Mobile Number *</label>
+                                    <input type="tel" class="form-control" id="mobile" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="form-label">Location/Area *</label>
+                                    <input type="text" class="form-control" id="location" placeholder="Enter your location" required>
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="button" class="btn btn-custom" onclick="nextStep(2)">
+                                    Next <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Design Type -->
+                        <div class="step-content" id="step-2">
+                            <h4 class="text-center mb-4"><i class="fas fa-palette"></i> Choose Design Type</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="option-card" onclick="selectDesignType('semi')">
+                                        <i class="fas fa-puzzle-piece fa-3x mb-3" style="color: #4CAF50;"></i>
+                                        <h5>Semi Modular</h5>
+                                        <p class="text-muted">Flexible design with modular components</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="option-card" onclick="selectDesignType('full')">
+                                        <i class="fas fa-home fa-3x mb-3" style="color: #4CAF50;"></i>
+                                        <h5>Full Modular</h5>
+                                        <p class="text-muted">Complete modular interior solution</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="button" class="btn btn-outline-custom me-3" onclick="prevStep(1)">
+                                    <i class="fas fa-arrow-left"></i> Back
+                                </button>
+                                <button type="button" class="btn btn-custom" id="step2-next" onclick="nextStep(3)" disabled>
+                                    Next <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Property Type -->
+                        <div class="step-content" id="step-3">
+                            <h4 class="text-center mb-4"><i class="fas fa-building"></i> Select Property Type</h4>
+                            <div class="row" id="property-options">
+                                <!-- Options will be populated based on design type -->
+                            </div>
+                            
+                            <div class="price-display" id="price-display" style="display: none;">
+                                <h4>Estimated Price Range</h4>
+                                <h2 id="price-range">₹ 0 - ₹ 0</h2>
+                            </div>
+                            
+                            <div class="summary-card" id="summary-card" style="display: none;">
+                                <h5><i class="fas fa-clipboard-list"></i> Order Summary</h5>
+                                <div id="summary-details"></div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <button type="button" class="btn btn-outline-custom me-3" onclick="prevStep(2)">
+                                    <i class="fas fa-arrow-left"></i> Back
+                                </button>
+                                <button type="submit" class="btn btn-custom" id="submit-btn" disabled>
+                                    <i class="fas fa-envelope"></i> Get PDF Estimate
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Loading State -->
+                        <div class="loading" id="loading">
+                            <div class="spinner-border text-success" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <h5 class="mt-3">Generating your estimate...</h5>
+                            <p>Please wait while we prepare your personalized PDF quote.</p>
+                        </div>
+                        
+                        <!-- Success Message -->
+                        <div class="success-message" id="success">
+                            <i class="fas fa-check-circle fa-4x mb-3"></i>
+                            <h4>Estimate Sent Successfully!</h4>
+                            <p>Your personalized interior design estimate has been sent to your email. Our team will contact you shortly.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div id="footer"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentStep = 1;
+        let selectedDesignType = '';
+        let selectedPropertyType = '';
+        
+        const pricing = {
+            semi: {
+                '2bhk': { min: 4, max: 4.5 },
+                '3bhk': { min: 4.5, max: 5 },
+                '4bhk': { min: 5.5, max: 6.5 },
+                'kitchen': { min: 1, max: 1.5 }
+            },
+            full: {
+                '2bhk': { min: 6.5, max: 7 },
+                '3bhk': { min: 7.5, max: 8 },
+                '4bhk': { min: 9, max: 10 },
+                'kitchen': { min: 1.5, max: 2 }
+            }
+        };
+        
+        function nextStep(step) {
+            if (step === 2) {
+                if (!validateStep1()) return;
+            }
+            
+            document.getElementById(`step-${currentStep}`).classList.remove('active');
+            document.getElementById(`step-${currentStep}-indicator`).classList.remove('active');
+            document.getElementById(`step-${currentStep}-indicator`).classList.add('completed');
+            
+            currentStep = step;
+            document.getElementById(`step-${step}`).classList.add('active');
+            document.getElementById(`step-${step}-indicator`).classList.add('active');
+        }
+        
+        function prevStep(step) {
+            document.getElementById(`step-${currentStep}`).classList.remove('active');
+            document.getElementById(`step-${currentStep}-indicator`).classList.remove('active');
+            
+            currentStep = step;
+            document.getElementById(`step-${step}`).classList.add('active');
+            document.getElementById(`step-${step}-indicator`).classList.add('active');
+            document.getElementById(`step-${step}-indicator`).classList.remove('completed');
+        }
+        
+        function validateStep1() {
+            const name = document.getElementById('name').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const location = document.getElementById('location').value.trim();
+            
+            if (!name || !mobile || !location) {
+                alert('Please fill in all required fields.');
+                return false;
+            }
+            
+            if (mobile.length < 10) {
+                alert('Please enter a valid mobile number.');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function selectDesignType(type) {
+            selectedDesignType = type;
+            
+            // Remove selection from all cards
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selection to clicked card
+            event.target.closest('.option-card').classList.add('selected');
+            
+            // Enable next button
+            document.getElementById('step2-next').disabled = false;
+            
+            // Populate property options for step 3
+            populatePropertyOptions(type);
+        }
+        
+        function populatePropertyOptions(designType) {
+            const container = document.getElementById('property-options');
+            const options = [
+                { id: '2bhk', label: '2 BHK', icon: 'fas fa-bed' },
+                { id: '3bhk', label: '3 BHK', icon: 'fas fa-bed' },
+                { id: '4bhk', label: '4 BHK', icon: 'fas fa-bed' },
+                { id: 'kitchen', label: 'Only Modular Kitchen', icon: 'fas fa-utensils' }
+            ];
+            
+            container.innerHTML = options.map(option => `
+                <div class="col-md-6 mb-3">
+                    <div class="option-card" onclick="selectPropertyType('${option.id}')">
+                        <i class="${option.icon} fa-2x mb-3" style="color: #4CAF50;"></i>
+                        <h6>${option.label}</h6>
+                        <p class="text-muted">Select to get estimate</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function selectPropertyType(type) {
+            selectedPropertyType = type;
+            
+            // Remove selection from all property cards
+            document.querySelectorAll('#property-options .option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selection to clicked card
+            event.target.closest('.option-card').classList.add('selected');
+            
+            // Show price and enable submit
+            showPriceAndSummary();
+            document.getElementById('submit-btn').disabled = false;
+        }
+        
+        function showPriceAndSummary() {
+            // Don't show price until after submission
+            // Just show summary without price
+            const name = document.getElementById('name').value;
+            const mobile = document.getElementById('mobile').value;
+            const location = document.getElementById('location').value;
+            
+            const designTypeLabel = selectedDesignType === 'semi' ? 'Semi Modular' : 'Full Modular';
+            const propertyLabels = {
+                '2bhk': '2 BHK',
+                '3bhk': '3 BHK',
+                '4bhk': '4 BHK',
+                'kitchen': 'Only Modular Kitchen'
+            };
+            
+            document.getElementById('summary-details').innerHTML = `
+                <div class="row">
+                    <div class="col-6"><strong>Name:</strong></div>
+                    <div class="col-6">${name}</div>
+                    <div class="col-6"><strong>Mobile:</strong></div>
+                    <div class="col-6">${mobile}</div>
+                    <div class="col-6"><strong>Location:</strong></div>
+                    <div class="col-6">${location}</div>
+                    <div class="col-6"><strong>Design Type:</strong></div>
+                    <div class="col-6">${designTypeLabel}</div>
+                    <div class="col-6"><strong>Property:</strong></div>
+                    <div class="col-6">${propertyLabels[selectedPropertyType]}</div>
+                </div>
+            `;
+            
+            document.getElementById('summary-card').style.display = 'block';
+        }
+        
+        document.getElementById('estimateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Hide form and show loading
+            document.getElementById('step-3').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            
+            // Simulate API call
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('success').style.display = 'block';
+                
+                // Here you would typically send the data to your server
+                console.log('Form Data:', {
+                    name: document.getElementById('name').value,
+                    mobile: document.getElementById('mobile').value,
+                    location: document.getElementById('location').value,
+                    designType: selectedDesignType,
+                    propertyType: selectedPropertyType,
+                    priceRange: pricing[selectedDesignType][selectedPropertyType]
+                });
+            }, 3000);
+        });
+    </script>
+     <script>
+        fetch('navbar.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
+
+        fetch('footer.html')
+            .then(res => res.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+
+</body>
+</html>
