@@ -4799,3 +4799,6 @@ input {
         font-size: 15px;
     }
 }
+.dropdown-item.active, .dropdown-item:active {
+  background-color: #a27327!important;
+}
