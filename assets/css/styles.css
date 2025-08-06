@@ -3840,18 +3840,18 @@ input {
   background-color: #fff;
   border-bottom: 2px solid #000;
   font-weight: bold;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
 .product-grades-table th:first-child {
   color: #a27327;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .product-grades-table th:last-child {
   color: #a27327;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .product-grades-table td {
