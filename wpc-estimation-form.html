@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Designs</title>
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        :root {
+            --primary-color: #c91d25;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+        }
+
+        body {
+            background-color: #f3f3f1!important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .form-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .form-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid var(--primary-color);
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            color: #bdc3c7;
+            transition: all 0.3s ease;
+        }
+
+        .step.active {
+            color: var(--secondary-color);
+        }
+
+        .step.completed {
+            color: var(--success-color);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-number {
+            background: var(--secondary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .step.completed .step-number {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .step-connector {
+            width: 60px;
+            height: 2px;
+            background: #bdc3c7;
+            margin: 0 15px;
+        }
+
+        .step.completed + .step .step-connector {
+            background: var(--success-color);
+        }
+
+        .form-step {
+            display: none;
+            padding: 40px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-control {
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+        }
+
+        .option-card {
+            border: 2px solid #ecf0f1;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            text-align: center;
+        }
+
+        .option-card:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .option-card.selected {
+            border-color: var(--secondary-color);
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .option-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .option-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .option-description {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .product-section {
+            background: white;
+            border-radius: 15px;
+            border: 2px solid #ecf0f1;
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .product-section:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-section-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-section-title i {
+            color: var(--secondary-color);
+        }
+
+        .btn-custom {
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary-custom {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary-custom:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-secondary-custom {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary-custom:hover {
+            background: #7f8c8d;
+        }
+
+        .btn-success-custom {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .btn-success-custom:hover {
+            background: #219a52;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+        }
+
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .quantity-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background: #2980b9;
+            transform: scale(1.1);
+        }
+
+        .quantity-display {
+            margin: 0 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .summary-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1><i class="fas fa-home"></i> WPC Products Order Form</h1>
+                <p>Premium Wood Plastic Composite Solutions</p>
+            </div>
+
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Contact Info</div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Service Type</div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Products</div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Summary</div>
+                </div>
+            </div>
+
+            <!-- Step 1: Contact Information -->
+            <div class="form-step active" id="step1">
+                <h3 class="text-center mb-4"><i class="fas fa-user-circle"></i> Contact Information</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" for="customerName">Full Name *</label>
+                            <input type="text" class="form-control" id="customerName" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" for="customerPhone">Phone Number *</label>
+                            <input type="tel" class="form-control" id="customerPhone" placeholder="Enter your phone number" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="customerLocation">Area/Location *</label>
+                    <input type="text" class="form-control" id="customerLocation" placeholder="Enter your area or location" required>
+                </div>
+                <div class="form-navigation">
+                    <div></div>
+                    <button type="button" class="btn btn-custom btn-primary-custom" onclick="nextStep()">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Service Type -->
+            <div class="form-step" id="step2">
+                <h3 class="text-center mb-4"><i class="fas fa-cogs"></i> Choose Service Type</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="option-card" data-service="ready-to-fix">
+                            <div class="option-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="option-title">Ready to Fix</div>
+                            <div class="option-description">Complete installation service with pre-fabricated components</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="option-card" data-service="loose-material">
+                            <div class="option-icon">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <div class="option-title">Loose Material</div>
+                            <div class="option-description">Raw materials for custom installation and DIY projects</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-custom btn-secondary-custom" onclick="prevStep()">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button type="button" class="btn btn-custom btn-primary-custom" onclick="nextStep()" disabled id="step2Next">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Product Selection -->
+            <div class="form-step" id="step3">
+                <h3 class="text-center mb-4"><i class="fas fa-th-large"></i> Select Products</h3>
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be populated based on service type -->
+                </div>
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-custom btn-secondary-custom" onclick="prevStep()">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button type="button" class="btn btn-custom btn-primary-custom" onclick="nextStep()">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 4: Summary -->
+            <div class="form-step" id="step4">
+                <h3 class="text-center mb-4"><i class="fas fa-clipboard-check"></i> Order Summary</h3>
+                <div class="summary-card" id="orderSummary">
+                    <!-- Summary will be populated -->
+                </div>
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-custom btn-secondary-custom" onclick="prevStep()">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button type="button" class="btn btn-custom btn-success-custom" onclick="submitOrder()">
+                        <i class="fas fa-envelope"></i> Get PDF Estimate
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+
+    <script>
+        fetch('navbar.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('navbar').innerHTML = data);
+
+        fetch('footer.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentStep = 1;
+        let selectedService = '';
+        let selectedProducts = {};
+        let customerData = {};
+
+        const readyToFixProducts = [
+            { id: 'frames', name: 'Frames', icon: 'fas fa-border-all' },
+            { id: 'doors', name: 'Doors', icon: 'fas fa-door-open' },
+            { id: 'windows', name: 'Windows', icon: 'fas fa-window-maximize' },
+            { id: 'window-door', name: 'Window-Door', icon: 'fas fa-door-closed' }
+        ];
+
+        const looseMaterialProducts = [
+            { id: 'frames', name: 'Frames', icon: 'fas fa-border-all' },
+            { id: 'doors', name: 'Doors', icon: 'fas fa-door-open' },
+            { id: 'windows', name: 'Windows', icon: 'fas fa-window-maximize' },
+            { id: 'window-door', name: 'Window-Door', icon: 'fas fa-door-closed' },
+            { id: 'sheets', name: 'Sheets', icon: 'fas fa-layer-group' }
+        ];
+
+        function nextStep() {
+            console.log('Next step clicked, current step:', currentStep);
+            console.log('Selected service:', selectedService);
+            
+            if (validateCurrentStep()) {
+                if (currentStep < 4) {
+                    currentStep++;
+                    showStep(currentStep);
+                    updateStepIndicator();
+                    console.log('Moved to step:', currentStep);
+                }
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+                updateStepIndicator();
+            }
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step${step}`).classList.add('active');
+            
+            if (step === 3) {
+                loadProducts();
+            } else if (step === 4) {
+                generateSummary();
+            }
+        }
+
+        function updateStepIndicator() {
+            document.querySelectorAll('.step').forEach((step, index) => {
+                step.classList.remove('active', 'completed');
+                if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                } else if (index + 1 < currentStep) {
+                    step.classList.add('completed');
+                }
+            });
+        }
+
+        function validateCurrentStep() {
+            if (currentStep === 1) {
+                const name = document.getElementById('customerName').value.trim();
+                const phone = document.getElementById('customerPhone').value.trim();
+                const location = document.getElementById('customerLocation').value.trim();
+                
+                if (!name || !phone || !location) {
+                    alert('Please fill in all required fields.');
+                    return false;
+                }
+                
+                customerData = { name, phone, location };
+                return true;
+            } else if (currentStep === 2) {
+                if (!selectedService) {
+                    alert('Please select a service type.');
+                    return false;
+                }
+                return true;
+            } else if (currentStep === 3) {
+                // Optional: validate if at least one product is selected
+                return true;
+            }
+            return true;
+        }
+
+        // Service type selection
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers for option cards
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.option-card')) {
+                    const card = e.target.closest('.option-card');
+                    const service = card.dataset.service;
+                    
+                    // Remove selected class from all cards
+                    document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+                    
+                    // Add selected class to clicked card
+                    card.classList.add('selected');
+                    
+                    // Update selected service
+                    selectedService = service;
+                    
+                    // Enable next button
+                    const nextBtn = document.getElementById('step2Next');
+                    if (nextBtn) {
+                        nextBtn.disabled = false;
+                    }
+                }
+            });
+        });
+
+        function loadProducts() {
+            const products = selectedService === 'ready-to-fix' ? readyToFixProducts : looseMaterialProducts;
+            const productGrid = document.getElementById('productGrid');
+            
+            productGrid.innerHTML = '';
+            productGrid.style.display = 'block';
+            productGrid.style.gridTemplateColumns = '1fr';
+            
+            products.forEach(product => {
+                const productSection = document.createElement('div');
+                productSection.className = 'mb-4';
+                productSection.innerHTML = getProductFields(product);
+                productGrid.appendChild(productSection);
+            });
+        }
+
+        function getProductFields(product) {
+            switch(product.id) {
+                case 'frames':
+                    return `
+                        <div class="product-section">
+                            <h4 class="product-section-title">
+                                <i class="${product.icon}"></i> ${product.name}
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Main Entry Frames</label>
+                                        <input type="number" class="form-control" id="mainEntryFrames" min="0" value="0" onchange="updateProductData('frames', 'mainEntryFrames', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Bed Room Frames</label>
+                                        <input type="number" class="form-control" id="bedRoomFrames" min="0" value="0" onchange="updateProductData('frames', 'bedRoomFrames', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Out-side Door Frames</label>
+                                        <input type="number" class="form-control" id="outsideDoorFrames" min="0" value="0" onchange="updateProductData('frames', 'outsideDoorFrames', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Bathroom Frames</label>
+                                        <input type="number" class="form-control" id="bathroomFrames" min="0" value="0" onchange="updateProductData('frames', 'bathroomFrames', this.value)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                case 'doors':
+                    return `
+                        <div class="product-section">
+                            <h4 class="product-section-title">
+                                <i class="${product.icon}"></i> ${product.name}
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Main Entry Doors</label>
+                                        <input type="number" class="form-control" id="mainEntryDoors" min="0" value="0" onchange="updateProductData('doors', 'mainEntryDoors', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Bed Room Doors</label>
+                                        <input type="number" class="form-control" id="bedRoomDoors" min="0" value="0" onchange="updateProductData('doors', 'bedRoomDoors', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Out-side Doors</label>
+                                        <input type="number" class="form-control" id="outsideDoors" min="0" value="0" onchange="updateProductData('doors', 'outsideDoors', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Bathroom Doors</label>
+                                        <input type="number" class="form-control" id="bathroomDoors" min="0" value="0" onchange="updateProductData('doors', 'bathroomDoors', this.value)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                case 'windows':
+                    return `
+                        <div class="product-section">
+                            <h4 class="product-section-title">
+                                <i class="${product.icon}"></i> ${product.name}
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">2 Khana Windows</label>
+                                        <input type="number" class="form-control" id="twoKhanaWindows" min="0" value="0" onchange="updateProductData('windows', 'twoKhanaWindows', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">3 Khana Windows</label>
+                                        <input type="number" class="form-control" id="threeKhanaWindows" min="0" value="0" onchange="updateProductData('windows', 'threeKhanaWindows', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Kitchen Windows</label>
+                                        <input type="number" class="form-control" id="kitchenWindows" min="0" value="0" onchange="updateProductData('windows', 'kitchenWindows', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Ventilators</label>
+                                        <input type="number" class="form-control" id="ventilators" min="0" value="0" onchange="updateProductData('windows', 'ventilators', this.value)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                case 'window-door':
+                    return `
+                        <div class="product-section">
+                            <h4 class="product-section-title">
+                                <i class="${product.icon}"></i> ${product.name}
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Normal Window Doors</label>
+                                        <input type="number" class="form-control" id="normalWindowDoors" min="0" value="0" onchange="updateProductData('window-door', 'normalWindowDoors', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Kitchen Window Doors</label>
+                                        <input type="number" class="form-control" id="kitchenWindowDoors" min="0" value="0" onchange="updateProductData('window-door', 'kitchenWindowDoors', this.value)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                case 'sheets':
+                    return `
+                        <div class="product-section">
+                            <h4 class="product-section-title">
+                                <i class="${product.icon}"></i> ${product.name}
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">8MM Sheets (8'x4')</label>
+                                        <input type="number" class="form-control" id="sheets8mm" min="0" value="0" onchange="updateProductData('sheets', 'sheets8mm', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">17MM Sheets (8'x4')</label>
+                                        <input type="number" class="form-control" id="sheets17mm" min="0" value="0" onchange="updateProductData('sheets', 'sheets17mm', this.value)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                default:
+                    return '';
+            }
+        }
+
+        function updateProductData(productId, fieldId, value) {
+            if (!selectedProducts[productId]) {
+                selectedProducts[productId] = { fields: {}, total: 0 };
+            }
+            
+            selectedProducts[productId].fields[fieldId] = parseInt(value) || 0;
+            
+            // Calculate total for this product
+            let total = 0;
+            Object.values(selectedProducts[productId].fields).forEach(val => {
+                total += val;
+            });
+            selectedProducts[productId].total = total;
+            
+            // Set product name
+            const products = selectedService === 'ready-to-fix' ? readyToFixProducts : looseMaterialProducts;
+            const product = products.find(p => p.id === productId);
+            selectedProducts[productId].name = product.name;
+            
+            // Clean up if no quantities
+            if (total === 0) {
+                delete selectedProducts[productId];
+            }
+        }
+
+        function generateSummary() {
+            const summaryContainer = document.getElementById('orderSummary');
+            
+            let summaryHTML = `
+                <div class="summary-item">
+                    <strong>Customer Information</strong>
+                    <span></span>
+                </div>
+                <div class="summary-item">
+                    <span>Name:</span>
+                    <span>${customerData.name}</span>
+                </div>
+                <div class="summary-item">
+                    <span>Phone:</span>
+                    <span>${customerData.phone}</span>
+                </div>
+                <div class="summary-item">
+                    <span>Location:</span>
+                    <span>${customerData.location}</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Service Type</strong>
+                    <span><strong>${selectedService === 'ready-to-fix' ? 'Ready to Fix' : 'Loose Material'}</strong></span>
+                </div>
+            `;
+            
+            if (Object.keys(selectedProducts).length > 0) {
+                summaryHTML += `
+                    <div class="summary-item">
+                        <strong>Selected Products</strong>
+                        <span></span>
+                    </div>
+                `;
+                
+                Object.entries(selectedProducts).forEach(([productId, product]) => {
+                    summaryHTML += `
+                        <div class="summary-item">
+                            <strong>${product.name}</strong>
+                            <span>Total: <strong>${product.total} units</strong></span>
+                        </div>
+                    `;
+                    
+                    // Show detailed breakdown
+                    Object.entries(product.fields).forEach(([fieldId, quantity]) => {
+                        if (quantity > 0) {
+                            const fieldName = getFieldDisplayName(fieldId);
+                            summaryHTML += `
+                                <div class="summary-item" style="margin-left: 20px; color: #7f8c8d;">
+                                    <span>${fieldName}:</span>
+                                    <span>${quantity}</span>
+                                </div>
+                            `;
+                        }
+                    });
+                });
+            }
+            
+            summaryContainer.innerHTML = summaryHTML;
+        }
+
+        function getFieldDisplayName(fieldId) {
+            const fieldNames = {
+                // Frames
+                'mainEntryFrames': 'Main Entry Frames',
+                'bedRoomFrames': 'Bed Room Frames',
+                'outsideDoorFrames': 'Out-side Door Frames',
+                'bathroomFrames': 'Bathroom Frames',
+                
+                // Doors
+                'mainEntryDoors': 'Main Entry Doors',
+                'bedRoomDoors': 'Bed Room Doors',
+                'outsideDoors': 'Out-side Doors',
+                'bathroomDoors': 'Bathroom Doors',
+                
+                // Windows
+                'twoKhanaWindows': '2 Khana Windows',
+                'threeKhanaWindows': '3 Khana Windows',
+                'kitchenWindows': 'Kitchen Windows',
+                'ventilators': 'Ventilators',
+                
+                // Window-Door
+                'normalWindowDoors': 'Normal Window Doors',
+                'kitchenWindowDoors': 'Kitchen Window Doors',
+                
+                // Sheets
+                'sheets8mm': '8MM Sheets (8\'x4\')',
+                'sheets17mm': '17MM Sheets (8\'x4\')'
+            };
+            
+            return fieldNames[fieldId] || fieldId;
+        }
+
+        function submitOrder() {
+            const orderData = {
+                customer: customerData,
+                serviceType: selectedService,
+                products: selectedProducts,
+                timestamp: new Date().toLocaleString()
+            };
+            
+            console.log('Order submitted:', orderData);
+            
+            alert(`Thank you ${customerData.name}! Your order has been submitted successfully. We will contact you soon at ${customerData.phone}.`);
+            
+            // Reset form
+            location.reload();
+        }
+    </script>
+</body>
+</html>
