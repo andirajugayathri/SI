@@ -15,12 +15,12 @@
             --secondary-color: #3498db;
             --accent-color: #e74c3c;
             --success-color: #27ae60;
+            --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         body {
-            background-color: #f3f3f1!important;
+            background-color:#f7f3ec;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
         }
 
         .form-container {
@@ -445,7 +445,7 @@
                         <i class="fas fa-arrow-left"></i> Previous
                     </button>
                     <button type="button" class="btn btn-custom btn-success-custom" onclick="submitOrder()">
-                        <i class="fas fa-envelope"></i> Get PDF Estimate
+                        <i class="fas fa-file-pdf"></i> Generate PDF Estimate
                     </button>
                 </div>
             </div>
@@ -453,15 +453,15 @@
     </div>
     <div id="footer"></div>
 
-    <script>
-        fetch('navbar.html')
-        .then(res => res.text())
-        .then(data => document.getElementById('navbar').innerHTML = data);
+ <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('navbar').innerHTML = data);
 
-        fetch('footer.html')
-        .then(res => res.text())
-        .then(data => document.getElementById('footer').innerHTML = data);
-    </script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -469,6 +469,7 @@
         let selectedService = '';
         let selectedProducts = {};
         let customerData = {};
+        let generatedPDF = null;
 
         const readyToFixProducts = [
             { id: 'frames', name: 'Frames', icon: 'fas fa-border-all' },
@@ -484,6 +485,62 @@
             { id: 'window-door', name: 'Window-Door', icon: 'fas fa-door-closed' },
             { id: 'sheets', name: 'Sheets', icon: 'fas fa-layer-group' }
         ];
+
+        // Pricing structure for Ready to Fix
+        const readyToFixPricing = {
+            frames: {
+                'mainEntryFrames': 11200,
+                'bedRoomFrames': 5200,
+                'outsideDoorFrames': 6100,
+                'bathroomFrames': 3400
+            },
+            doors: {
+                'mainEntryDoors': 8300,
+                'bedRoomDoors': 7600,
+                'outsideDoors': 10700,
+                'bathroomDoors': 5300
+            },
+            windows: {
+                'twoKhanaWindows': 7400,
+                'threeKhanaWindows': 10500,
+                'kitchenWindows': 5000,
+                'ventilators': 2650
+            },
+            'window-door': {
+                'normalWindowDoors': 4000,
+                'kitchenWindowDoors': 3200
+            }
+        };
+
+        // Pricing structure for Loose Material
+        const looseMaterialPricing = {
+            frames: {
+                'mainEntryFrames': 9500,
+                'bedRoomFrames': 4100,
+                'outsideDoorFrames': 5000,
+                'bathroomFrames': 2500
+            },
+            doors: {
+                'mainEntryDoors': 9000,
+                'bedRoomDoors': 6500,
+                'outsideDoors': 7000,
+                'bathroomDoors': 4300
+            },
+            windows: {
+                'twoKhanaWindows': 3100,
+                'threeKhanaWindows': 4500,
+                'kitchenWindows': 2000,
+                'ventilators': 1500
+            },
+            'window-door': {
+                'normalWindowDoors': 2000,
+                'kitchenWindowDoors': 1500
+            },
+            sheets: {
+                'sheets8mm': 3000,
+                'sheets17mm': 6100
+            }
+        };
 
         function nextStep() {
             console.log('Next step clicked, current step:', currentStep);
@@ -867,7 +924,158 @@
             return fieldNames[fieldId] || fieldId;
         }
 
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            const name = customerData.name;
+            const phone = customerData.phone;
+            const location = customerData.location;
+            const serviceType = selectedService === 'ready-to-fix' ? 'Ready to Fix' : 'Loose Material';
+            
+            // Header - "To, customer name" and Logo
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text('To, ' + name, 20, 20);
+            
+            // Company Logo/Name at top right
+            doc.setFontSize(16);
+            doc.setTextColor(201, 29, 37);
+            doc.text('SPACE DESIGNS HOME INTERIORS', 105, 20, { align: 'right' });
+            
+            // Customer Information
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Customer Information:', 20, 40);
+            
+            doc.setFontSize(12);
+            doc.text(`Name: ${name}`, 20, 55);
+            doc.text(`Phone: ${phone}`, 20, 65);
+            doc.text(`Location: ${location}`, 20, 75);
+            doc.text(`Service Type: ${serviceType}`, 20, 85);
+            
+            // Products and Pricing Table
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Selected Products and Pricing:', 20, 105);
+            
+            const pricing = selectedService === 'ready-to-fix' ? readyToFixPricing : looseMaterialPricing;
+            let totalAmount = 0;
+            const tableData = [['S.no', 'Product', 'Quantity', 'Price per Unit', 'Total']];
+            
+            let rowNumber = 1;
+            Object.entries(selectedProducts).forEach(([productId, product]) => {
+                Object.entries(product.fields).forEach(([fieldId, quantity]) => {
+                    if (quantity > 0) {
+                        const pricePerUnit = pricing[productId][fieldId];
+                        const total = quantity * pricePerUnit;
+                        totalAmount += total;
+                        
+                        const fieldName = getFieldDisplayName(fieldId);
+                        const prefix = selectedService === 'loose-material' ? 'Loose ' : '';
+                        
+                        tableData.push([
+                            rowNumber.toString(),
+                            prefix + fieldName,
+                            quantity.toString(),
+                            '₹' + pricePerUnit.toLocaleString(),
+                            '₹' + total.toLocaleString()
+                        ]);
+                        rowNumber++;
+                    }
+                });
+            });
+            
+            doc.autoTable({
+                startY: 115,
+                head: [tableData[0]],
+                body: tableData.slice(1),
+                theme: 'grid',
+                headStyles: {
+                    fillColor: [201, 29, 37],
+                    textColor: 255,
+                    fontSize: 10,
+                    fontStyle: 'bold'
+                },
+                bodyStyles: {
+                    fontSize: 9
+                },
+                tableWidth: 170,
+                margin: { left: 20 }
+            });
+            
+            // Total Amount
+            const tableEndY = doc.lastAutoTable.finalY;
+            doc.setFontSize(14);
+            doc.setTextColor(201, 29, 37);
+            doc.setFont(undefined, 'bold');
+            doc.text(`Total Amount: ₹${totalAmount.toLocaleString()}`, 20, tableEndY + 15);
+            
+            // General Points to Note
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.setFont(undefined, 'normal');
+            doc.text('General Points to Note:', 20, tableEndY + 35);
+            
+            const points = [
+                "Here we're providing only the basic information",
+                "for more details Book an Appointment - 8500844441",
+                "For General Showroom Visit there is no need to book any kind of appointment.",
+                "Here the above quotation is only for basic Ideology with basic material & finishing and the actual cost of your space will vary depending on your region, the material and finishing you choose, and other factors."
+            ];
+            
+            let yPos = tableEndY + 50;
+            points.forEach(point => {
+                doc.setFontSize(10);
+                doc.text('• ' + point, 20, yPos);
+                yPos += 8;
+            });
+            
+            // Branch Addresses
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Our branches are only available at:', 20, yPos + 10);
+            
+            yPos += 25;
+            doc.setFontSize(11);
+            doc.setTextColor(201, 29, 37);
+            doc.text('Vijayawada Address:', 20, yPos);
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Near Novotel Hotel, Bharathi Nagar Main Road, Road No 11, Left side first Building, Vijayawada, Andhra Pradesh 520008.', 20, yPos + 8);
+            
+            yPos += 20;
+            doc.setFontSize(11);
+            doc.setTextColor(201, 29, 37);
+            doc.text('Hyderabad Address:', 20, yPos);
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Janapriya Housing Arch Besides, Third floor front side SLM Arundhati Heights building, above KFC, Miyapur, Telangana 500049.', 20, yPos + 8);
+            
+            // Footer with QR Code placeholder
+            const pageHeight = doc.internal.pageSize.height;
+            doc.setFontSize(10);
+            doc.setTextColor(128, 128, 128);
+            doc.text('Generated on: ' + new Date().toLocaleDateString(), 20, pageHeight - 30);
+            doc.text('SPACE DESIGNS HOME INTERIORS', 105, pageHeight - 30, { align: 'center' });
+            
+            // QR Code placeholder
+            doc.setFontSize(8);
+            doc.text('[QR Code]', 105, pageHeight - 15, { align: 'center' });
+            
+            return doc;
+        }
+        
+        function downloadPDF() {
+            if (generatedPDF) {
+                generatedPDF.save(`WPC_Estimate_${customerData.name.replace(/\s+/g, '_')}.pdf`);
+            }
+        }
+        
         function submitOrder() {
+            // Generate PDF first
+            generatedPDF = generatePDF();
+            
             const orderData = {
                 customer: customerData,
                 serviceType: selectedService,
@@ -877,10 +1085,10 @@
             
             console.log('Order submitted:', orderData);
             
-            alert(`Thank you ${customerData.name}! Your order has been submitted successfully. We will contact you soon at ${customerData.phone}.`);
+            // Automatically download the PDF
+            downloadPDF();
             
-            // Reset form
-            location.reload();
+            alert(`Thank you ${customerData.name}! Your WPC estimate has been generated and downloaded successfully.`);
         }
     </script>
 </body>

@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Space Designs</title>
+    <title>Space Designs</title>
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
     <link rel="stylesheet" href="assets/css/styles.css">
-   
     <style>
         body {
-            background-color: #f3f3f1;
-            min-height: 100vh;
+            background-color: #f7f3ec;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
@@ -169,6 +167,54 @@
             padding: 30px;
             color: #c91d25;
         }
+
+        .pricing-table {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .pricing-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing-table th {
+            background: #c91d25;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .pricing-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .pricing-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .pricing-header {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .pricing-subheader {
+            background: #ffc107;
+            color: #212529;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -178,7 +224,7 @@
             <div class="col-lg-8">
                 <div class="form-container">
                     <div class="form-header">
-                        <h2><i class="fas fa-home"></i> Interior Design Estimate</h2>
+                        <h2><i class="fas fa-home"></i> Modular kitchen Estimate</h2>
                         <p class="mb-0">Get your personalized interior design quote in 3 simple steps</p>
                     </div>
                     
@@ -267,7 +313,7 @@
                                     <i class="fas fa-arrow-left"></i> Back
                                 </button>
                                 <button type="submit" class="btn btn-custom" id="submit-btn" disabled>
-                                    <i class="fas fa-envelope"></i> Get PDF Estimate
+                                    <i class="fas fa-file-pdf"></i> Generate PDF Estimate
                                 </button>
                             </div>
                         </div>
@@ -284,20 +330,35 @@
                         <!-- Success Message -->
                         <div class="success-message" id="success">
                             <i class="fas fa-check-circle fa-4x mb-3"></i>
-                            <h4>Estimate Sent Successfully!</h4>
-                            <p>Your personalized interior design estimate has been sent to your email. Our team will contact you shortly.</p>
+                            <h4>PDF Generated Successfully!</h4>
+                            <p>Your personalized interior design estimate has been generated. You can download it below.</p>
+                            <button type="button" class="btn btn-custom mt-3" onclick="downloadPDF()">
+                                <i class="fas fa-download"></i> Download PDF
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-   <div id="footer"></div>
+
+    <div id="footer"></div>
+
+ <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('navbar').innerHTML = data);
+
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
         let currentStep = 1;
         let selectedDesignType = '';
         let selectedPropertyType = '';
+        let generatedPDF = null;
         
         const pricing = {
             semi: {
@@ -411,8 +472,6 @@
         }
         
         function showPriceAndSummary() {
-            // Don't show price until after submission
-            // Just show summary without price
             const name = document.getElementById('name').value;
             const mobile = document.getElementById('mobile').value;
             const location = document.getElementById('location').value;
@@ -424,6 +483,9 @@
                 '4bhk': '4 BHK',
                 'kitchen': 'Only Modular Kitchen'
             };
+            
+            // Hide price display in form
+            document.getElementById('price-display').style.display = 'none';
             
             document.getElementById('summary-details').innerHTML = `
                 <div class="row">
@@ -443,6 +505,133 @@
             document.getElementById('summary-card').style.display = 'block';
         }
         
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            const name = document.getElementById('name').value;
+            const mobile = document.getElementById('mobile').value;
+            const location = document.getElementById('location').value;
+            const designTypeLabel = selectedDesignType === 'semi' ? 'Semi-Modular' : 'Full-Modular';
+            const propertyLabels = {
+                '2bhk': '2 BHK',
+                '3bhk': '3 BHK',
+                '4bhk': '4 BHK',
+                'kitchen': 'Only Modular Kitchen'
+            };
+            const price = pricing[selectedDesignType][selectedPropertyType];
+            
+            // Header - "To, test" and Logo
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text('To, ' + name, 20, 20);
+            
+            // Company Logo/Name at top right
+            doc.setFontSize(16);
+            doc.setTextColor(201, 29, 37);
+            doc.text('SPACE DESIGNS HOME INTERIORS', 105, 20, { align: 'right' });
+            
+            // Modular Type and Chosen Option Table
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Modular Type and Chosen Option:', 20, 40);
+            
+            const modularTableData = [
+                ['S.no', 'Modular Type', 'Choosen'],
+                ['1', designTypeLabel, propertyLabels[selectedPropertyType]]
+            ];
+            
+            doc.autoTable({
+                startY: 50,
+                head: [modularTableData[0]],
+                body: modularTableData.slice(1),
+                theme: 'grid',
+                headStyles: {
+                    fillColor: [201, 29, 37],
+                    textColor: 255,
+                    fontSize: 12,
+                    fontStyle: 'bold'
+                },
+                bodyStyles: {
+                    fontSize: 11
+                },
+                tableWidth: 170,
+                margin: { left: 20 }
+            });
+            
+            // Pricing Information
+            const tableEndY = doc.lastAutoTable.finalY;
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text('As per the selected options the basic design with basic material & finishing cost starts from.', 20, tableEndY + 20);
+            
+            // Price in large red font
+            doc.setFontSize(20);
+            doc.setTextColor(201, 29, 37);
+            doc.setFont(undefined, 'bold');
+            doc.text(`Rs.${price.min} lakh to ${price.max} lakhs`, 105, tableEndY + 35, { align: 'center' });
+            
+            // General Points to Note
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.setFont(undefined, 'normal');
+            doc.text('General Points to Note:', 20, tableEndY + 55);
+            
+            const points = [
+                "Here we're providing only the basic information",
+                "for more details Book an Appointment - 8500844441",
+                "For General Showroom Visit there is no need to book any kind of appointment.",
+                "Here the above quotation is only for basic Ideology with basic material & finishing and the actual cost of your space will vary depending on your region, the material and finishing you choose, and other factors."
+            ];
+            
+            let yPos = tableEndY + 70;
+            points.forEach(point => {
+                doc.setFontSize(10);
+                doc.text('• ' + point, 20, yPos);
+                yPos += 8;
+            });
+            
+            // Branch Addresses
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Our branches are only available at:', 20, yPos + 10);
+            
+            yPos += 25;
+            doc.setFontSize(11);
+            doc.setTextColor(201, 29, 37);
+            doc.text('Vijayawada Address:', 20, yPos);
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Near Novotel Hotel, Bharathi Nagar Main Road, Road No 11, Left side first Building, Vijayawada, Andhra Pradesh 520008.', 20, yPos + 8);
+            
+            yPos += 20;
+            doc.setFontSize(11);
+            doc.setTextColor(201, 29, 37);
+            doc.text('Hyderabad Address:', 20, yPos);
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Janapriya Housing Arch Besides, Third floor front side SLM Arundhati Heights building, above KFC, Miyapur, Telangana 500049.', 20, yPos + 8);
+            
+            // Footer with QR Code placeholder
+            const pageHeight = doc.internal.pageSize.height;
+            doc.setFontSize(10);
+            doc.setTextColor(128, 128, 128);
+            doc.text('Generated on: ' + new Date().toLocaleDateString(), 20, pageHeight - 30);
+            doc.text('SPACE DESIGNS HOME INTERIORS', 105, pageHeight - 30, { align: 'center' });
+            
+            // QR Code placeholder (you can add actual QR code generation here)
+            doc.setFontSize(8);
+            doc.text('[QR Code]', 105, pageHeight - 15, { align: 'center' });
+            
+            return doc;
+        }
+        
+        function downloadPDF() {
+            if (generatedPDF) {
+                generatedPDF.save(`Interior_Estimate_${document.getElementById('name').value.replace(/\s+/g, '_')}.pdf`);
+            }
+        }
+        
         document.getElementById('estimateForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -450,12 +639,14 @@
             document.getElementById('step-3').style.display = 'none';
             document.getElementById('loading').style.display = 'block';
             
-            // Simulate API call
+            // Generate PDF
             setTimeout(() => {
+                generatedPDF = generatePDF();
+                
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('success').style.display = 'block';
                 
-                // Here you would typically send the data to your server
+                // Log form data
                 console.log('Form Data:', {
                     name: document.getElementById('name').value,
                     mobile: document.getElementById('mobile').value,
@@ -464,18 +655,8 @@
                     propertyType: selectedPropertyType,
                     priceRange: pricing[selectedDesignType][selectedPropertyType]
                 });
-            }, 3000);
+            }, 2000);
         });
     </script>
-     <script>
-        fetch('navbar.html')
-            .then(res => res.text())
-            .then(data => document.getElementById('navbar').innerHTML = data);
-
-        fetch('footer.html')
-            .then(res => res.text())
-            .then(data => document.getElementById('footer').innerHTML = data);
-    </script>
-
 </body>
 </html>
