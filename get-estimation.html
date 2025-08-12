@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Designs</title>
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            background-color: #f7f3ec;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 30px;
+        }
+        .form-header {
+            background: linear-gradient(135deg, #c91d25 0%, #c91d25 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+        }
+        .btn-custom {
+            background: #c91d25;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+        }
+        .btn-custom:hover {
+            background: #a6151b;
+        }
+    </style>
+</head>
+<body>
+<div id="navbar"></div>
+<div class="container">
+    <div class="form-container">
+        <div class="form-header">
+            <h2><i class="fas fa-home"></i> Full Home Interior</h2>
+            <p class="mb-0">Get your personalized quote now</p>
+        </div>
+
+        <form action="send_estimate.php" method="POST">
+            <div class="mb-3 mt-5">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-control" name="name" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Mobile Number *</label>
+                <input type="tel" class="form-control" name="mobile" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Location/Area *</label>
+                <input type="text" class="form-control" name="location" required>
+            </div>
+
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-custom">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+ <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('navbar').innerHTML = data);
+
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+   
+</body>
+</html>
