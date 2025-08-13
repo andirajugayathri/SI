@@ -25,11 +25,207 @@
             <p class="hero-title text-white fw-bold" style="text-shadow: 0 2px 8px rgba(0,0,0,0.5);">
               End-to-End Interior Solutions Across Andhra Pradesh & Telangana
             </p>
-            <a href="portfolio.html">
-                <button class="btns btn-light fw-bold mt-3 px-4 py-2">
-                    VIEW PROJECTS
+        <button class="view-projects-btn" onclick="openModal()">
+            <i class="fas fa-play-circle"></i>
+            VIEW PROJECTS
+        </button>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h2 class="modal-title">
+                    <i class="fas fa-home"></i>
+                    Space Interior Guide - Featured Projects
+                </h2>
+                <button class="close-btn" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
                 </button>
-            </a>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="videos-container">
+                    <!-- Video Card 1 -->
+                    <div class="video-card">
+                        <div class="video-iframe">
+                            <iframe src="https://www.youtube.com/embed/Md2X6yJ5mO8" 
+                                    title="Space Interior Design Video 1" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 2 -->
+                    <div class="video-card">
+                        <div class="video-iframe">
+                            <iframe src="https://www.youtube.com/embed/jEDgpB0H5KU" 
+                                    title="Space Interior Design Video 2" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 3 -->
+                    <div class="video-card">
+                        <div class="video-iframe">
+                            <iframe src="https://www.youtube.com/embed/7WIHbmzOOiI" 
+                                    title="Space Interior Design Video 3" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Videos Container (Initially Hidden) -->
+                <div class="videos-container additional-videos" id="additionalVideos" style="display: none;">
+                    <!-- Video Card 4 -->
+                    <div class="video-card">
+                        <div class="video-iframe">
+                            <iframe src="https://www.youtube.com/embed/Kqxs_TBxC7c" 
+                                    title="Space Interior Design Video 4" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 5 -->
+                    <div class="video-card">
+                        <div class="video-iframe">
+                            <iframe src="https://www.youtube.com/embed/AiiC9Atpeo4" 
+                                    title="Space Interior Design Video 5" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 6 -->
+                    <div class="video-card">
+                        <div class="video-iframe">
+                            <iframe src="https://www.youtube.com/embed/OP2rXNrqgQc" 
+                                    title="Space Interior Design Video 6" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View More Button -->
+                <div class="view-more-container">
+                    <button class="view-more-btn" id="viewMoreBtn" onclick="showMoreVideos()">
+                        <i class="fas fa-plus-circle"></i>
+                        View More Videos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            const modal = document.getElementById('modalOverlay');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Animate video cards
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.video-card');
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('animate');
+                    }, index * 150);
+                });
+            }, 200);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modalOverlay');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Reset everything when modal closes
+            const additionalVideos = document.getElementById('additionalVideos');
+            const viewMoreBtn = document.getElementById('viewMoreBtn');
+            
+            // Hide additional videos
+            additionalVideos.style.display = 'none';
+            additionalVideos.classList.remove('show');
+            
+            // Reset button
+            viewMoreBtn.innerHTML = '<i class="fas fa-plus-circle"></i> View More Videos';
+            viewMoreBtn.classList.remove('youtube-link');
+            viewMoreBtn.onclick = showMoreVideos;
+            
+            // Reset card animations
+            const cards = document.querySelectorAll('.video-card');
+            cards.forEach(card => {
+                card.classList.remove('animate');
+            });
+        }
+
+        function closeModalOnOverlay(event) {
+            if (event.target === event.currentTarget) {
+                closeModal();
+            }
+        }
+
+        function showMoreVideos() {
+            const additionalVideos = document.getElementById('additionalVideos');
+            const viewMoreBtn = document.getElementById('viewMoreBtn');
+            
+            // Show additional videos
+            additionalVideos.style.display = 'grid';
+            setTimeout(() => {
+                additionalVideos.classList.add('show');
+            }, 50);
+            
+            // Animate additional video cards
+            const additionalCards = additionalVideos.querySelectorAll('.video-card');
+            additionalCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, index * 150);
+            });
+            
+            // Update button to link to YouTube channel
+            setTimeout(() => {
+                viewMoreBtn.innerHTML = '<i class="fab fa-youtube"></i> Visit YouTube Channel';
+                viewMoreBtn.classList.add('youtube-link');
+                viewMoreBtn.onclick = function() {
+                    window.open('https://www.youtube.com/@SpaceInteriorGuide/videos', '_blank');
+                };
+            }, 1000);
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Prevent scrolling when modal is open
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('modalOverlay');
+            
+            modal.addEventListener('wheel', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
 
         <div class="feature-box-container none">
             <div class="feature-box">
@@ -283,7 +479,629 @@
             </span>
             </h1>
         <p class="subtitle">Calculate the approximate cost of doing up your home interiors</p>
+                  <!-- Popup Overlay -->
+    <div class="interior-popup-overlay" id="interiorPopupOverlay" onclick="closeInteriorPopupOnOverlay(event)">
+        <div class="interior-popup-container">
+            <div class="interior-popup-header">
+                <h2>Get Your Free Consultation</h2>
+                <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                <button class="interior-popup-close-btn" onclick="closeInteriorPopup()">&times;</button>
+            </div>
+            
+            <div class="interior-popup-form" id="interiorFormContainer">
+                <form id="interiorConsultationForm" onsubmit="submitInteriorForm(event)">
+                    <div class="interior-popup-form-group">
+                        <input type="text" id="interiorName" name="name" placeholder="Full Name" required>
+                    </div>
+                    
+                    <div class="interior-popup-form-group">
+                        <input type="email" id="interiorEmail" name="email" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="interior-popup-form-group">
+                        <input type="tel" id="interiorPhone" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    
+                    <div class="interior-popup-form-group">
+                        <input type="text" id="interiorLocation" name="location" placeholder="Area / Location" required>
+                    </div>
+                    
+                    <div class="interior-popup-form-group">
+                        <select id="interiorService" name="service" required>
+                            <option value="">Select Service Looking For </option>
+                            <option value="2bhk-interior">2BHK Interior Design</option>
+                            <option value="3bhk-interior">3BHK Interior Design</option>
+                            <option value="4bhk-interior">4BHK Interior Design</option>
+                            <option value="villa-interior">Villa Interior Design</option>
+                            <option value="commercial-interior">Commercial Interior Design</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="interior-popup-submit-btn">Request Free Consultation</button>
+                </form>
+            </div>
+
+            <div class="interior-popup-success-message" id="interiorSuccessMessage">
+                <div class="checkmark">✓</div>
+                <h3>Thank You!</h3>
+                <p>Your consultation request has been submitted successfully.<br>We'll contact you within 24 hours.</p>
+                <button class="interior-popup-submit-btn" onclick="closeInteriorPopup()" style="margin-top: 20px;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openInteriorPopup() {
+            document.getElementById('interiorPopupOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInteriorPopup() {
+            document.getElementById('interiorPopupOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Reset form after closing
+            setTimeout(() => {
+                document.getElementById('interiorConsultationForm').reset();
+                document.getElementById('interiorFormContainer').style.display = 'block';
+                document.getElementById('interiorSuccessMessage').classList.remove('show');
+            }, 300);
+        }
+
+        function closeInteriorPopupOnOverlay(event) {
+            if (event.target === document.getElementById('interiorPopupOverlay')) {
+                closeInteriorPopup();
+            }
+        }
+
+        function submitInteriorForm(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Here you would normally send the data to your server
+            console.log('Interior popup form submitted with data:', data);
+            
+            // Show success message
+            document.getElementById('interiorFormContainer').style.display = 'none';
+            document.getElementById('interiorSuccessMessage').classList.add('show');
+        }
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeInteriorPopup();
+            }
+        });
+
+        // Prevent scroll when popup is open
+        document.getElementById('interiorPopupOverlay').addEventListener('wheel', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+    </script>
+
+    <!-- modular form-->
+
+    <!-- Modular Kitchen Estimate Popup -->
+    <div class="modular-popup-overlay" id="modularPopupOverlay">
+        <div class="modular-popup-container">
+            <button class="modular-popup-close" onclick="closeModularPopup()">&times;</button>
+            
+            <div class="modular-popup-header">
+                <h2><i class="fas fa-home"></i> Modular Kitchen Estimate</h2>
+                <p class="mb-0">Get your personalized interior design quote in 3 simple steps</p>
+            </div>
+            
+            <!-- Step Indicator -->
+            <div class="modular-popup-step-indicator">
+                <div class="modular-popup-step active" id="modular-popup-step-1-indicator">1</div>
+                <div class="modular-popup-step" id="modular-popup-step-2-indicator">2</div>
+                <div class="modular-popup-step" id="modular-popup-step-3-indicator">3</div>
+            </div>
+            
+            <form id="modularPopupEstimateForm">
+                <!-- Step 1: Personal Details -->
+                <div class="modular-popup-step-content active" id="modular-popup-step-1">
+                    <h4 class="text-center mb-4"><i class="fas fa-user"></i> Personal Details</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="modular-popup-form-label">Full Name *</label>
+                            <input type="text" class="modular-popup-form-control" id="modular-popup-name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="modular-popup-form-label">Mobile Number *</label>
+                            <input type="tel" class="modular-popup-form-control" id="modular-popup-mobile" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="modular-popup-form-label">Location/Area *</label>
+                            <input type="text" class="modular-popup-form-control" id="modular-popup-location" placeholder="Enter your location" required>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="button" class="modular-popup-btn-custom" onclick="modularPopupNextStep(2)">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Design Type -->
+                <div class="modular-popup-step-content" id="modular-popup-step-2">
+                    <h4 class="text-center mb-4"><i class="fas fa-palette"></i> Choose Design Type</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="modular-popup-option-card" onclick="modularPopupSelectDesignType('semi')">
+                                <i class="fas fa-puzzle-piece fa-3x mb-3" style="color: #4CAF50;"></i>
+                                <h5>Semi Modular</h5>
+                                <p class="text-muted">Flexible design with modular components</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="modular-popup-option-card" onclick="modularPopupSelectDesignType('full')">
+                                <i class="fas fa-home fa-3x mb-3" style="color: #4CAF50;"></i>
+                                <h5>Full Modular</h5>
+                                <p class="text-muted">Complete modular interior solution</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="button" class="modular-popup-btn-outline-custom me-3" onclick="modularPopupPrevStep(1)">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button type="button" class="modular-popup-btn-custom" id="modular-popup-step2-next" onclick="modularPopupNextStep(3)" disabled>
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Property Type -->
+                <div class="modular-popup-step-content" id="modular-popup-step-3">
+                    <h4 class="text-center mb-4"><i class="fas fa-building"></i> Select Property Type</h4>
+                    <div class="row" id="modular-popup-property-options">
+                        <!-- Options will be populated based on design type -->
+                    </div>
+                    
+                    <div class="modular-popup-price-display" id="modular-popup-price-display" style="display: none;">
+                        <h4>Estimated Price Range</h4>
+                        <h2 id="modular-popup-price-range">₹ 0 - ₹ 0</h2>
+                    </div>
+                    
+                    <div class="modular-popup-summary-card" id="modular-popup-summary-card" style="display: none;">
+                        <h5><i class="fas fa-clipboard-list"></i> Order Summary</h5>
+                        <div id="modular-popup-summary-details"></div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <button type="button" class="modular-popup-btn-outline-custom me-3" onclick="modularPopupPrevStep(2)">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button type="submit" class="modular-popup-btn-custom" id="modular-popup-submit-btn" disabled>
+                            <i class="fas fa-file-pdf"></i> Generate PDF Estimate
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Loading State -->
+                <div class="modular-popup-loading" id="modular-popup-loading">
+                    <div class="spinner-border text-danger" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <h5 class="mt-3">Generating your estimate...</h5>
+                    <p>Please wait while we prepare your personalized PDF quote.</p>
+                </div>
+                
+                <!-- Success Message -->
+                <div class="modular-popup-success-message" id="modular-popup-success">
+                    <i class="fas fa-check-circle fa-4x mb-3"></i>
+                    <h4>PDF Generated Successfully!</h4>
+                    <p>Your personalized interior design estimate has been generated. You can download it below.</p>
+                    <button type="button" class="modular-popup-btn-custom mt-3" onclick="modularPopupDownloadPDF()">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                    <button type="button" class="modular-popup-btn-outline-custom mt-3 ms-2" onclick="closeModularPopup()">
+                        Close
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <script>
+        // Modular Popup Variables
+        let modularPopupCurrentStep = 1;
+        let modularPopupSelectedDesignType = '';
+        let modularPopupSelectedPropertyType = '';
+        let modularPopupGeneratedPDF = null;
         
+        // Pricing structure
+        const modularPopupPricing = {
+            semi: {
+                '2bhk': { min: 4, max: 4.5 },
+                '3bhk': { min: 4.5, max: 5 },
+                '4bhk': { min: 5.5, max: 6.5 },
+                'kitchen': { min: 1, max: 1.5 }
+            },
+            full: {
+                '2bhk': { min: 6.5, max: 7 },
+                '3bhk': { min: 7.5, max: 8 },
+                '4bhk': { min: 9, max: 10 },
+                'kitchen': { min: 1.5, max: 2 }
+            }
+        };
+        
+        // Popup control functions
+        function openModularPopup() {
+            document.getElementById('modularPopupOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModularPopup() {
+            document.getElementById('modularPopupOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Reset form to initial state
+            resetModularPopupForm();
+        }
+        
+        function resetModularPopupForm() {
+            // Reset step to 1
+            modularPopupCurrentStep = 1;
+            modularPopupSelectedDesignType = '';
+            modularPopupSelectedPropertyType = '';
+            
+            // Reset step indicators
+            document.querySelectorAll('.modular-popup-step').forEach(step => {
+                step.classList.remove('active', 'completed');
+            });
+            document.getElementById('modular-popup-step-1-indicator').classList.add('active');
+            
+            // Reset step content
+            document.querySelectorAll('.modular-popup-step-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById('modular-popup-step-1').classList.add('active');
+            
+            // Clear form fields
+            document.getElementById('modularPopupEstimateForm').reset();
+            
+            // Reset buttons and displays
+            document.getElementById('modular-popup-step2-next').disabled = true;
+            document.getElementById('modular-popup-submit-btn').disabled = true;
+            document.getElementById('modular-popup-price-display').style.display = 'none';
+            document.getElementById('modular-popup-summary-card').style.display = 'none';
+            document.getElementById('modular-popup-loading').style.display = 'none';
+            document.getElementById('modular-popup-success').style.display = 'none';
+            
+            // Remove selected classes
+            document.querySelectorAll('.modular-popup-option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+        }
+        
+        // Close popup when clicking outside
+        document.getElementById('modularPopupOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModularPopup();
+            }
+        });
+        
+        // Navigation functions
+        function modularPopupNextStep(step) {
+            if (step === 2) {
+                if (!modularPopupValidateStep1()) return;
+            }
+            
+            document.getElementById(`modular-popup-step-${modularPopupCurrentStep}`).classList.remove('active');
+            document.getElementById(`modular-popup-step-${modularPopupCurrentStep}-indicator`).classList.remove('active');
+            document.getElementById(`modular-popup-step-${modularPopupCurrentStep}-indicator`).classList.add('completed');
+            
+            modularPopupCurrentStep = step;
+            document.getElementById(`modular-popup-step-${step}`).classList.add('active');
+            document.getElementById(`modular-popup-step-${step}-indicator`).classList.add('active');
+        }
+        
+        function modularPopupPrevStep(step) {
+            document.getElementById(`modular-popup-step-${modularPopupCurrentStep}`).classList.remove('active');
+            document.getElementById(`modular-popup-step-${modularPopupCurrentStep}-indicator`).classList.remove('active');
+            
+            modularPopupCurrentStep = step;
+            document.getElementById(`modular-popup-step-${step}`).classList.add('active');
+            document.getElementById(`modular-popup-step-${step}-indicator`).classList.add('active');
+            document.getElementById(`modular-popup-step-${step}-indicator`).classList.remove('completed');
+        }
+        
+        // Validation functions
+        function modularPopupValidateStep1() {
+            const name = document.getElementById('modular-popup-name').value.trim();
+            const mobile = document.getElementById('modular-popup-mobile').value.trim();
+            const location = document.getElementById('modular-popup-location').value.trim();
+            
+            if (!name || !mobile || !location) {
+                alert('Please fill in all required fields.');
+                return false;
+            }
+            
+            if (mobile.length < 10) {
+                alert('Please enter a valid mobile number.');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function modularPopupSelectDesignType(type) {
+            modularPopupSelectedDesignType = type;
+            
+            // Remove selection from all cards
+            document.querySelectorAll('#modular-popup-step-2 .modular-popup-option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selection to clicked card
+            event.target.closest('.modular-popup-option-card').classList.add('selected');
+            
+            // Enable next button
+            document.getElementById('modular-popup-step2-next').disabled = false;
+            
+            // Populate property options for step 3
+            modularPopupPopulatePropertyOptions(type);
+        }
+        
+        function modularPopupPopulatePropertyOptions(designType) {
+            const container = document.getElementById('modular-popup-property-options');
+            const options = [
+                { id: '2bhk', label: '2 BHK', icon: 'fas fa-bed' },
+                { id: '3bhk', label: '3 BHK', icon: 'fas fa-bed' },
+                { id: '4bhk', label: '4 BHK', icon: 'fas fa-bed' },
+                { id: 'kitchen', label: 'Only Modular Kitchen', icon: 'fas fa-utensils' }
+            ];
+            
+            container.innerHTML = options.map(option => `
+                <div class="col-md-6 mb-3">
+                    <div class="modular-popup-option-card" onclick="modularPopupSelectPropertyType('${option.id}')">
+                        <i class="${option.icon} fa-2x mb-3" style="color: #4CAF50;"></i>
+                        <h6>${option.label}</h6>
+                        <p class="text-muted">Select to get estimate</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function modularPopupSelectPropertyType(type) {
+            modularPopupSelectedPropertyType = type;
+            
+            // Remove selection from all property cards
+            document.querySelectorAll('#modular-popup-property-options .modular-popup-option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selection to clicked card
+            event.target.closest('.modular-popup-option-card').classList.add('selected');
+            
+            // Show price and enable submit
+            modularPopupShowPriceAndSummary();
+            document.getElementById('modular-popup-submit-btn').disabled = false;
+        }
+        
+        function modularPopupShowPriceAndSummary() {
+            const name = document.getElementById('modular-popup-name').value;
+            const mobile = document.getElementById('modular-popup-mobile').value;
+            const location = document.getElementById('modular-popup-location').value;
+            const designTypeLabel = modularPopupSelectedDesignType === 'semi' ? 'Semi Modular' : 'Full Modular';
+            const propertyLabels = {
+                '2bhk': '2 BHK',
+                '3bhk': '3 BHK',
+                '4bhk': '4 BHK',
+                'kitchen': 'Only Modular Kitchen'
+            };
+            
+            // Show price display
+            const price = modularPopupPricing[modularPopupSelectedDesignType][modularPopupSelectedPropertyType];
+            document.getElementById('modular-popup-price-range').textContent = `₹ ${price.min} lakh - ₹ ${price.max} lakh`;
+            document.getElementById('modular-popup-price-display').style.display = 'block';
+            
+            // Update summary
+            document.getElementById('modular-popup-summary-details').innerHTML = `
+                <div class="row">
+                    <div class="col-6"><strong>Name:</strong></div>
+                    <div class="col-6">${name}</div>
+                    <div class="col-6"><strong>Mobile:</strong></div>
+                    <div class="col-6">${mobile}</div>
+                    <div class="col-6"><strong>Location:</strong></div>
+                    <div class="col-6">${location}</div>
+                    <div class="col-6"><strong>Design Type:</strong></div>
+                    <div class="col-6">${designTypeLabel}</div>
+                    <div class="col-6"><strong>Property:</strong></div>
+                    <div class="col-6">${propertyLabels[modularPopupSelectedPropertyType]}</div>
+                    <div class="col-6"><strong>Estimated Price:</strong></div>
+                    <div class="col-6">₹ ${price.min} lakh - ₹ ${price.max} lakh</div>
+                </div>
+            `;
+            
+            document.getElementById('modular-popup-summary-card').style.display = 'block';
+        }
+        
+        function modularPopupGeneratePDF() {
+            // Access jsPDF from the global scope
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Get form data
+            const name = document.getElementById('modular-popup-name').value;
+            const mobile = document.getElementById('modular-popup-mobile').value;
+            const location = document.getElementById('modular-popup-location').value;
+            const designTypeLabel = modularPopupSelectedDesignType === 'semi' ? 'Semi-Modular' : 'Full-Modular';
+            const propertyLabels = {
+                '2bhk': '2 BHK',
+                '3bhk': '3 BHK',
+                '4bhk': '4 BHK',
+                'kitchen': 'Only Modular Kitchen'
+            };
+            const price = modularPopupPricing[modularPopupSelectedDesignType][modularPopupSelectedPropertyType];
+            
+            // Header - "To, name" and Logo
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text('To, ' + name, 20, 20);
+            
+            // Company Logo/Name at top right
+            doc.setFontSize(16);
+            doc.setTextColor(201, 29, 37);
+            doc.text('SPACE DESIGNS HOME INTERIORS', 105, 20, { align: 'right' });
+            
+            // Modular Type and Chosen Option Table
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Modular Type and Chosen Option:', 20, 40);
+            
+            const modularTableData = [
+                ['S.no', 'Modular Type', 'Choosen'],
+                ['1', designTypeLabel, propertyLabels[modularPopupSelectedPropertyType]]
+            ];
+            
+            doc.autoTable({
+                startY: 50,
+                head: [modularTableData[0]],
+                body: modularTableData.slice(1),
+                theme: 'grid',
+                headStyles: {
+                    fillColor: [201, 29, 37],
+                    textColor: 255,
+                    fontSize: 12,
+                    fontStyle: 'bold'
+                },
+                bodyStyles: {
+                    fontSize: 11
+                },
+                tableWidth: 170,
+                margin: { left: 20 }
+            });
+            
+            // Pricing Information
+            const tableEndY = doc.lastAutoTable.finalY;
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text('As per the selected options the basic design with basic material & finishing cost starts from.', 20, tableEndY + 20);
+            
+            // Price in large red font
+            doc.setFontSize(20);
+            doc.setTextColor(201, 29, 37);
+            doc.setFont(undefined, 'bold');
+            doc.text(`Rs.${price.min} lakh to ${price.max} lakhs`, 105, tableEndY + 35, { align: 'center' });
+            
+            // General Points to Note
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.setFont(undefined, 'normal');
+            doc.text('General Points to Note:', 20, tableEndY + 55);
+            
+            const points = [
+                "Here we're providing only the basic information",
+                "for more details Book an Appointment - 8500844441",
+                "For General Showroom Visit there is no need to book any kind of appointment.",
+                "Here the above quotation is only for basic Ideology with basic material & finishing and the actual cost of your space will vary depending on your region, the material and finishing you choose, and other factors."
+            ];
+            
+            let yPos = tableEndY + 70;
+            points.forEach(point => {
+                doc.setFontSize(10);
+                doc.text('• ' + point, 20, yPos);
+                yPos += 8;
+            });
+            
+            // Branch Addresses
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Our branches are only available at:', 20, yPos + 10);
+            
+            yPos += 25;
+            doc.setFontSize(11);
+            doc.setTextColor(201, 29, 37);
+            doc.text('Vijayawada Address:', 20, yPos);
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Near Novotel Hotel, Bharathi Nagar Main Road, Road No 11, Left side first Building, Vijayawada, Andhra Pradesh 520008.', 20, yPos + 8);
+            
+            yPos += 20;
+            doc.setFontSize(11);
+            doc.setTextColor(201, 29, 37);
+            doc.text('Hyderabad Address:', 20, yPos);
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Janapriya Housing Arch Besides, Third floor front side SLM Arundhati Heights building, above KFC, Miyapur, Telangana 500049.', 20, yPos + 8);
+            
+            // Footer with QR Code placeholder
+            const pageHeight = doc.internal.pageSize.height;
+            doc.setFontSize(10);
+            doc.setTextColor(128, 128, 128);
+            doc.text('Generated on: ' + new Date().toLocaleDateString(), 20, pageHeight - 30);
+            doc.text('SPACE DESIGNS HOME INTERIORS', 105, pageHeight - 30, { align: 'center' });
+            
+            // QR Code placeholder
+            doc.setFontSize(8);
+            doc.text('Scan for more info', 105, pageHeight - 15, { align: 'center' });
+            
+            // Draw a placeholder QR code box
+            doc.rect(170, pageHeight - 45, 30, 30);
+            doc.setFontSize(6);
+            doc.text('QR CODE', 185, pageHeight - 35, { align: 'center' });
+            
+            return doc;
+        }
+        
+        function modularPopupDownloadPDF() {
+            if (modularPopupGeneratedPDF) {
+                modularPopupGeneratedPDF.save(`SpaceDesigns_Estimate_${document.getElementById('modular-popup-name').value.replace(/\s+/g, '_')}.pdf`);
+            }
+        }
+        
+        // Form submission handler
+        document.getElementById('modularPopupEstimateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Hide form and show loading
+            document.getElementById('modular-popup-step-3').style.display = 'none';
+            document.getElementById('modular-popup-loading').style.display = 'block';
+            
+            // Generate PDF
+            setTimeout(() => {
+                modularPopupGeneratedPDF = modularPopupGeneratePDF();
+                
+                document.getElementById('modular-popup-loading').style.display = 'none';
+                document.getElementById('modular-popup-success').style.display = 'block';
+                
+                // Log form data
+                console.log('Modular Popup Form Data:', {
+                    name: document.getElementById('modular-popup-name').value,
+                    mobile: document.getElementById('modular-popup-mobile').value,
+                    location: document.getElementById('modular-popup-location').value,
+                    designType: modularPopupSelectedDesignType,
+                    propertyType: modularPopupSelectedPropertyType,
+                    priceRange: modularPopupPricing[modularPopupSelectedDesignType][modularPopupSelectedPropertyType]
+                });
+            }, 2000);
+        });
+
+        // ESC key to close popup
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModularPopup();
+            }
+        });
+
+        // Expose functions globally for integration
+        window.openModularPopup = openModularPopup;
+        window.closeModularPopup = closeModularPopup;
+    </script>
+    
+
         <div class="cards-container">
             <div class="card">
                 
@@ -294,7 +1112,9 @@
                 <h3>Full Home Interior</h3>
                 <p>Know the estimate price for your full home interiors</p>
                 
-                <button class="btn"><a class="dropdown-item" href="get-estimation.html">Get Estimation</a></button>
+                <button class="btn" onclick="openInteriorPopup()">Get Free Consultation</button>
+
+      
             </div>
 
             <div class="card">
@@ -307,8 +1127,854 @@
                 <h3>WPC Products</h3>
                 <p>Know the estimate price for your WPC Products</p>
                 
-                <button class="btn"><a class="dropdown-item" href="wpc-estimation-form.html">Get Free Estimation</a></button>
+                <button class="btn" onclick="openWpcPopup()">Get Free Estimation</button>
             </div>
+
+ <!-- WPC Products Order Popup -->
+    <div class="wpc-popup-overlay" id="wpcPopupOverlay">
+        <div class="wpc-popup-container">
+            <button class="wpc-popup-close" onclick="closeWpcPopup()">&times;</button>
+            
+            <div class="wpc-popup-header">
+                <h1><i class="fas fa-home"></i> WPC Products Order Form</h1>
+                <p>Premium Wood Plastic Composite Solutions</p>
+            </div>
+
+            <!-- Step Indicator -->
+            <div class="wpc-popup-step-indicator">
+                <div class="wpc-popup-step active" data-step="1">
+                    <div class="wpc-popup-step-number">1</div>
+                    <div class="wpc-popup-step-text">Contact Info</div>
+                </div>
+                <div class="wpc-popup-step-connector"></div>
+                <div class="wpc-popup-step" data-step="2">
+                    <div class="wpc-popup-step-number">2</div>
+                    <div class="wpc-popup-step-text">Service Type</div>
+                </div>
+                <div class="wpc-popup-step-connector"></div>
+                <div class="wpc-popup-step" data-step="3">
+                    <div class="wpc-popup-step-number">3</div>
+                    <div class="wpc-popup-step-text">Products</div>
+                </div>
+                <div class="wpc-popup-step-connector"></div>
+                <div class="wpc-popup-step" data-step="4">
+                    <div class="wpc-popup-step-number">4</div>
+                    <div class="wpc-popup-step-text">Summary</div>
+                </div>
+            </div>
+
+            <!-- Step 1: Contact Information -->
+            <div class="wpc-popup-form-step active" id="wpc-popup-step1">
+                <h3 class="text-center mb-4"><i class="fas fa-user-circle"></i> Contact Information</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="wpc-popup-form-group">
+                            <label class="wpc-popup-form-label" for="wpc-popup-customerName">Full Name *</label>
+                            <input type="text" class="wpc-popup-form-control" id="wpc-popup-customerName" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="wpc-popup-form-group">
+                            <label class="wpc-popup-form-label" for="wpc-popup-customerPhone">Phone Number *</label>
+                            <input type="tel" class="wpc-popup-form-control" id="wpc-popup-customerPhone" placeholder="Enter your phone number" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpc-popup-form-group">
+                    <label class="wpc-popup-form-label" for="wpc-popup-customerLocation">Area/Location *</label>
+                    <input type="text" class="wpc-popup-form-control" id="wpc-popup-customerLocation" placeholder="Enter your area or location" required>
+                </div>
+                <div class="wpc-popup-form-navigation">
+                    <div></div>
+                    <button type="button" class="wpc-popup-btn-custom wpc-popup-btn-primary-custom" onclick="wpcPopupNextStep()">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Service Type -->
+            <div class="wpc-popup-form-step" id="wpc-popup-step2">
+                <h3 class="text-center mb-4"><i class="fas fa-cogs"></i> Choose Service Type</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="wpc-popup-option-card" data-service="ready-to-fix">
+                            <div class="wpc-popup-option-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="wpc-popup-option-title">Ready to Fix</div>
+                            <div class="wpc-popup-option-description">Complete installation service with pre-fabricated components</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="wpc-popup-option-card" data-service="loose-material">
+                            <div class="wpc-popup-option-icon">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <div class="wpc-popup-option-title">Loose Material</div>
+                            <div class="wpc-popup-option-description">Raw materials for custom installation and DIY projects</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpc-popup-form-navigation">
+                    <button type="button" class="wpc-popup-btn-custom wpc-popup-btn-secondary-custom" onclick="wpcPopupPrevStep()">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button type="button" class="wpc-popup-btn-custom wpc-popup-btn-primary-custom" onclick="wpcPopupNextStep()" disabled id="wpc-popup-step2Next">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Product Selection -->
+            <div class="wpc-popup-form-step" id="wpc-popup-step3">
+                <h3 class="text-center mb-4"><i class="fas fa-th-large"></i> Select Products</h3>
+                <div class="wpc-popup-product-grid" id="wpc-popup-productGrid">
+                    <!-- Products will be populated based on service type -->
+                </div>
+                <div class="wpc-popup-form-navigation">
+                    <button type="button" class="wpc-popup-btn-custom wpc-popup-btn-secondary-custom" onclick="wpcPopupPrevStep()">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button type="button" class="wpc-popup-btn-custom wpc-popup-btn-primary-custom" onclick="wpcPopupNextStep()">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 4: Summary -->
+            <div class="wpc-popup-form-step" id="wpc-popup-step4">
+                <h3 class="text-center mb-4"><i class="fas fa-clipboard-check"></i> Order Summary</h3>
+                <div class="wpc-popup-summary-card" id="wpc-popup-orderSummary">
+                    <!-- Summary will be populated -->
+                </div>
+                <div class="wpc-popup-form-navigation">
+                    <button type="button" class="wpc-popup-btn-custom wpc-popup-btn-secondary-custom" onclick="wpcPopupPrevStep()">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button type="button" class="wpc-popup-btn-custom wpc-popup-btn-success-custom" onclick="wpcPopupSubmitOrder()">
+                        <i class="fas fa-file-pdf"></i> Generate PDF Estimate
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Step 5: Success Screen -->
+            <div class="wpc-popup-form-step" id="wpc-popup-step5">
+                <div class="wpc-popup-success-container">
+                    <div class="wpc-popup-success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2 class="wpc-popup-success-title">PDF Generated Successfully!</h2>
+                    <p class="wpc-popup-success-message">
+                        Your personalized interior design estimate has been generated.<br>
+                        You can download it below.
+                    </p>
+                    <div class="wpc-popup-success-actions">
+                        <button class="wpc-popup-btn-download" onclick="wpcPopupDownloadPDF()">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                        <button class="wpc-popup-btn-close" onclick="closeWpcPopup()">
+                            <i class="fas fa-times"></i> Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <script>
+        // WPC Popup Variables
+        let wpcPopupCurrentStep = 1;
+        let wpcPopupSelectedService = '';
+        let wpcPopupSelectedProducts = {};
+        let wpcPopupCustomerData = {};
+        let wpcPopupGeneratedPDF = null;
+
+        const wpcPopupReadyToFixProducts = [
+            { id: 'frames', name: 'Frames', icon: 'fas fa-border-all' },
+            { id: 'doors', name: 'Doors', icon: 'fas fa-door-open' },
+            { id: 'windows', name: 'Windows', icon: 'fas fa-window-maximize' },
+            { id: 'window-door', name: 'Window-Door', icon: 'fas fa-door-closed' }
+        ];
+
+        const wpcPopupLooseMaterialProducts = [
+            { id: 'frames', name: 'Frames', icon: 'fas fa-border-all' },
+            { id: 'doors', name: 'Doors', icon: 'fas fa-door-open' },
+            { id: 'windows', name: 'Windows', icon: 'fas fa-window-maximize' },
+            { id: 'window-door', name: 'Window-Door', icon: 'fas fa-door-closed' },
+            { id: 'sheets', name: 'Sheets', icon: 'fas fa-layer-group' }
+        ];
+
+        // Pricing structure for Ready to Fix
+        const wpcPopupReadyToFixPricing = {
+            frames: {
+                'mainEntryFrames': 11200,
+                'bedRoomFrames': 5200,
+                'outsideDoorFrames': 6100,
+                'bathroomFrames': 3400
+            },
+            doors: {
+                'mainEntryDoors': 8300,
+                'bedRoomDoors': 7600,
+                'outsideDoors': 10700,
+                'bathroomDoors': 5300
+            },
+            windows: {
+                'twoKhanaWindows': 7400,
+                'threeKhanaWindows': 10500,
+                'kitchenWindows': 5000,
+                'ventilators': 2650
+            },
+            'window-door': {
+                'normalWindowDoors': 4000,
+                'kitchenWindowDoors': 3200
+            }
+        };
+
+        // Pricing structure for Loose Material
+        const wpcPopupLooseMaterialPricing = {
+            frames: {
+                'mainEntryFrames': 9500,
+                'bedRoomFrames': 4100,
+                'outsideDoorFrames': 5000,
+                'bathroomFrames': 2500
+            },
+            doors: {
+                'mainEntryDoors': 9000,
+                'bedRoomDoors': 6500,
+                'outsideDoors': 7000,
+                'bathroomDoors': 4300
+            },
+            windows: {
+                'twoKhanaWindows': 3100,
+                'threeKhanaWindows': 4500,
+                'kitchenWindows': 2000,
+                'ventilators': 1500
+            },
+            'window-door': {
+                'normalWindowDoors': 2000,
+                'kitchenWindowDoors': 1500
+            },
+            sheets: {
+                'sheets8mm': 3000,
+                'sheets17mm': 6100
+            }
+        };
+
+        // Popup control functions
+        function openWpcPopup() {
+            document.getElementById('wpcPopupOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeWpcPopup() {
+            document.getElementById('wpcPopupOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Reset form to initial state
+            resetWpcPopupForm();
+        }
+        
+        function resetWpcPopupForm() {
+            // Reset step to 1
+            wpcPopupCurrentStep = 1;
+            wpcPopupSelectedService = '';
+            wpcPopupSelectedProducts = {};
+            wpcPopupCustomerData = {};
+            
+            // Reset step indicators
+            document.querySelectorAll('.wpc-popup-step').forEach(step => {
+                step.classList.remove('active', 'completed');
+            });
+            document.querySelector('.wpc-popup-step[data-step="1"]').classList.add('active');
+            
+            // Reset step content
+            document.querySelectorAll('.wpc-popup-form-step').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById('wpc-popup-step1').classList.add('active');
+            
+            // Clear form fields
+            document.getElementById('wpc-popup-customerName').value = '';
+            document.getElementById('wpc-popup-customerPhone').value = '';
+            document.getElementById('wpc-popup-customerLocation').value = '';
+            
+            // Reset buttons and displays
+            document.getElementById('wpc-popup-step2Next').disabled = true;
+            
+            // Remove selected classes
+            document.querySelectorAll('.wpc-popup-option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+        }
+        
+        // Close popup when clicking outside
+        document.getElementById('wpcPopupOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWpcPopup();
+            }
+        });
+
+        function wpcPopupNextStep() {
+            if (wpcPopupValidateCurrentStep()) {
+                if (wpcPopupCurrentStep < 5) {
+                    wpcPopupCurrentStep++;
+                    wpcPopupShowStep(wpcPopupCurrentStep);
+                    wpcPopupUpdateStepIndicator();
+                }
+            }
+        }
+
+        function wpcPopupPrevStep() {
+            if (wpcPopupCurrentStep > 1) {
+                wpcPopupCurrentStep--;
+                wpcPopupShowStep(wpcPopupCurrentStep);
+                wpcPopupUpdateStepIndicator();
+            }
+        }
+
+        function wpcPopupShowStep(step) {
+            document.querySelectorAll('.wpc-popup-form-step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`wpc-popup-step${step}`).classList.add('active');
+            
+            if (step === 3) {
+                wpcPopupLoadProducts();
+            } else if (step === 4) {
+                wpcPopupGenerateSummary();
+            }
+        }
+
+        function wpcPopupUpdateStepIndicator() {
+            document.querySelectorAll('.wpc-popup-step').forEach((step, index) => {
+                step.classList.remove('active', 'completed');
+                if (index + 1 === wpcPopupCurrentStep) {
+                    step.classList.add('active');
+                } else if (index + 1 < wpcPopupCurrentStep) {
+                    step.classList.add('completed');
+                }
+            });
+        }
+
+        function wpcPopupValidateCurrentStep() {
+            if (wpcPopupCurrentStep === 1) {
+                const name = document.getElementById('wpc-popup-customerName').value.trim();
+                const phone = document.getElementById('wpc-popup-customerPhone').value.trim();
+                const location = document.getElementById('wpc-popup-customerLocation').value.trim();
+                
+                if (!name || !phone || !location) {
+                    alert('Please fill in all required fields.');
+                    return false;
+                }
+                
+                wpcPopupCustomerData = { name, phone, location };
+                return true;
+            } else if (wpcPopupCurrentStep === 2) {
+                if (!wpcPopupSelectedService) {
+                    alert('Please select a service type.');
+                    return false;
+                }
+                return true;
+            } else if (wpcPopupCurrentStep === 3) {
+                // Optional: validate if at least one product is selected
+                return true;
+            }
+            return true;
+        }
+
+        // Service type selection
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers for option cards
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.wpc-popup-option-card')) {
+                    const card = e.target.closest('.wpc-popup-option-card');
+                    const service = card.dataset.service;
+                    
+                    // Remove selected class from all cards
+                    document.querySelectorAll('.wpc-popup-option-card').forEach(c => c.classList.remove('selected'));
+                    
+                    // Add selected class to clicked card
+                    card.classList.add('selected');
+                    
+                    // Update selected service
+                    wpcPopupSelectedService = service;
+                    
+                    // Enable next button
+                    const nextBtn = document.getElementById('wpc-popup-step2Next');
+                    if (nextBtn) {
+                        nextBtn.disabled = false;
+                    }
+                }
+            });
+        });
+
+        function wpcPopupLoadProducts() {
+            const products = wpcPopupSelectedService === 'ready-to-fix' ? wpcPopupReadyToFixProducts : wpcPopupLooseMaterialProducts;
+            const productGrid = document.getElementById('wpc-popup-productGrid');
+            
+            productGrid.innerHTML = '';
+            productGrid.style.display = 'block';
+            productGrid.style.gridTemplateColumns = '1fr';
+            
+            products.forEach(product => {
+                const productSection = document.createElement('div');
+                productSection.className = 'mb-4';
+                productSection.innerHTML = wpcPopupGetProductFields(product);
+                productGrid.appendChild(productSection);
+            });
+        }
+
+        function wpcPopupGetProductFields(product) {
+            switch(product.id) {
+                case 'frames':
+                    return `
+                        <div class="wpc-popup-product-section">
+                            <h4 class="wpc-popup-product-section-title">
+                                <i class="${product.icon}"></i> ${product.name}
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Main Entry Frames</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-mainEntryFrames" min="0" value="0" onchange="wpcPopupUpdateProductData('frames', 'mainEntryFrames', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Bed Room Frames</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-bedRoomFrames" min="0" value="0" onchange="wpcPopupUpdateProductData('frames', 'bedRoomFrames', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Out-side Door Frames</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-outsideDoorFrames" min="0" value="0" onchange="wpcPopupUpdateProductData('frames', 'outsideDoorFrames', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Bathroom Frames</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-bathroomFrames" min="0" value="0" onchange="wpcPopupUpdateProductData('frames', 'bathroomFrames', this.value)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                case 'doors':
+                    return `
+                        <div class="wpc-popup-product-section">
+                            <h4 class="wpc-popup-product-section-title">
+                                <i class="${product.icon}"></i> ${product.name}
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Main Entry Doors</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-mainEntryDoors" min="0" value="0" onchange="wpcPopupUpdateProductData('doors', 'mainEntryDoors', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Bed Room Doors</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-bedRoomDoors" min="0" value="0" onchange="wpcPopupUpdateProductData('doors', 'bedRoomDoors', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Out-side Doors</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-outsideDoors" min="0" value="0" onchange="wpcPopupUpdateProductData('doors', 'outsideDoors', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Bathroom Doors</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-bathroomDoors" min="0" value="0" onchange="wpcPopupUpdateProductData('doors', 'bathroomDoors', this.value)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                case 'windows':
+                    return `
+                        <div class="wpc-popup-product-section">
+                            <h4 class="wpc-popup-product-section-title">
+                                <i class="${product.icon}"></i> ${product.name}
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">2 Khana Windows</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-twoKhanaWindows" min="0" value="0" onchange="wpcPopupUpdateProductData('windows', 'twoKhanaWindows', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">3 Khana Windows</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-threeKhanaWindows" min="0" value="0" onchange="wpcPopupUpdateProductData('windows', 'threeKhanaWindows', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Kitchen Windows</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-kitchenWindows" min="0" value="0" onchange="wpcPopupUpdateProductData('windows', 'kitchenWindows', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Ventilators</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-ventilators" min="0" value="0" onchange="wpcPopupUpdateProductData('windows', 'ventilators', this.value)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                case 'window-door':
+                    return `
+                        <div class="wpc-popup-product-section">
+                            <h4 class="wpc-popup-product-section-title">
+                                <i class="${product.icon}"></i> ${product.name}
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Normal Window Doors</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-normalWindowDoors" min="0" value="0" onchange="wpcPopupUpdateProductData('window-door', 'normalWindowDoors', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">Kitchen Window Doors</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-kitchenWindowDoors" min="0" value="0" onchange="wpcPopupUpdateProductData('window-door', 'kitchenWindowDoors', this.value)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                case 'sheets':
+                    return `
+                        <div class="wpc-popup-product-section">
+                            <h4 class="wpc-popup-product-section-title">
+                                <i class="${product.icon}"></i> ${product.name}
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">8MM Sheets (8'x4')</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-sheets8mm" min="0" value="0" onchange="wpcPopupUpdateProductData('sheets', 'sheets8mm', this.value)">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="wpc-popup-form-group">
+                                        <label class="wpc-popup-form-label">17MM Sheets (8'x4')</label>
+                                        <input type="number" class="wpc-popup-form-control" id="wpc-popup-sheets17mm" min="0" value="0" onchange="wpcPopupUpdateProductData('sheets', 'sheets17mm', this.value)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                default:
+                    return '';
+            }
+        }
+
+        function wpcPopupUpdateProductData(productId, fieldId, value) {
+            if (!wpcPopupSelectedProducts[productId]) {
+                wpcPopupSelectedProducts[productId] = { fields: {}, total: 0 };
+            }
+            
+            wpcPopupSelectedProducts[productId].fields[fieldId] = parseInt(value) || 0;
+            
+            // Calculate total for this product
+            let total = 0;
+            Object.values(wpcPopupSelectedProducts[productId].fields).forEach(val => {
+                total += val;
+            });
+            wpcPopupSelectedProducts[productId].total = total;
+            
+            // Set product name
+            const products = wpcPopupSelectedService === 'ready-to-fix' ? wpcPopupReadyToFixProducts : wpcPopupLooseMaterialProducts;
+            const product = products.find(p => p.id === productId);
+            wpcPopupSelectedProducts[productId].name = product.name;
+            
+            // Clean up if no quantities
+            if (total === 0) {
+                delete wpcPopupSelectedProducts[productId];
+            }
+        }
+
+        function wpcPopupGenerateSummary() {
+            const summaryContainer = document.getElementById('wpc-popup-orderSummary');
+            
+            let summaryHTML = `
+                <div class="wpc-popup-summary-item">
+                    <strong>Customer Information</strong>
+                    <span></span>
+                </div>
+                <div class="wpc-popup-summary-item">
+                    <span>Name:</span>
+                    <span>${wpcPopupCustomerData.name}</span>
+                </div>
+                <div class="wpc-popup-summary-item">
+                    <span>Phone:</span>
+                    <span>${wpcPopupCustomerData.phone}</span>
+                </div>
+                <div class="wpc-popup-summary-item">
+                    <span>Location:</span>
+                    <span>${wpcPopupCustomerData.location}</span>
+                </div>
+                <div class="wpc-popup-summary-item">
+                    <strong>Service Type</strong>
+                    <span><strong>${wpcPopupSelectedService === 'ready-to-fix' ? 'Ready to Fix' : 'Loose Material'}</strong></span>
+                </div>
+            `;
+            
+            if (Object.keys(wpcPopupSelectedProducts).length > 0) {
+                summaryHTML += `
+                    <div class="wpc-popup-summary-item">
+                        <strong>Selected Products</strong>
+                        <span></span>
+                    </div>
+                `;
+                
+                Object.entries(wpcPopupSelectedProducts).forEach(([productId, product]) => {
+                    summaryHTML += `
+                        <div class="wpc-popup-summary-item">
+                            <strong>${product.name}</strong>
+                            <span>Total: <strong>${product.total} units</strong></span>
+                        </div>
+                    `;
+                    
+                    // Show detailed breakdown
+                    Object.entries(product.fields).forEach(([fieldId, quantity]) => {
+                        if (quantity > 0) {
+                            const fieldName = wpcPopupGetFieldDisplayName(fieldId);
+                            summaryHTML += `
+                                <div class="wpc-popup-summary-item" style="margin-left: 20px; color: #7f8c8d;">
+                                    <span>${fieldName}:</span>
+                                    <span>${quantity}</span>
+                                </div>
+                            `;
+                        }
+                    });
+                });
+            }
+            
+            summaryContainer.innerHTML = summaryHTML;
+        }
+
+        function wpcPopupGetFieldDisplayName(fieldId) {
+            const fieldNames = {
+                // Frames
+                'mainEntryFrames': 'Main Entry Frames',
+                'bedRoomFrames': 'Bed Room Frames',
+                'outsideDoorFrames': 'Out-side Door Frames',
+                'bathroomFrames': 'Bathroom Frames',
+                
+                // Doors
+                'mainEntryDoors': 'Main Entry Doors',
+                'bedRoomDoors': 'Bed Room Doors',
+                'outsideDoors': 'Out-side Doors',
+                'bathroomDoors': 'Bathroom Doors',
+                
+                // Windows
+                'twoKhanaWindows': '2 Khana Windows',
+                'threeKhanaWindows': '3 Khana Windows',
+                'kitchenWindows': 'Kitchen Windows',
+                'ventilators': 'Ventilators',
+                
+                // Window-Door
+                'normalWindowDoors': 'Normal Window Doors',
+                'kitchenWindowDoors': 'Kitchen Window Doors',
+                
+                // Sheets
+                'sheets8mm': '8MM Sheets (8\'x4\')',
+                'sheets17mm': '17MM Sheets (8\'x4\')'
+            };
+            
+            return fieldNames[fieldId] || fieldId;
+        }
+
+        function wpcPopupGeneratePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            const name = wpcPopupCustomerData.name;
+            const phone = wpcPopupCustomerData.phone;
+            const location = wpcPopupCustomerData.location;
+            const serviceType = wpcPopupSelectedService === 'ready-to-fix' ? 'Ready to Fix' : 'Loose Material';
+            
+            // Header - "To, customer name" and Logo
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text('To, ' + name, 20, 20);
+            
+            // Company Logo/Name at top right
+            doc.setFontSize(16);
+            doc.setTextColor(201, 29, 37);
+            doc.text('SPACE DESIGNS HOME INTERIORS', 105, 20, { align: 'right' });
+            
+            // Customer Information
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Customer Information:', 20, 40);
+            
+            doc.setFontSize(12);
+            doc.text(`Name: ${name}`, 20, 55);
+            doc.text(`Phone: ${phone}`, 20, 65);
+            doc.text(`Location: ${location}`, 20, 75);
+            doc.text(`Service Type: ${serviceType}`, 20, 85);
+            
+            // Products and Pricing Table
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Selected Products and Pricing:', 20, 105);
+            
+            const pricing = wpcPopupSelectedService === 'ready-to-fix' ? wpcPopupReadyToFixPricing : wpcPopupLooseMaterialPricing;
+            let totalAmount = 0;
+            const tableData = [['S.no', 'Product', 'Quantity', 'Price per Unit', 'Total']];
+            
+            let rowNumber = 1;
+            Object.entries(wpcPopupSelectedProducts).forEach(([productId, product]) => {
+                Object.entries(product.fields).forEach(([fieldId, quantity]) => {
+                    if (quantity > 0) {
+                        const pricePerUnit = pricing[productId][fieldId];
+                        const total = quantity * pricePerUnit;
+                        totalAmount += total;
+                        
+                        const fieldName = wpcPopupGetFieldDisplayName(fieldId);
+                        const prefix = wpcPopupSelectedService === 'loose-material' ? 'Loose ' : '';
+                        
+                        tableData.push([
+                            rowNumber.toString(),
+                            prefix + fieldName,
+                            quantity.toString(),
+                            '₹' + pricePerUnit.toLocaleString(),
+                            '₹' + total.toLocaleString()
+                        ]);
+                        rowNumber++;
+                    }
+                });
+            });
+            
+            doc.autoTable({
+                startY: 115,
+                head: [tableData[0]],
+                body: tableData.slice(1),
+                theme: 'grid',
+                headStyles: {
+                    fillColor: [201, 29, 37],
+                    textColor: 255,
+                    fontSize: 10,
+                    fontStyle: 'bold'
+                },
+                bodyStyles: {
+                    fontSize: 9
+                },
+                tableWidth: 170,
+                margin: { left: 20 }
+            });
+            
+            // Total Amount
+            const tableEndY = doc.lastAutoTable.finalY;
+            doc.setFontSize(14);
+            doc.setTextColor(201, 29, 37);
+            doc.setFont(undefined, 'bold');
+            doc.text(`Total Amount: ₹${totalAmount.toLocaleString()}`, 20, tableEndY + 15);
+            
+            // General Points to Note
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.setFont(undefined, 'normal');
+            doc.text('General Points to Note:', 20, tableEndY + 35);
+            
+            const points = [
+                "Here we're providing only the basic information",
+                "for more details Book an Appointment - 8500844441",
+                "For General Showroom Visit there is no need to book any kind of appointment.",
+                "Here the above quotation is only for basic Ideology with basic material & finishing and the actual cost of your space will vary depending on your region, the material and finishing you choose, and other factors."
+            ];
+            
+            let yPos = tableEndY + 50;
+            points.forEach(point => {
+                doc.setFontSize(10);
+                doc.text('• ' + point, 20, yPos);
+                yPos += 8;
+            });
+            
+            // Branch Addresses
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Our branches are only available at:', 20, yPos + 10);
+            
+            yPos += 25;
+            doc.setFontSize(11);
+            doc.setTextColor(201, 29, 37);
+            doc.text('Vijayawada Address:', 20, yPos);
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Near Novotel Hotel, Bharathi Nagar Main Road, Road No 11, Left side first Building, Vijayawada, Andhra Pradesh 520008.', 20, yPos + 8);
+            
+            yPos += 20;
+            doc.setFontSize(11);
+            doc.setTextColor(201, 29, 37);
+            doc.text('Hyderabad Address:', 20, yPos);
+            doc.setFontSize(10);
+            doc.setTextColor(0, 0, 0);
+            doc.text('Janapriya Housing Arch Besides, Third floor front side SLM Arundhati Heights building, above KFC, Miyapur, Telangana 500049.', 20, yPos + 8);
+            
+            // Footer with QR Code placeholder
+            const pageHeight = doc.internal.pageSize.height;
+            doc.setFontSize(10);
+            doc.setTextColor(128, 128, 128);
+            doc.text('Generated on: ' + new Date().toLocaleDateString(), 20, pageHeight - 30);
+            doc.text('SPACE DESIGNS HOME INTERIORS', 105, pageHeight - 30, { align: 'center' });
+            
+            // QR Code placeholder
+            doc.setFontSize(8);
+            doc.text('Scan for more info', 105, pageHeight - 15, { align: 'center' });
+            
+            // Draw a placeholder QR code box
+            doc.rect(170, pageHeight - 45, 30, 30);
+            doc.setFontSize(6);
+            doc.text('QR CODE', 185, pageHeight - 35, { align: 'center' });
+            
+            return doc;
+        }
+        
+        function wpcPopupDownloadPDF() {
+            if (wpcPopupGeneratedPDF) {
+                wpcPopupGeneratedPDF.save(`WPC_Estimate_${wpcPopupCustomerData.name.replace(/\s+/g, '_')}.pdf`);
+            }
+        }
+        
+        function wpcPopupSubmitOrder() {
+            // Generate PDF first
+            wpcPopupGeneratedPDF = wpcPopupGeneratePDF();
+            
+            const orderData = {
+                customer: wpcPopupCustomerData,
+                serviceType: wpcPopupSelectedService,
+                products: wpcPopupSelectedProducts,
+                timestamp: new Date().toLocaleString()
+            };
+            
+            console.log('WPC Order submitted:', orderData);
+            
+            // Go to success step
+            wpcPopupCurrentStep = 5;
+            wpcPopupShowStep(wpcPopupCurrentStep);
+            wpcPopupUpdateStepIndicator();
+        }
+
+        // ESC key to close popup
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeWpcPopup();
+            }
+        });
+
+        // Expose functions globally for integration
+        window.openWpcPopup = openWpcPopup;
+        window.closeWpcPopup = closeWpcPopup;
+    </script>
 
             <div class="card">
                 <img class="expand-icon" src="assets/images/calculator.png" alt="">
@@ -320,7 +1986,7 @@
                 <h3>Modular Kitchen</h3>
                 <p>Know the estimate price for your Modular Kitchen</p>
                 
-                <button class="btn"><a class="dropdown-item" href="modular-estimation.html">Get Free Estimation</a></button>
+                <button class="btn" onclick="openModularPopup()">Get Free Estimation</button>
             </div>
         </div>
         <script>
@@ -1191,6 +2857,8 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

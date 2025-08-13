@@ -4795,3 +4795,1193 @@ input {
   width:100%;
   height: auto;
 }
+
+
+
+
+
+.view-projects-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .view-projects-btn:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        /* Modal Content */
+        .modal-content {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: slideIn 0.4s ease;
+            position: relative;
+        }
+        
+        /* Modal Header */
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        /* Modal Body */
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .videos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        /* Video Cards */
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .video-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-iframe {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background: #f0f0f0;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .video-iframe iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        
+        /* Additional Videos Animation */
+        .additional-videos {
+            margin-top: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .additional-videos.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .view-more-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .view-more-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        .view-more-btn.youtube-link {
+            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        .view-more-btn.youtube-link:hover {
+            box-shadow: 0 15px 35px rgba(255, 0, 0, 0.4);
+        }
+        
+        /* Responsive Design */
+                    @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 20px;
+            }
+            
+            .videos-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .modal-header {
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 20px;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+            
+            .video-iframe {
+                height: 220px;
+            }
+            
+        }
+        
+        @media (max-width: 480px) {
+            .videos-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .view-projects-btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+            
+            .video-iframe {
+                height: 200px;
+            }
+        }
+        
+        /* Scrollbar Styling */
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .modal-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .modal-content::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+        }
+        
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+        }
+
+        /* Popup Overlay */
+        .interior-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .interior-popup-overlay.active {
+            display: flex;
+        }
+
+        /* Popup Container */
+        .interior-popup-container {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .interior-popup-overlay.active .interior-popup-container {
+            transform: scale(1);
+        }
+
+        /* Popup Header */
+        .interior-popup-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .interior-popup-header h2 {
+            margin-bottom: 8px;
+        }
+
+        .interior-popup-header p {
+            opacity: 0.9;
+            font-size: 0.8rem;
+        }
+
+        .interior-popup-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .interior-popup-close-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Form Styles */
+        .interior-popup-form {
+            padding: 30px;
+        }
+
+        .interior-popup-form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .interior-popup-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .interior-popup-form-group input,
+        .interior-popup-form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .interior-popup-form-group input:focus,
+        .interior-popup-form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .interior-popup-form-group select {
+            cursor: pointer;
+        }
+
+        .interior-popup-submit-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .interior-popup-submit-btn:hover {
+            background: linear-gradient(45deg, #5a6fd8, #6a4190);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .interior-popup-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Success Message */
+        .interior-popup-success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            color: #27ae60;
+        }
+
+        .interior-popup-success-message.show {
+            display: block;
+        }
+
+        .interior-popup-success-message .checkmark {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #27ae60;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .interior-popup-main-content h1 {
+                font-size: 2rem;
+            }
+            
+            .interior-popup-container {
+                width: 95%;
+                margin: 20px;
+            }
+            
+            .interior-popup-form {
+                padding: 20px;
+            }
+            
+            .interior-popup-header {
+                padding: 20px;
+            }
+        }
+
+        .modular-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modular-popup-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.4s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .modular-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            z-index: 10001;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .modular-popup-close:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+        
+        .modular-popup-header {
+            background: linear-gradient(135deg, #c91d25 0%, #c91d25 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .modular-popup-step-indicator {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .modular-popup-step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .modular-popup-step.active {
+            background: #c91d25;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .modular-popup-step.completed {
+            background: #c91d25;
+            color: white;
+        }
+        
+        .modular-popup-step-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .modular-popup-step-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modular-popup-form-control,
+        .modular-popup-form-select {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 14px;
+        }
+        
+        .modular-popup-form-control:focus,
+        .modular-popup-form-select:focus {
+            border-color: #c91d25;
+            box-shadow: 0 0 0 0.2rem rgba(201, 29, 37, 0.25);
+            outline: none;
+        }
+        
+        .modular-popup-btn-custom {
+            background: linear-gradient(135deg, #c91d25 0%, #c91d25 100%);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .modular-popup-btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 29, 37, 0.4);
+        }
+        
+        .modular-popup-btn-custom:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .modular-popup-btn-outline-custom {
+            border: 2px solid #c91d25;
+            color: #c91d25;
+            background: transparent;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .modular-popup-btn-outline-custom:hover {
+            background: #c91d25;
+            color: white;
+        }
+        
+        .modular-popup-option-card {
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .modular-popup-option-card:hover {
+            border-color: #c91d25;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .modular-popup-option-card.selected {
+            border-color: #c91d25;
+            background: rgba(201, 29, 37, 0.1);
+        }
+        
+        .modular-popup-price-display {
+            background: linear-gradient(135deg, #FF6B6B 0%, #c91d25 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .modular-popup-summary-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .modular-popup-loading {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .modular-popup-success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            color: #c91d25;
+        }
+        
+        .modular-popup-form-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+        }
+
+        /* Demo button for testing */
+        .demo-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #c91d25;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(201, 29, 37, 0.3);
+        }
+        
+        .demo-button:hover {
+            background: #a01920;
+            transform: translateY(-2px);
+        }
+
+        /* Scrollbar styling for popup */
+        .modular-popup-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .modular-popup-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .modular-popup-container::-webkit-scrollbar-thumb {
+            background: #c91d25;
+            border-radius: 4px;
+        }
+        
+        .modular-popup-container::-webkit-scrollbar-thumb:hover {
+            background: #a01920;
+        }
+
+         /* WPC Popup Modal Styles - All classes prefixed with wpc-popup */
+        .wpc-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .wpc-popup-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 900px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: wpcModalSlideIn 0.4s ease-out;
+        }
+        
+        @keyframes wpcModalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .wpc-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            z-index: 10001;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .wpc-popup-close:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+        
+        .wpc-popup-header {
+            background: #c91d25;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+        
+        .wpc-popup-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #c91d25;
+        }
+        
+        .wpc-popup-step-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+        
+        .wpc-popup-step {
+            display: flex;
+            align-items: center;
+            color: #bdc3c7;
+            transition: all 0.3s ease;
+        }
+        
+        .wpc-popup-step.active {
+            color: #3498db;
+        }
+        
+        .wpc-popup-step.completed {
+            color: #27ae60;
+        }
+        
+        .wpc-popup-step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .wpc-popup-step.active .wpc-popup-step-number {
+            background: #3498db;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .wpc-popup-step.completed .wpc-popup-step-number {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .wpc-popup-step-connector {
+            width: 60px;
+            height: 2px;
+            background: #bdc3c7;
+            margin: 0 15px;
+        }
+        
+        .wpc-popup-step.completed + .wpc-popup-step .wpc-popup-step-connector {
+            background: #27ae60;
+        }
+        
+        .wpc-popup-form-step {
+            display: none;
+            padding: 40px;
+            animation: wpcFadeIn 0.5s ease-in;
+        }
+        
+        .wpc-popup-form-step.active {
+            display: block;
+        }
+        
+        @keyframes wpcFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .wpc-popup-form-group {
+            margin-bottom: 25px;
+        }
+        
+        .wpc-popup-form-label {
+            font-weight: 600;
+            color: #c91d25;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .wpc-popup-form-control {
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .wpc-popup-form-control:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+            outline: none;
+        }
+        
+        .wpc-popup-option-card {
+            border: 2px solid #ecf0f1;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            text-align: center;
+        }
+        
+        .wpc-popup-option-card:hover {
+            border-color: #3498db;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wpc-popup-option-card.selected {
+            border-color: #3498db;
+            background: rgba(52, 152, 219, 0.1);
+        }
+        
+        .wpc-popup-option-icon {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .wpc-popup-option-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #c91d25;
+            margin-bottom: 10px;
+        }
+        
+        .wpc-popup-option-description {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .wpc-popup-product-section {
+            background: white;
+            border-radius: 15px;
+            border: 2px solid #ecf0f1;
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .wpc-popup-product-section:hover {
+            border-color: #3498db;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wpc-popup-product-section-title {
+            color: #c91d25;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .wpc-popup-product-section-title i {
+            color: #3498db;
+        }
+        
+        .wpc-popup-btn-custom {
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .wpc-popup-btn-primary-custom {
+            background: #3498db;
+            color: white;
+        }
+        
+        .wpc-popup-btn-primary-custom:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .wpc-popup-btn-primary-custom:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .wpc-popup-btn-secondary-custom {
+            background: #95a5a6;
+            color: white;
+        }
+        
+        .wpc-popup-btn-secondary-custom:hover {
+            background: #7f8c8d;
+        }
+        
+        .wpc-popup-btn-success-custom {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .wpc-popup-btn-success-custom:hover {
+            background: #219a52;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+        }
+        
+        .wpc-popup-form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+        }
+        
+        .wpc-popup-summary-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        
+        .wpc-popup-summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .wpc-popup-summary-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Success step */
+        .wpc-popup-success-container {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .wpc-popup-success-icon {
+            font-size: 5rem;
+            color: #27ae60;
+            margin-bottom: 20px;
+            animation: wpcSuccessBounce 1s ease;
+        }
+        
+        @keyframes wpcSuccessBounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-30px);}
+            60% {transform: translateY(-15px);}
+        }
+        
+        .wpc-popup-success-title {
+            font-size: 2.5rem;
+            color: #27ae60;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .wpc-popup-success-message {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .wpc-popup-success-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .wpc-popup-btn-download {
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .wpc-popup-btn-download:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .wpc-popup-btn-close {
+            background: #c91d25;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .wpc-popup-btn-close:hover {
+            background: #a01920;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(201, 29, 37, 0.4);
+        }
+
+        /* Demo button for testing */
+        .demo-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #c91d25;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(201, 29, 37, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .demo-button:hover {
+            background: #a01920;
+            transform: translateY(-2px);
+        }
+
+        /* Scrollbar styling for popup */
+        .wpc-popup-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .wpc-popup-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .wpc-popup-container::-webkit-scrollbar-thumb {
+            background: #c91d25;
+            border-radius: 4px;
+        }
+        
+        .wpc-popup-container::-webkit-scrollbar-thumb:hover {
+            background: #a01920;
+        }
