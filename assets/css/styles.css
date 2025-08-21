@@ -361,7 +361,7 @@ input {
 
 .home-estimate {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 .home-estimate h1 {
@@ -500,6 +500,7 @@ input {
   .cards-container {
     grid-template-columns: 1fr;
     gap: 20px;
+    padding: 0 10px;
   }
 
   .card {
@@ -1198,7 +1199,7 @@ input {
 /* Home Explore Section */
 .home-explore {
   background-color: #fff;
-  padding: 80px 0;
+  padding: 0px 0px 80px 0px;
 }
 
 .home-explore-container {
@@ -4787,6 +4788,9 @@ input {
         flex-direction: row;
         font-size: 15px;
     }
+    .home-why-section-description {
+      padding-left: 30px;
+    }
 }
 .dropdown-item.active, .dropdown-item:active {
   background-color: #a27327!important;
@@ -4818,7 +4822,7 @@ input {
         
         .view-projects-btn:hover {
             background: white;
-            color: #667eea;
+            color: #a27327;
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
@@ -4874,7 +4878,7 @@ input {
         
         /* Modal Header */
         .modal-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #a27327;
             color: white;
             padding: 25px 30px;
             border-radius: 20px 20px 0 0;
@@ -4972,7 +4976,7 @@ input {
         }
         
         .view-more-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #a27327;
             color: white;
             border: none;
             padding: 15px 40px;
@@ -5024,6 +5028,7 @@ input {
             
             .modal-body {
                 padding: 20px;
+                height: 240px;
             }
             
             .video-iframe {
@@ -5106,7 +5111,7 @@ input {
 
         /* Popup Header */
         .interior-popup-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background:#a27327;
             color: white;
             padding: 25px;
             border-radius: 20px 20px 0 0;
@@ -5188,7 +5193,7 @@ input {
 
         .interior-popup-submit-btn {
             width: 100%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: #a27327;
             color: white;
             border: none;
             padding: 15px;
@@ -5327,7 +5332,7 @@ input {
         }
         
         .modular-popup-header {
-            background: linear-gradient(135deg, #c91d25 0%, #c91d25 100%);
+            background:#a27327;
             color: white;
             padding: 30px;
             text-align: center;
@@ -5596,7 +5601,7 @@ input {
         }
         
         .wpc-popup-header {
-            background: #c91d25;
+            background: #a27327;
             color: white;
             padding: 30px;
             text-align: center;
@@ -5614,7 +5619,7 @@ input {
             height: 0;
             border-left: 20px solid transparent;
             border-right: 20px solid transparent;
-            border-top: 20px solid #c91d25;
+            border-top: 20px solid #a27327;
         }
         
         .wpc-popup-step-indicator {
@@ -5633,11 +5638,11 @@ input {
         }
         
         .wpc-popup-step.active {
-            color: #3498db;
+            color: #c91d25;
         }
         
         .wpc-popup-step.completed {
-            color: #27ae60;
+            color: #a27327;
         }
         
         .wpc-popup-step-number {
@@ -5654,25 +5659,25 @@ input {
         }
         
         .wpc-popup-step.active .wpc-popup-step-number {
-            background: #3498db;
+            background: #c91d25;
             color: white;
             transform: scale(1.1);
         }
         
         .wpc-popup-step.completed .wpc-popup-step-number {
-            background: #27ae60;
+            background: #c91d25;
             color: white;
         }
         
         .wpc-popup-step-connector {
             width: 60px;
             height: 2px;
-            background: #bdc3c7;
+            background: #c91d25;
             margin: 0 15px;
         }
         
         .wpc-popup-step.completed + .wpc-popup-step .wpc-popup-step-connector {
-            background: #27ae60;
+            background: #c91d25;
         }
         
         .wpc-popup-form-step {
@@ -5728,7 +5733,7 @@ input {
         }
         
         .wpc-popup-option-card:hover {
-            border-color: #3498db;
+            border-color: #a27327;
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
@@ -5740,7 +5745,7 @@ input {
         
         .wpc-popup-option-icon {
             font-size: 3rem;
-            color: #3498db;
+            color: #a27327;
             margin-bottom: 15px;
         }
         
@@ -5796,18 +5801,18 @@ input {
         }
         
         .wpc-popup-btn-primary-custom {
-            background: #3498db;
+            background: #c91d25;
             color: white;
         }
         
         .wpc-popup-btn-primary-custom:hover {
-            background: #2980b9;
+            background: #c91d25;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
         }
         
         .wpc-popup-btn-primary-custom:disabled {
-            background: #95a5a6;
+            background: #c91d25;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
@@ -6125,6 +6130,12 @@ input {
             .hm-of-interior-main-image {
                 height: 300px;
             }
+            /* .hm-wpc-slider-section{
+              margin: 0!important;
+            }
+            .modular-slider-section{
+              margin: 0!important;
+            } */
         }
         
         @media (max-width: 576px) {
@@ -6151,6 +6162,7 @@ input {
 
         .hm-wpc-slider-section {
             background-color: #f8f9fa;
+            padding: 50px 0;
         }
         
         .hm-wpc-slider-header {
@@ -6242,6 +6254,7 @@ input {
         .hm-wpc-slider-card-content {
             padding: 20px;
             text-align: center;
+                height: 87px;
         }
         
         .hm-wpc-slider-card-title {
@@ -6364,6 +6377,7 @@ input {
 
 .modular-slider-section {
     background-color: #f8f9fa;
+    padding: 20px 0;
 }
 
 .modular-slider-header {
@@ -6518,9 +6532,9 @@ input {
 }
 
 @media (max-width: 768px) {
-    .modular-slider-section {
+    /* .modular-slider-section {
         padding: 60px 0;
-    }
+    } */
     
     .modular-slider-main-title {
         font-size: 2.5rem;
