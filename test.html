@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Living Room Furniture</title>
+    <style>
+        
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            min-height: 600px;
+        }
+        
+        .image-section {
+            position: relative;
+        }
+        
+        .pink-overlay {
+            position: absolute;
+            top: -40px;
+            left: -40px;
+            right: 40px;
+            bottom: 40px;
+            background: linear-gradient(135deg, #f8c8d4, #f4a6c7);
+            border-radius: 20px;
+            z-index: 1;
+        }
+        
+        .room-image {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDYwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjZjBmMGYwIi8+Cjx0ZXh0IHg9IjMwMCIgeT0iMjUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTk5IiBmb250LXNpemU9IjE4IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiPkx1eHVyeSBMaXZpbmcgUm9vbSBJbWFnZTwvdGV4dD4KPC9zdmc+') center/cover;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .room-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 100%);
+        }
+        
+        .text-section {
+            padding: 20px 0;
+        }
+        
+        .main-heading {
+            font-size: 3.2rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+            margin-bottom: 40px;
+            color: #2c2c2c;
+        }
+        
+        .main-heading .luxury {
+            color: #2c2c2c;
+        }
+        
+        .main-heading .living-room {
+            color: #d63384;
+            font-weight: 400;
+        }
+        
+        .main-heading .furniture {
+            color: #2c2c2c;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .detailed-description {
+            font-size: 1.05rem;
+            color: #777;
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+            
+            .main-heading {
+                font-size: 2.5rem;
+            }
+            
+            .pink-overlay {
+                top: -20px;
+                left: -20px;
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 15px;
+            }
+            
+            .main-heading {
+                font-size: 2rem;
+            }
+            
+            .room-image {
+                height: 350px;
+            }
+            
+            .description,
+            .detailed-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+ <section class="luxury-living-room">
+    <div class="container">
+        <div class="row content-wrapper">
+            <div class="col-lg-6 image-section">
+                <div class="room-image"></div>
+            </div>
+            
+            <div class=" col-lg-6 text-section">
+                <h1 class="main-heading">
+                    <span class="luxury">LUXURY</span> 
+                    <span class="living-room">LIVING ROOM</span> 
+                    <span class="furniture">FURNITURE</span>
+                </h1>
+                
+                <p class="description">
+                    Welcome to Space Designs, where your living room transforms into a masterpiece with our diverse collections and distinctive global designs. From contemporary minimalism to bold luxury statements, from opulent grandeur to cozy comfort, our extensive range caters to every taste and design preference.
+                </p>
+                
+                <p class="detailed-description">
+                    Crafted by our expert furniture designers and sourced from premium manufacturers worldwide, our global collections bring unique character and personality to any home or commercial space. With 1000+ exclusive designs and 10,000+ striking pieces in our inventory, there's something perfect for every distinctive style. Experience your ideal match and transform your living space with designs that reflect your personal aesthetic.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

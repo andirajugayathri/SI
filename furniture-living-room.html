@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Designs</title>
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<style>    
+.dropdown-item {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;           
+}
+
+.dropdown-item i {
+  margin-left: 8px; 
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu .submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%; 
+  z-index: 9999;
+  min-width: 200px;
+}
+.dropdown-submenu:hover > .submenu {
+  display: block;
+}
+
+       
+        .luxury-living-room{
+            padding: 60px;
+        }
+        .image-section {
+            position: relative;
+        }
+        
+        
+        .room-image {
+            position: relative;
+            height: 500px;
+        }
+
+        .room-image img{
+            max-width: 100%;
+            height: auto;
+        }
+        
+        
+        .text-section {
+            padding-left: 40px;
+        }
+        
+        .main-heading {
+            margin-bottom: 40px;
+            font-family: Playfair Display SC;
+            font-weight: 400;
+            font-size: 36px;
+
+        }
+        
+        
+        .main-heading .living-room {
+            color:#C91D25;
+            font-weight: 700;
+        }
+        
+        .main-heading .furniture {
+            color: #2c2c2c;
+        }
+        
+        .description {
+            font-size:16px;
+            color: #626262;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-family: "Montserrat";
+            font-weight: 400;
+
+        }
+        
+        .detailed-description {
+            font-size:16px;
+            color: #626262;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-family: "Montserrat";
+            font-weight: 400;
+        }
+        
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+            
+            .main-heading {
+                font-size: 2.5rem;
+            }
+            
+            .pink-overlay {
+                top: -20px;
+                left: -20px;
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            
+            
+            .main-heading {
+                font-size: 2rem;
+            }
+            
+            .room-image {
+                height: 350px;
+            }
+            
+            .description,
+            .detailed-description {
+                font-size: 1rem;
+            }
+        }
+
+</style>
+<body>
+    
+    <div id="navbar"></div>
+
+     <section class="hero-section">
+        <img src="assets/images/furniture-living-room-banner.png" alt="Hero Banner Mobile" class="hero-image img-fluid d-block d-md-none">
+
+        <img src="assets/images/furniture-living-room-banner.png" alt="Hero Banner" class="hero-image img-fluid d-none d-md-block">
+    </section>
+
+    <section class="luxury-living-room">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6 image-section">
+                    <div class="room-image">
+                        <img src="assets/images/luxury-living-room.png" alt="img">
+                    </div>
+                </div>
+                
+                <div class=" col-lg-6 text-section">
+                    <h1 class="main-heading">
+                        <span class="luxury">LUXURY</span> 
+                        <span class="living-room">LIVING ROOM</span> 
+                        <span class="furniture">FURNITURE</span>
+                    </h1>
+                    
+                    <p class="description">
+                        Welcome to Space Designs, where your living room transforms into a masterpiece with our diverse collections and distinctive global designs. From contemporary minimalism to bold luxury statements, from opulent grandeur to cozy comfort, our extensive range caters to every taste and design preference.
+                    </p>
+                    
+                    <p class="detailed-description">
+                        Crafted by our expert furniture designers and sourced from premium manufacturers worldwide, our global collections bring unique character and personality to any home or commercial space. With 1000+ exclusive designs and 10,000+ striking pieces in our inventory, there's something perfect for every distinctive style. Experience your ideal match and transform your living space with designs that reflect your personal aesthetic.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   
+
+  <div id="footer"></div>
+
+
+ <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('navbar').innerHTML = data);
+
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+
+      function setActiveNavbarLink() {
+            // Get current page filename (e.g., 'wardbose.html')
+            const path = window.location.pathname;
+            const page = path.substring(path.lastIndexOf('/') + 1);
+
+            // Wait for navbar to be loaded
+            const navbar = document.getElementById('navbar');
+            if (!navbar) return;
+
+            // Find all nav links and dropdown items
+            const navLinks = navbar.querySelectorAll('.nav-link');
+            const dropdownItems = navbar.querySelectorAll('.dropdown-item');
+
+            let foundActive = false;
+
+            // Check top-level nav links
+            navLinks.forEach(link => {
+                // Ignore dropdown toggles
+                if (link.classList.contains('dropdown-toggle')) return;
+                const href = link.getAttribute('href');
+                if (href && href !== '#' && page === href) {
+                    link.classList.add('active');
+                    foundActive = true;
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Check dropdown items
+            dropdownItems.forEach(item => {
+                const href = item.getAttribute('href');
+                if (href && href !== '#' && page === href) {
+                    item.classList.add('active');
+                    // Also highlight parent dropdown toggle
+                    const parentDropdown = item.closest('.dropdown');
+                    if (parentDropdown) {
+                        const toggle = parentDropdown.querySelector('.nav-link.dropdown-toggle');
+                        if (toggle) toggle.classList.add('active');
+                    }
+                    foundActive = true;
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // After navbar is loaded, set active link
+        const navbarInterval = setInterval(() => {
+            const navbar = document.getElementById('navbar');
+            if (navbar && navbar.querySelector('.nav-link')) {
+                setActiveNavbarLink();
+                clearInterval(navbarInterval);
+            }
+        }, 50);
+  </script>
+    <!-- Bootstrap JS -->
+      <script src="https://kit.fontawesome.com/7529dd30a8.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="assets/js/main.js"></script>
+
+
+</body>
+</html>
