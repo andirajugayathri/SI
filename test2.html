@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Living Room Furniture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f8f6f3;
+            padding: 40px 20px;
+        }
+
+        .carousel-container {
+            /* max-width: 1200px; */
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .carousel-header {
+            margin-bottom: 40px;
+        }
+
+        .carousel-header h1 {
+            font-size: 32px;
+            font-weight: 400;
+            color: #2c2c2c;
+            margin-bottom: 8px;
+        }
+
+        .carousel-header .subtitle {
+            font-size: 24px;
+            color: #c8102e;
+            font-weight: 500;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 400%; /* 4 slides for desktop */
+        }
+
+        /* Desktop: Show 4 cards per slide */
+        .carousel-slide {
+            min-width: 25%;
+            display: flex;
+            height: 428px;
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        .furniture-card {
+            flex: 1;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .furniture-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 30px;
+            border-radius: 15px;
+            background-color: #A27327;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .card-category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .card-description {
+            font-size: 12px;
+            line-height: 1.4;
+            opacity: 0.9;
+            margin-bottom: 16px;
+        }
+
+        .card-button {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 8px 20px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .card-button:hover {
+            background: white;
+            color: #2c2c2c;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #d0d0d0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #c8102e;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .carousel-header h1 {
+                font-size: 24px;
+            }
+            
+            .carousel-header .subtitle {
+                font-size: 18px;
+            }
+
+            .carousel-track {
+                width: 1600%; /* 16 slides for mobile (4 sets of 4 cards) */
+            }
+
+            .carousel-slide {
+                min-width: 6.25%; /* 100/16 = 6.25% per slide */
+                padding: 0;
+                gap: 0;
+            }
+
+            .furniture-card {
+                width: 100%;
+                min-width: 100%;
+            }
+
+            .card-image {
+                height: 280px;
+            }
+
+            .card-overlay {
+                padding: 30px 20px 20px;
+            }
+
+            .card-title {
+                font-size: 18px;
+            }
+
+            .card-description {
+                font-size: 11px;
+            }
+
+            .mobile-only {
+                display: flex !important;
+            }
+        }
+
+        /* Desktop: Hide mobile-only slides */
+        @media (min-width: 769px) {
+            .mobile-only {
+                display: none !important;
+            }
+        }
+
+        /* Navigation Arrows */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: none;
+        }
+
+        .carousel-nav:hover {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .carousel-nav.prev {
+            left: 20px;
+        }
+
+        .carousel-nav.next {
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <div class="carousel-header">
+            <h1>The Ultimate Collection of Luxury</h1>
+            <div class="subtitle">Living Room Furniture</div>
+        </div>
+        
+        <div class="carousel-wrapper">
+            <button class="carousel-nav prev" id="prevBtn">‹</button>
+            <button class="carousel-nav next" id="nextBtn">›</button>
+            
+            <div class="carousel-track" id="carouselTrack">
+                <!-- Slide 1: Original Set -->
+                <div class="carousel-slide">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Sofa Collection" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">SOFA COLLECTION</div>
+                             <div class="card-title">Craft your space with contemporary style</div>
+                            <div class="card-description">with Sofa Designer distinct range diversity to create beautiful space</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Accent Chairs" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">ACCENT CHAIRS</div>
+                            <div class="card-title">Craft your space with contemporary style</div>
+                            <div class="card-description">with Sofa Designer distinct range diversity to create beautiful space</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Coffee Tables" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">COFFEE TABLES</div>
+                            <div class="card-title">Craft your space with contemporary style</div>
+                            <div class="card-description">with Sofa Designer distinct range diversity to create beautiful space</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Media Units" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">MEDIA UNITS</div>
+                            <div class="card-title">Craft your space with contemporary style</div>
+                            <div class="card-description">with Sofa Designer distinct range diversity to create beautiful space</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2: Premium Collection -->
+                <div class="carousel-slide">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop&crop=center" alt="Premium Sofas" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">PREMIUM SOFAS</div>
+                            <div class="card-title">Luxury meets functionality in perfect harmony</div>
+                            <div class="card-description">Experience ultimate comfort with our premium sofa collection</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Luxury Tables" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">LUXURY TABLES</div>
+                            <div class="card-title">Statement pieces for sophisticated spaces</div>
+                            <div class="card-description">Transform your room with our exclusive table designs</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Designer Chairs" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">DESIGNER CHAIRS</div>
+                            <div class="card-title">Ergonomic design meets aesthetic appeal</div>
+                            <div class="card-description">Discover comfort redefined with our chair collection</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Entertainment Units" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">ENTERTAINMENT UNITS</div>
+                            <div class="card-title">Modern storage solutions for contemporary homes</div>
+                            <div class="card-description">Organize in style with our media unit collection</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3: Contemporary Collection -->
+                <div class="carousel-slide">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Contemporary Seating" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">CONTEMPORARY SEATING</div>
+                            <div class="card-title">Modern comfort for today's lifestyle</div>
+                            <div class="card-description">Embrace contemporary living with our seating solutions</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Storage Solutions" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">STORAGE SOLUTIONS</div>
+                            <div class="card-title">Innovative storage meets beautiful design</div>
+                            <div class="card-description">Maximize space with our smart storage furniture</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Dining Tables" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">DINING TABLES</div>
+                            <div class="card-title">Create memorable dining experiences</div>
+                            <div class="card-description">Gather around our exquisite dining table collection</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Lounge Furniture" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">LOUNGE FURNITURE</div>
+                            <div class="card-title">Relax in style with premium comfort</div>
+                            <div class="card-description">Unwind with our luxurious lounge furniture range</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 4: Executive Collection -->
+                <div class="carousel-slide">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Executive Furniture" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">EXECUTIVE FURNITURE</div>
+                            <div class="card-title">Professional elegance for discerning tastes</div>
+                            <div class="card-description">Command attention with our executive furniture line</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Accent Tables" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">ACCENT TABLES</div>
+                            <div class="card-title">Perfect finishing touches for any room</div>
+                            <div class="card-description">Complete your space with our accent table selection</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Luxury Seating" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">LUXURY SEATING</div>
+                            <div class="card-title">Indulge in the finest seating experience</div>
+                            <div class="card-description">Discover unparalleled comfort and luxury</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Designer Sofas" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">DESIGNER SOFAS</div>
+                            <div class="card-title">Signature pieces that define sophistication</div>
+                            <div class="card-description">Make a statement with our designer sofa collection</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Individual card slides for mobile (duplicated from above) -->
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Sofa Collection" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">SOFA COLLECTION</div>
+                            <div class="card-title">Discover comfort meets style</div>
+                            <div class="card-description">with Sofa Designer distinct range</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Accent Chairs" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">ACCENT CHAIRS</div>
+                            <div class="card-title">Craft your space with style</div>
+                            <div class="card-description">contemporary design solutions</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Coffee Tables" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">COFFEE TABLES</div>
+                            <div class="card-title">Contemporary table designs</div>
+                            <div class="card-description">perfect centerpiece furniture</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Media Units" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">MEDIA UNITS</div>
+                            <div class="card-title">Modern storage solutions</div>
+                            <div class="card-description">organize with style and elegance</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional mobile slides -->
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop&crop=center" alt="Premium Sofas" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">PREMIUM SOFAS</div>
+                            <div class="card-title">Luxury comfort solutions</div>
+                            <div class="card-description">premium quality furniture</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Luxury Tables" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">LUXURY TABLES</div>
+                            <div class="card-title">Statement furniture pieces</div>
+                            <div class="card-description">sophisticated design elements</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Designer Chairs" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">DESIGNER CHAIRS</div>
+                            <div class="card-title">Ergonomic design solutions</div>
+                            <div class="card-description">comfort meets aesthetics</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Entertainment Units" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">ENTERTAINMENT UNITS</div>
+                            <div class="card-title">Modern storage design</div>
+                            <div class="card-description">contemporary organization solutions</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Contemporary Seating" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">CONTEMPORARY SEATING</div>
+                            <div class="card-title">Modern lifestyle furniture</div>
+                            <div class="card-description">contemporary living solutions</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Storage Solutions" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">STORAGE SOLUTIONS</div>
+                            <div class="card-title">Innovative furniture design</div>
+                            <div class="card-description">smart storage solutions</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Dining Tables" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">DINING TABLES</div>
+                            <div class="card-title">Memorable dining experiences</div>
+                            <div class="card-description">exquisite table collection</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Lounge Furniture" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">LOUNGE FURNITURE</div>
+                            <div class="card-title">Premium comfort design</div>
+                            <div class="card-description">luxurious lounge furniture</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Executive Furniture" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">EXECUTIVE FURNITURE</div>
+                            <div class="card-title">Professional elegance</div>
+                            <div class="card-description">executive furniture line</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Accent Tables" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">ACCENT TABLES</div>
+                            <div class="card-title">Perfect finishing touches</div>
+                            <div class="card-description">accent table selection</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide mobile-only">
+                    <div class="furniture-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Luxury Seating" class="card-image">
+                        <div class="card-overlay">
+                            <div class="card-category">LUXURY SEATING</div>
+                            <div class="card-title">Finest seating experience</div>
+                            <div class="card-description">unparalleled comfort luxury</div>
+                            <button class="card-button">More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+            <span class="dot" data-slide="3"></span>
+        </div>
+    </div>
+
+    <script>
+        class LuxuryCarousel {
+            constructor() {
+                this.track = document.getElementById('carouselTrack');
+                this.dots = document.querySelectorAll('.dot');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.currentSlide = 0;
+                this.totalDesktopSlides = 4;
+                this.totalMobileSlides = 16;
+                this.totalSlides = 4;
+                this.autoPlayInterval = null;
+                this.autoPlayDelay = 5000;
+                this.isAutoPlaying = true;
+                this.touchStartX = 0;
+                this.touchEndX = 0;
+                this.minSwipeDistance = 50;
+                
+                this.init();
+                this.updateLayout();
+                this.handleResize();
+            }
+
+            init() {
+                // Add click handlers to dots
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                // Add click handlers to navigation buttons
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+
+                // Start autoplay
+                this.startAutoPlay();
+
+                // Pause autoplay on hover
+                const container = document.querySelector('.carousel-container');
+                container.addEventListener('mouseenter', () => this.stopAutoPlay());
+                container.addEventListener('mouseleave', () => this.startAutoPlay());
+
+                // Touch events
+                this.addTouchEvents();
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                });
+            }
+
+            isMobile() {
+                return window.innerWidth <= 768;
+            }
+
+            updateLayout() {
+                const mobileSlides = this.track.querySelectorAll('.mobile-only');
+                
+                if (this.isMobile()) {
+                    // Show mobile slides
+                    mobileSlides.forEach(slide => slide.style.display = 'flex');
+                    this.totalSlides = this.totalMobileSlides;
+                    // Start with first mobile slide (index 4)
+                    if (this.currentSlide < 4) {
+                        this.currentSlide = 4;
+                    }
+                } else {
+                    // Hide mobile slides
+                    mobileSlides.forEach(slide => slide.style.display = 'none');
+                    this.totalSlides = this.totalDesktopSlides;
+                    // Reset to desktop range if needed
+                    if (this.currentSlide >= 4) {
+                        this.currentSlide = 0;
+                    }
+                }
+                
+                this.goToSlide(this.currentSlide);
+                this.updateDots();
+            }
+
+            handleResize() {
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => {
+                        this.updateLayout();
+                    }, 250);
+                });
+            }
+
+            goToSlide(index) {
+                // Ensure index is within bounds
+                if (this.isMobile()) {
+                    // Mobile: slides 4-19 (16 total)
+                    if (index < 4) index = 4;
+                    if (index >= 4 + this.totalMobileSlides) index = 4 + this.totalMobileSlides - 1;
+                } else {
+                    // Desktop: slides 0-3
+                    if (index < 0) index = 0;
+                    if (index >= this.totalDesktopSlides) index = this.totalDesktopSlides - 1;
+                }
+
+                this.currentSlide = index;
+                
+                // Calculate transform based on current mode
+                let translateX;
+                if (this.isMobile()) {
+                    // Mobile: 6.25% per slide
+                    translateX = -(index * 6.25);
+                } else {
+                    // Desktop: 25% per slide
+                    translateX = -(index * 25);
+                }
+
+                this.track.style.transform = `translateX(${translateX}%)`;
+                this.updateDots();
+            }
+
+            updateDots() {
+                this.dots.forEach((dot, index) => {
+                    dot.classList.remove('active');
+                });
+
+                // Map current slide to dot index
+                let dotIndex;
+                if (this.isMobile()) {
+                    // Mobile: map slides 4-19 to dots 0-3
+                    dotIndex = Math.floor((this.currentSlide - 4) / 4);
+                } else {
+                    // Desktop: direct mapping
+                    dotIndex = this.currentSlide;
+                }
+
+                if (dotIndex >= 0 && dotIndex < this.dots.length) {
+                    this.dots[dotIndex].classList.add('active');
+                }
+            }
+
+            nextSlide() {
+                let nextIndex;
+                if (this.isMobile()) {
+                    nextIndex = this.currentSlide + 1;
+                    if (nextIndex >= 4 + this.totalMobileSlides) {
+                        nextIndex = 4; // Loop back to first mobile slide
+                    }
+                } else {
+                    nextIndex = this.currentSlide + 1;
+                    if (nextIndex >= this.totalDesktopSlides) {
+                        nextIndex = 0; // Loop back to first desktop slide
+                    }
+                }
+                this.goToSlide(nextIndex);
+            }
+
+            prevSlide() {
+                let prevIndex;
+                if (this.isMobile()) {
+                    prevIndex = this.currentSlide - 1;
+                    if (prevIndex < 4) {
+                        prevIndex = 4 + this.totalMobileSlides - 1; // Loop to last mobile slide
+                    }
+                } else {
+                    prevIndex = this.currentSlide - 1;
+                    if (prevIndex < 0) {
+                        prevIndex = this.totalDesktopSlides - 1; // Loop to last desktop slide
+                    }
+                }
+                this.goToSlide(prevIndex);
+            }
+
+            startAutoPlay() {
+                if (this.isAutoPlaying) {
+                    this.stopAutoPlay(); // Clear any existing interval
+                    this.autoPlayInterval = setInterval(() => {
+                        this.nextSlide();
+                    }, this.autoPlayDelay);
+                }
+            }
+
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            }
+
+            addTouchEvents() {
+                const carousel = document.querySelector('.carousel-wrapper');
+                
+                carousel.addEventListener('touchstart', (e) => {
+                    this.touchStartX = e.touches[0].clientX;
+                    this.stopAutoPlay();
+                }, { passive: true });
+
+                carousel.addEventListener('touchmove', (e) => {
+                    // Prevent scrolling while swiping
+                    e.preventDefault();
+                }, { passive: false });
+
+                carousel.addEventListener('touchend', (e) => {
+                    this.touchEndX = e.changedTouches[0].clientX;
+                    this.handleSwipe();
+                    this.startAutoPlay();
+                }, { passive: true });
+            }
+
+            handleSwipe() {
+                const swipeDistance = this.touchStartX - this.touchEndX;
+                
+                if (Math.abs(swipeDistance) >= this.minSwipeDistance) {
+                    if (swipeDistance > 0) {
+                        // Swiped left - go to next slide
+                        this.nextSlide();
+                    } else {
+                        // Swiped right - go to previous slide
+                        this.prevSlide();
+                    }
+                }
+            }
+        }
+
+        // Initialize carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new LuxuryCarousel();
+        });
+    </script>
+</body>
+</html>
