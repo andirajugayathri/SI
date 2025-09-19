@@ -17,43 +17,42 @@
             padding: 40px 20px;
         }
 
-        .carousel-container {
-            /* max-width: 1200px; */
+        .luxury-showcase {
             margin: 0 auto;
             text-align: center;
         }
 
-        .carousel-header {
+        .showcase-header {
             margin-bottom: 40px;
         }
 
-        .carousel-header h1 {
+        .showcase-header h1 {
             font-size: 32px;
             font-weight: 400;
             color: #2c2c2c;
             margin-bottom: 8px;
         }
 
-        .carousel-header .subtitle {
+        .showcase-header .header-subtitle {
             font-size: 24px;
             color: #c8102e;
             font-weight: 500;
         }
 
-        .carousel-wrapper {
+        .slider-container {
             position: relative;
             overflow: hidden;
             border-radius: 12px;
         }
 
-        .carousel-track {
+        .slider-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
             width: 400%; /* 4 slides for desktop */
         }
 
         /* Desktop: Show 4 cards per slide */
-        .carousel-slide {
+        .slide-group {
             min-width: 25%;
             display: flex;
             height: 428px;
@@ -61,7 +60,7 @@
             padding: 0 10px;
         }
 
-        .furniture-card {
+        .product-card {
             flex: 1;
             position: relative;
             border-radius: 12px;
@@ -69,17 +68,17 @@
             transition: transform 0.3s ease;
         }
 
-        .furniture-card:hover {
+        .product-card:hover {
             transform: translateY(-5px);
         }
 
-        .card-image {
+        .product-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .card-overlay {
+        .product-info {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -92,7 +91,7 @@
             text-align: left;
         }
 
-        .card-category {
+        .product-category {
             font-size: 11px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -100,21 +99,21 @@
             opacity: 0.9;
         }
 
-        .card-title {
+        .product-title {
             font-size: 20px;
             font-weight: 500;
             margin-bottom: 8px;
             line-height: 1.3;
         }
 
-        .card-description {
+        .product-description {
             font-size: 12px;
             line-height: 1.4;
             opacity: 0.9;
             margin-bottom: 16px;
         }
 
-        .card-button {
+        .action-button {
             background: transparent;
             border: 1px solid white;
             color: white;
@@ -127,19 +126,19 @@
             transition: all 0.3s ease;
         }
 
-        .card-button:hover {
+        .action-button:hover {
             background: white;
             color: #2c2c2c;
         }
 
-        .carousel-dots {
+        .navigation-dots {
             display: flex;
             justify-content: center;
             gap: 12px;
             margin-top: 30px;
         }
 
-        .dot {
+        .nav-dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
@@ -148,65 +147,65 @@
             transition: background-color 0.3s ease;
         }
 
-        .dot.active {
+        .nav-dot.active {
             background-color: #c8102e;
         }
 
         /* Mobile Styles */
         @media (max-width: 768px) {
-            .carousel-header h1 {
+            .showcase-header h1 {
                 font-size: 24px;
             }
             
-            .carousel-header .subtitle {
+            .showcase-header .header-subtitle {
                 font-size: 18px;
             }
 
-            .carousel-track {
-                width: 1600%; /* 16 slides for mobile (4 sets of 4 cards) */
+            .slider-track {
+                width: 1600%;
             }
 
-            .carousel-slide {
-                min-width: 6.25%; /* 100/16 = 6.25% per slide */
+            .slide-group {
+                min-width: 6.25%; 
                 padding: 0;
                 gap: 0;
             }
 
-            .furniture-card {
+            .product-card {
                 width: 100%;
                 min-width: 100%;
             }
 
-            .card-image {
+            .product-image {
                 height: 280px;
             }
 
-            .card-overlay {
+            .product-info {
                 padding: 30px 20px 20px;
             }
 
-            .card-title {
+            .product-title {
                 font-size: 18px;
             }
 
-            .card-description {
+            .product-description {
                 font-size: 11px;
             }
 
-            .mobile-only {
+            .mobile-slide {
                 display: flex !important;
             }
         }
 
         /* Desktop: Hide mobile-only slides */
         @media (min-width: 769px) {
-            .mobile-only {
+            .mobile-slide {
                 display: none !important;
             }
         }
 
         /* Navigation Arrows */
-        .carousel-nav {
+        .slider-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -223,395 +222,395 @@
             display: none;
         }
 
-        .carousel-nav:hover {
+        .slider-arrow:hover {
             background: white;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        .carousel-nav.prev {
+        .arrow-prev {
             left: 20px;
         }
 
-        .carousel-nav.next {
+        .arrow-next {
             right: 20px;
         }
 
         @media (max-width: 768px) {
-            .carousel-nav {
+            .slider-arrow {
                 display: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="carousel-container">
-        <div class="carousel-header">
+    <div class="luxury-showcase">
+        <div class="showcase-header">
             <h1>The Ultimate Collection of Luxury</h1>
-            <div class="subtitle">Living Room Furniture</div>
+            <div class="header-subtitle">Living Room Furniture</div>
         </div>
         
-        <div class="carousel-wrapper">
-            <button class="carousel-nav prev" id="prevBtn">‹</button>
-            <button class="carousel-nav next" id="nextBtn">›</button>
+        <div class="slider-container">
+            <button class="slider-arrow arrow-prev" id="prevBtn">‹</button>
+            <button class="slider-arrow arrow-next" id="nextBtn">›</button>
             
-            <div class="carousel-track" id="carouselTrack">
+            <div class="slider-track" id="sliderTrack">
                 <!-- Slide 1: Original Set -->
-                <div class="carousel-slide">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Sofa Collection" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">SOFA COLLECTION</div>
-                             <div class="card-title">Craft your space with contemporary style</div>
-                            <div class="card-description">with Sofa Designer distinct range diversity to create beautiful space</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Sofa Collection" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">SOFA COLLECTION</div>
+                             <div class="product-title">Craft your space with contemporary style</div>
+                            <div class="product-description">with Sofa Designer distinct range diversity to create beautiful space</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Accent Chairs" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">ACCENT CHAIRS</div>
-                            <div class="card-title">Craft your space with contemporary style</div>
-                            <div class="card-description">with Sofa Designer distinct range diversity to create beautiful space</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Accent Chairs" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">ACCENT CHAIRS</div>
+                            <div class="product-title">Craft your space with contemporary style</div>
+                            <div class="product-description">with Sofa Designer distinct range diversity to create beautiful space</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Coffee Tables" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">COFFEE TABLES</div>
-                            <div class="card-title">Craft your space with contemporary style</div>
-                            <div class="card-description">with Sofa Designer distinct range diversity to create beautiful space</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Coffee Tables" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">COFFEE TABLES</div>
+                            <div class="product-title">Craft your space with contemporary style</div>
+                            <div class="product-description">with Sofa Designer distinct range diversity to create beautiful space</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Media Units" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">MEDIA UNITS</div>
-                            <div class="card-title">Craft your space with contemporary style</div>
-                            <div class="card-description">with Sofa Designer distinct range diversity to create beautiful space</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Media Units" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">MEDIA UNITS</div>
+                            <div class="product-title">Craft your space with contemporary style</div>
+                            <div class="product-description">with Sofa Designer distinct range diversity to create beautiful space</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Slide 2: Premium Collection -->
-                <div class="carousel-slide">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop&crop=center" alt="Premium Sofas" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">PREMIUM SOFAS</div>
-                            <div class="card-title">Luxury meets functionality in perfect harmony</div>
-                            <div class="card-description">Experience ultimate comfort with our premium sofa collection</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop&crop=center" alt="Premium Sofas" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">PREMIUM SOFAS</div>
+                            <div class="product-title">Luxury meets functionality in perfect harmony</div>
+                            <div class="product-description">Experience ultimate comfort with our premium sofa collection</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Luxury Tables" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">LUXURY TABLES</div>
-                            <div class="card-title">Statement pieces for sophisticated spaces</div>
-                            <div class="card-description">Transform your room with our exclusive table designs</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Luxury Tables" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">LUXURY TABLES</div>
+                            <div class="product-title">Statement pieces for sophisticated spaces</div>
+                            <div class="product-description">Transform your room with our exclusive table designs</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Designer Chairs" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">DESIGNER CHAIRS</div>
-                            <div class="card-title">Ergonomic design meets aesthetic appeal</div>
-                            <div class="card-description">Discover comfort redefined with our chair collection</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Designer Chairs" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">DESIGNER CHAIRS</div>
+                            <div class="product-title">Ergonomic design meets aesthetic appeal</div>
+                            <div class="product-description">Discover comfort redefined with our chair collection</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Entertainment Units" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">ENTERTAINMENT UNITS</div>
-                            <div class="card-title">Modern storage solutions for contemporary homes</div>
-                            <div class="card-description">Organize in style with our media unit collection</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Entertainment Units" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">ENTERTAINMENT UNITS</div>
+                            <div class="product-title">Modern storage solutions for contemporary homes</div>
+                            <div class="product-description">Organize in style with our media unit collection</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Slide 3: Contemporary Collection -->
-                <div class="carousel-slide">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Contemporary Seating" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">CONTEMPORARY SEATING</div>
-                            <div class="card-title">Modern comfort for today's lifestyle</div>
-                            <div class="card-description">Embrace contemporary living with our seating solutions</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Contemporary Seating" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">CONTEMPORARY SEATING</div>
+                            <div class="product-title">Modern comfort for today's lifestyle</div>
+                            <div class="product-description">Embrace contemporary living with our seating solutions</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Storage Solutions" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">STORAGE SOLUTIONS</div>
-                            <div class="card-title">Innovative storage meets beautiful design</div>
-                            <div class="card-description">Maximize space with our smart storage furniture</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Storage Solutions" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">STORAGE SOLUTIONS</div>
+                            <div class="product-title">Innovative storage meets beautiful design</div>
+                            <div class="product-description">Maximize space with our smart storage furniture</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Dining Tables" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">DINING TABLES</div>
-                            <div class="card-title">Create memorable dining experiences</div>
-                            <div class="card-description">Gather around our exquisite dining table collection</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Dining Tables" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">DINING TABLES</div>
+                            <div class="product-title">Create memorable dining experiences</div>
+                            <div class="product-description">Gather around our exquisite dining table collection</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Lounge Furniture" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">LOUNGE FURNITURE</div>
-                            <div class="card-title">Relax in style with premium comfort</div>
-                            <div class="card-description">Unwind with our luxurious lounge furniture range</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Lounge Furniture" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">LOUNGE FURNITURE</div>
+                            <div class="product-title">Relax in style with premium comfort</div>
+                            <div class="product-description">Unwind with our luxurious lounge furniture range</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Slide 4: Executive Collection -->
-                <div class="carousel-slide">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Executive Furniture" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">EXECUTIVE FURNITURE</div>
-                            <div class="card-title">Professional elegance for discerning tastes</div>
-                            <div class="card-description">Command attention with our executive furniture line</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Executive Furniture" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">EXECUTIVE FURNITURE</div>
+                            <div class="product-title">Professional elegance for discerning tastes</div>
+                            <div class="product-description">Command attention with our executive furniture line</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Accent Tables" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">ACCENT TABLES</div>
-                            <div class="card-title">Perfect finishing touches for any room</div>
-                            <div class="card-description">Complete your space with our accent table selection</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Accent Tables" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">ACCENT TABLES</div>
+                            <div class="product-title">Perfect finishing touches for any room</div>
+                            <div class="product-description">Complete your space with our accent table selection</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Luxury Seating" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">LUXURY SEATING</div>
-                            <div class="card-title">Indulge in the finest seating experience</div>
-                            <div class="card-description">Discover unparalleled comfort and luxury</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Luxury Seating" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">LUXURY SEATING</div>
+                            <div class="product-title">Indulge in the finest seating experience</div>
+                            <div class="product-description">Discover unparalleled comfort and luxury</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Designer Sofas" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">DESIGNER SOFAS</div>
-                            <div class="card-title">Signature pieces that define sophistication</div>
-                            <div class="card-description">Make a statement with our designer sofa collection</div>
-                            <button class="card-button">More</button>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Designer Sofas" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">DESIGNER SOFAS</div>
+                            <div class="product-title">Signature pieces that define sophistication</div>
+                            <div class="product-description">Make a statement with our designer sofa collection</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Individual card slides for mobile (duplicated from above) -->
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Sofa Collection" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">SOFA COLLECTION</div>
-                            <div class="card-title">Discover comfort meets style</div>
-                            <div class="card-description">with Sofa Designer distinct range</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Sofa Collection" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">SOFA COLLECTION</div>
+                            <div class="product-title">Discover comfort meets style</div>
+                            <div class="product-description">with Sofa Designer distinct range</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Accent Chairs" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">ACCENT CHAIRS</div>
-                            <div class="card-title">Craft your space with style</div>
-                            <div class="card-description">contemporary design solutions</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Accent Chairs" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">ACCENT CHAIRS</div>
+                            <div class="product-title">Craft your space with style</div>
+                            <div class="product-description">contemporary design solutions</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Coffee Tables" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">COFFEE TABLES</div>
-                            <div class="card-title">Contemporary table designs</div>
-                            <div class="card-description">perfect centerpiece furniture</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Coffee Tables" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">COFFEE TABLES</div>
+                            <div class="product-title">Contemporary table designs</div>
+                            <div class="product-description">perfect centerpiece furniture</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Media Units" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">MEDIA UNITS</div>
-                            <div class="card-title">Modern storage solutions</div>
-                            <div class="card-description">organize with style and elegance</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Media Units" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">MEDIA UNITS</div>
+                            <div class="product-title">Modern storage solutions</div>
+                            <div class="product-description">organize with style and elegance</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Additional mobile slides -->
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop&crop=center" alt="Premium Sofas" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">PREMIUM SOFAS</div>
-                            <div class="card-title">Luxury comfort solutions</div>
-                            <div class="card-description">premium quality furniture</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop&crop=center" alt="Premium Sofas" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">PREMIUM SOFAS</div>
+                            <div class="product-title">Luxury comfort solutions</div>
+                            <div class="product-description">premium quality furniture</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Luxury Tables" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">LUXURY TABLES</div>
-                            <div class="card-title">Statement furniture pieces</div>
-                            <div class="card-description">sophisticated design elements</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Luxury Tables" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">LUXURY TABLES</div>
+                            <div class="product-title">Statement furniture pieces</div>
+                            <div class="product-description">sophisticated design elements</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Designer Chairs" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">DESIGNER CHAIRS</div>
-                            <div class="card-title">Ergonomic design solutions</div>
-                            <div class="card-description">comfort meets aesthetics</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Designer Chairs" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">DESIGNER CHAIRS</div>
+                            <div class="product-title">Ergonomic design solutions</div>
+                            <div class="product-description">comfort meets aesthetics</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Entertainment Units" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">ENTERTAINMENT UNITS</div>
-                            <div class="card-title">Modern storage design</div>
-                            <div class="card-description">contemporary organization solutions</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Entertainment Units" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">ENTERTAINMENT UNITS</div>
+                            <div class="product-title">Modern storage design</div>
+                            <div class="product-description">contemporary organization solutions</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Contemporary Seating" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">CONTEMPORARY SEATING</div>
-                            <div class="card-title">Modern lifestyle furniture</div>
-                            <div class="card-description">contemporary living solutions</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Contemporary Seating" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">CONTEMPORARY SEATING</div>
+                            <div class="product-title">Modern lifestyle furniture</div>
+                            <div class="product-description">contemporary living solutions</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Storage Solutions" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">STORAGE SOLUTIONS</div>
-                            <div class="card-title">Innovative furniture design</div>
-                            <div class="card-description">smart storage solutions</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Storage Solutions" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">STORAGE SOLUTIONS</div>
+                            <div class="product-title">Innovative furniture design</div>
+                            <div class="product-description">smart storage solutions</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Dining Tables" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">DINING TABLES</div>
-                            <div class="card-title">Memorable dining experiences</div>
-                            <div class="card-description">exquisite table collection</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Dining Tables" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">DINING TABLES</div>
+                            <div class="product-title">Memorable dining experiences</div>
+                            <div class="product-description">exquisite table collection</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Lounge Furniture" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">LOUNGE FURNITURE</div>
-                            <div class="card-title">Premium comfort design</div>
-                            <div class="card-description">luxurious lounge furniture</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Lounge Furniture" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">LOUNGE FURNITURE</div>
+                            <div class="product-title">Premium comfort design</div>
+                            <div class="product-description">luxurious lounge furniture</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Executive Furniture" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">EXECUTIVE FURNITURE</div>
-                            <div class="card-title">Professional elegance</div>
-                            <div class="card-description">executive furniture line</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aaa4cab7?w=400&h=300&fit=crop&crop=center" alt="Executive Furniture" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">EXECUTIVE FURNITURE</div>
+                            <div class="product-title">Professional elegance</div>
+                            <div class="product-description">executive furniture line</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Accent Tables" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">ACCENT TABLES</div>
-                            <div class="card-title">Perfect finishing touches</div>
-                            <div class="card-description">accent table selection</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Accent Tables" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">ACCENT TABLES</div>
+                            <div class="product-title">Perfect finishing touches</div>
+                            <div class="product-description">accent table selection</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="carousel-slide mobile-only">
-                    <div class="furniture-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Luxury Seating" class="card-image">
-                        <div class="card-overlay">
-                            <div class="card-category">LUXURY SEATING</div>
-                            <div class="card-title">Finest seating experience</div>
-                            <div class="card-description">unparalleled comfort luxury</div>
-                            <button class="card-button">More</button>
+                <div class="slide-group mobile-slide">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Luxury Seating" class="product-image">
+                        <div class="product-info">
+                            <div class="product-category">LUXURY SEATING</div>
+                            <div class="product-title">Finest seating experience</div>
+                            <div class="product-description">unparalleled comfort luxury</div>
+                            <button class="action-button">More</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="carousel-dots">
-            <span class="dot active" data-slide="0"></span>
-            <span class="dot" data-slide="1"></span>
-            <span class="dot" data-slide="2"></span>
-            <span class="dot" data-slide="3"></span>
+        <div class="navigation-dots">
+            <span class="nav-dot active" data-slide="0"></span>
+            <span class="nav-dot" data-slide="1"></span>
+            <span class="nav-dot" data-slide="2"></span>
+            <span class="nav-dot" data-slide="3"></span>
         </div>
     </div>
 
     <script>
-        class LuxuryCarousel {
+        class LuxuryShowcase {
             constructor() {
-                this.track = document.getElementById('carouselTrack');
-                this.dots = document.querySelectorAll('.dot');
+                this.track = document.getElementById('sliderTrack');
+                this.dots = document.querySelectorAll('.nav-dot');
                 this.prevBtn = document.getElementById('prevBtn');
                 this.nextBtn = document.getElementById('nextBtn');
                 this.currentSlide = 0;
@@ -644,7 +643,7 @@
                 this.startAutoPlay();
 
                 // Pause autoplay on hover
-                const container = document.querySelector('.carousel-container');
+                const container = document.querySelector('.luxury-showcase');
                 container.addEventListener('mouseenter', () => this.stopAutoPlay());
                 container.addEventListener('mouseleave', () => this.startAutoPlay());
 
@@ -663,7 +662,7 @@
             }
 
             updateLayout() {
-                const mobileSlides = this.track.querySelectorAll('.mobile-only');
+                const mobileSlides = this.track.querySelectorAll('.mobile-slide');
                 
                 if (this.isMobile()) {
                     // Show mobile slides
@@ -794,7 +793,7 @@
             }
 
             addTouchEvents() {
-                const carousel = document.querySelector('.carousel-wrapper');
+                const carousel = document.querySelector('.slider-container');
                 
                 carousel.addEventListener('touchstart', (e) => {
                     this.touchStartX = e.touches[0].clientX;
@@ -830,7 +829,7 @@
 
         // Initialize carousel when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
-            new LuxuryCarousel();
+            new LuxuryShowcase();
         });
     </script>
 </body>
