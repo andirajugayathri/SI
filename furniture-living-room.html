@@ -11,748 +11,14 @@
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<style> 
-.dropdown:hover .dropdown-item{
-   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
-}
-.dropdown-item {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;           
-}
-
-.dropdown-item i {
-  margin-left: 8px; 
-}
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu .submenu {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 100%; 
-  z-index: 9999;
-  min-width: 200px;
-}
-.dropdown-submenu:hover > .submenu {
-  display: block;
-}
-@media (max-width: 768px) {
-  .dropdown-submenu .submenu {
-    position: static;   
-    display: none;    
-    background: #fff;  
-  }
-
-  .dropdown-submenu.active > .submenu {
-    display: block;    
-  }
-
-  .dropdown-item {
-    justify-content: space-between;
-  }
-}
-
-@media (min-width: 769px) {
-  .dropdown-submenu .submenu {
-    position: absolute;
-    top: 0;
-    left: 100%;  
-    display: none;
-  }
-  .dropdown-submenu:hover > .submenu {
-    display: block; 
-  }
-}
-
-
-       
-        .luxury-living-room{
-            padding: 60px;
-        }
-        .image-section {
-            position: relative;
-        }
-        
-        
-        .room-image {
-            position: relative;
-            height: auto;
-        }
-
-        .room-image img{
-            max-width: 100%;
-            height: auto;
-        }
-        
-        
-        .text-section {
-            padding-left: 40px;
-        }
-        
-        .main-heading {
-            margin-bottom: 40px;
-            font-family: Playfair Display SC;
-            font-weight: 400;
-            font-size: 36px;
-
-        }
-        
-        
-        .main-heading .living-room {
-            color:#C91D25;
-            font-weight: 700;
-        }
-        
-        .main-heading .furniture {
-            color: #2c2c2c;
-        }
-        
-        .description {
-            font-size:16px;
-            color: #626262;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-family: "Montserrat";
-            font-weight: 400;
-
-        }
-        
-        .detailed-description {
-            font-size:16px;
-            color: #626262;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-family: "Montserrat";
-            font-weight: 400;
-        }
-        
-        @media (max-width: 1024px) {
-            .content-wrapper {
-                grid-template-columns: 1fr;
-                gap: 50px;
-                text-align: center;
-            }
-            
-            .main-heading {
-                font-size: 2.5rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            
-            
-            .main-heading {
-                font-size: 2rem;
-                margin-bottom: 0px!important;
-                margin-top: 50px;
-                text-align: center;
-            }
-
-            .luxury-living-room {
-                padding: 60px 0!important;
-            }
-
-            .text-section{
-                padding-left: 10px!important;
-            }
-            
-            .room-image {
-                height: auto;
-            }
-            
-            .description,
-            .detailed-description {
-                font-size: 1rem;
-            }
-        }
-/* 
-        collections */
-         .collections-section {
-            background-color: #f8f6f2;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-family: "Playfair Display SC";
-            font-weight: 400;
-            font-size: 32px;
-        }
-
-        .section-title h2 {
-            font-weight: 400;
-            color: #000000;
-            font-size: 32px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .section-title .highlight {
-            color: #C91D25;
-            font-weight: 700;
-            font-size: 32px;
-        }
-
-        .collections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .collection-card {
-            border-radius: 15px;
-            padding: 30px 20px 25px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid #e8d5b7;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .collection-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .collection-card:hover::before {
-            left: 100%;
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: 500;
-            color: #000;
-            font-family: "Playfair Display";
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-image {
-            width: 100%;
-            max-width: 200px;
-            height: 180px;
-            object-fit: contain;
-            margin: 0 auto 25px;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .collection-card {
-            perspective: 1000px;
-        }
-
-         .collection-card:hover .product-image {
-            transform: rotateY(180deg); 
-            transition: transform 0.6s ease;
-         }
-
-
-        .view-more-btns {
-            color: #C91D25;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            border: none;
-            background: none;
-            cursor: pointer;
-            padding: 8px 0;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .view-more-btns::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background-color: #C91D25;
-            transition: width 0.3s ease;
-        }
-
-        .view-more-btns:hover {
-            color: #C91D25;
-        }
-
-        .view-more-btns:hover::after {
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .collections-grid {
-               flex-direction: column;
-                gap: 20px;
-            }
-            
-            .collection-card {
-                padding: 25px 15px 20px;
-            }
-            .card-title {
-                font-size: 0.95rem;
-                margin-bottom: 15px;
-            }
-            
-            .product-image {
-                max-width: 150px;
-                height: 140px;
-                margin-bottom: 20px;
-            }
-            
-           
-        }
-
-        @media (max-width: 480px) {
-           
-            
-            .collections-grid {
-              
-                gap: 20px;
-            }
-            
-            .section-title {
-                margin-bottom: 40px;
-            }
-            .collection-card {
-                padding: 20px 15px;
-            }
-            
-            .card-title {
-                font-size: 0.9rem;
-            }
-            
-            .product-image {
-                max-width: 180px;
-                height: 160px;
-            }
-            
-            
-        }
-
-        @media (max-width: 360px) {
-            .section-title h2 {
-                font-size: 1.4rem;
-            }
-            
-            
-            .card-title {
-                font-size: 0.85rem;
-            }
-        }
-        @media (min-width: 1400px) {
-           
-            
-            .collections-grid {
-                
-                gap: 35px;
-            }
-            
-            
-        }
-        /* furniture online */
-          .living-section {
-    padding: 60px;
-}
-
-.living-heading {
-    font-size: 30px;
-    color: #000000;
-    font-weight: 400;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
-    text-align: center;
-    line-height: 1.3;
-    font-family: "Playfair Display SC";
-
-}
-
-.living-heading .highlight {
-    color: #C91D25;
-    font-weight: 700;
-    font-size: 30px;
-}
-
-.living-description {
-    font-size: 1rem;
-    color: #626262;
-    margin: 0px 77px;
-    line-height: 1.7;
-    font-family: "Montserrat";
-    text-align: center;
-    font-weight: 400;
-
-}
-
-.living-features {
-    display: flex;
-    gap: 70px;
-    font-family: "Montserrat";
-    margin: 40px auto;
-}
-
-.living-feature {
-    display: flex;
-    gap:10px;
-    align-items: center;
-    text-align: center;
-}
-
-.living-feature-title {
-    font-size: 1rem;
-    color: #626262;
-    font-weight: 400;
-}
-
-.living-icon-wrapper {
-    width: 52px;
-    height: 52px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-   .living-section{
-    padding: 50px 0;
-   }
-    
-    .living-heading {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-    
-    .living-description {
-        margin: 0!important;
-        text-align: left;
-    }
-    
-    .living-features {
-       flex-direction: column;
-        gap: 40px 20px;
-    }
-    
-    .living-feature-title {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    
-    .living-features {
-
-        flex-direction: column;
-        gap: 35px;
-    }
-    
-}
-
-@media (max-width: 360px) {
-    .living-heading {
-        font-size: 1.3rem;
-    }
-   
-    
-    .living-feature-title {
-        font-size: 0.85rem;
-    }
-}
-
-/* Spaces We Transform */
-.showcase-section{padding:60px;}
-    .left-content{padding-right:40px;}
-    .section-titles{
-        color: #000;;
-        margin-bottom:0;
-        font-family: "Playfair Display";
-        font-weight: 500;
-        font-size: 36px;
-    }
-    .section-subtitle{font-size:36px;font-weight:700;color:#C91D25;margin-bottom:30px; font-family: "Playfair Display";}
-    .divider{width:60px;height:4px;background:#A27327;margin-bottom:30px;}
-    .stats-section{display:flex;align-items:center;margin-bottom:30px;}
-    .stats-icon{width:60px;height:60px;display:flex;align-items:center;justify-content:center;margin-right:20px;}
-    .stats-icon i{font-size:24px;color:#333;}
-    .stats-info h3{
-        margin:0;
-        color:#626262;
-        font-family: "Montserrat";
-        font-weight: 400;
-        font-size: 16px;
-        }
-    .stats-info p{
-        color:#626262;
-        font-family: "Montserrat";
-        font-weight: 400;
-        font-size: 16px;
-    }
-    .read-more-btn{
-        font-family: "Poppins";
-        font-weight: 600;
-        font-size: 12px;
-        border-bottom:1px solid #A27327; 
-        color:#C91D25;text-decoration:none;text-transform:uppercase;letter-spacing:1px;display:inline-flex;align-items:center;}
-    .read-more-btn i{margin-left:10px;transition:transform .3s;}
-    .read-more-btn:hover{color:#C91D25;}
-    .read-more-btn:hover i{transform:translateX(5px);}
-    .furniture-card{background:#F1F1F1;padding:40px;height:326px;display:flex;flex-direction:column;justify-content:center;transition:.3s;}
-    .furniture-image{width:100%;height:100%;object-fit:contain;transition:transform .3s;}
-    .furniture-card:hover .furniture-image{transform:scale(1.05);}
-    .furniture-name a{font-size:1.3rem;font-weight:600;color:#000;margin:0;transition:color .3s;text-align: left;text-decoration: none;}
-    .furniture-card:hover .furniture-name a{color:#C91D25;}
-    .carousel-control-prev,.carousel-control-next{width:36px;height:36px;background:#C91D25;border-radius:50%;top:50%;transform:translateY(-50%);}
-    .carousel-control-prev{left:-20px; opacity: 1;}
-    .carousel-control-next{right:-20px; opacity: 1;}
-    .carousel-control-prev:hover,.carousel-control-next:hover{background:#C91D25;transform:translateY(-50%) scale(1.1);}
-    .carousel-control-prev-icon,.carousel-control-next-icon{width:20px;height:20px;background-size:20px 20px;}
-    .carousel-indicators{display:none;}
-    @media(max-width:992px){.left-content{padding-right:20px;margin-bottom:40px;}.section-titles,.section-subtitle{font-size:2.5rem;}}
-    @media(max-width:768px){.showcase-section{padding:40px 0;}.section-titles,.section-subtitle{font-size:2rem;}.stats-section{flex-direction:column;align-items:flex-start;text-align:left;}.stats-icon{margin-bottom:15px;margin-right:0;}}
-    @media(max-width:576px){.section-titles,.section-subtitle{font-size:1.8rem;}.furniture-card{height:280px;margin:0 5px;}}
-     
-    /* ultimate collection of luxury */
-      .luxury-showcase {
-            text-align: center;
-            padding: 60px;
-        }
-
-        .showcase-header {
-            margin-bottom: 40px;
-        }
-
-        .showcase-header h1 {
-            font-size: 32px;
-            font-weight: 400;
-            color: #2c2c2c;
-            margin-bottom: 8px;
-        }
-
-        .showcase-header .header-subtitle {
-            font-size: 24px;
-            color: #c8102e;
-            font-weight: 500;
-        }
-
-        .slider-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-        }
-
-        .slider-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 400%;
-        }
-
-        .slide-group {
-            min-width: 25%;
-            display: flex;
-            height: 428px;
-            gap: 20px;
-            padding: 0 10px;
-        }
-
-        .product-card {
-            flex: 1;
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .product-images {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .product-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: 30px;
-            border-radius: 15px;
-            background-color: #A27327;
-            color: white;
-            padding: 15px;
-            text-align: left;
-        }
-
-        .product-category {
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            opacity: 0.9;
-            font-family: "Playfair Display";
-            font-weight: 400;
-            font-size: 18px;
-        }
-
-      
-
-        .product-description {
-            opacity: 0.9;
-            margin-bottom: 16px;
-            font-family: "Montserrat";
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 22px;
-            text-align: center;
-            vertical-align: middle;
-
-        }
-
-        .action-button {
-            background: transparent;
-            border: 1px solid white;
-            color: white;
-            padding: 8px 20px;
-            font-size: 11px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .action-button:hover {
-            background: white;
-            color: #2c2c2c;
-        }
-
-        .navigation-dots {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 30px;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #d0d0d0;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-dot.active {
-            background-color: #c8102e;
-        }
-
-        /* Mobile Styles */
-        @media (max-width: 768px) {
-            .showcase-header h1 {
-                font-size: 24px;
-            }
-            
-            .showcase-header .header-subtitle {
-                font-size: 18px;
-            }
-
-            .slider-track {
-                width: 1600%;
-            }
-
-            .slide-group {
-                min-width: 6.25%; 
-                padding: 0;
-                gap: 0;
-            }
-
-            .product-card {
-                width: 100%;
-                min-width: 100%;
-            }
-
-            .product-image {
-                height: 280px;
-            }
-
-            .product-info {
-                padding: 30px 20px 20px;
-            }
-
-            .product-title {
-                font-size: 18px;
-            }
-
-            .product-description {
-                font-size: 11px;
-            }
-
-            .mobile-slide {
-                display: flex !important;
-            }
-        }
-
-        /* Desktop: Hide mobile-only slides */
-        @media (min-width: 769px) {
-            .mobile-slide {
-                display: none !important;
-            }
-        }
-
-        /* Navigation Arrows */
-        .slider-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            color: #2c2c2c;
-            transition: all 0.3s ease;
-            z-index: 10;
-            display: none;
-        }
-
-        .slider-arrow:hover {
-            background: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .arrow-prev {
-            left: 20px;
-        }
-
-        .arrow-next {
-            right: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .slider-arrow {
-                display: none;
-            }
-        }
-
-     
-</style>
 <body>
     
     <div id="navbar"></div>
 
      <section class="hero-section">
-        <img src="assets/images/furniture-living-room-banner.png" alt="Hero Banner Mobile" class="hero-image img-fluid d-block d-md-none">
+        <img src="assets/images/furniture-livingroom-banner.png" alt="Hero Banner Mobile" class="hero-image img-fluid d-block d-md-none">
 
-        <img src="assets/images/furniture-living-room-banner.png" alt="Hero Banner" class="hero-image img-fluid d-none d-md-block">
+        <img src="assets/images/furniture-livingroom-banner.png" alt="Hero Banner" class="hero-image img-fluid d-none d-md-block">
     </section>
 
     <section class="luxury-living-room">
@@ -789,8 +55,8 @@
       <!-- Left content -->
       <div class="col-lg-3 col-md-12">
         <div class="left-content">
-          <h2 class="section-titles">Spaces We</h2>
-          <h2 class="section-subtitle">Transform</h2>
+          <h2 class="section-titles">Living Spaces</h2>
+          <h2 class="section-subtitle">We Transform</h2>
           <div class="divider"></div>
 
           <div class="stats-section">
@@ -909,6 +175,7 @@
     </section>
 
      <div class="luxury-showcase">
+      <div class="container">
         <div class="showcase-header">
             <h1>The Ultimate Collection of Luxury</h1>
             <div class="header-subtitle">Living Room Furniture</div>
@@ -922,37 +189,34 @@
                 <!-- Slide 1: Original Set -->
                 <div class="slide-group">
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Sofa Collection" class="product-images">
+                        <img src="assets/images/ultimate-sofa.jpg" alt="Sofa Collection" class="product-images">
                         <div class="product-info">
                             <div class="product-category">SOFA COLLECTION</div>
-                            <div class="product-description">Make your space uniquely yours with Space Designs' distinct range of sofas for your living room.</div>
+                            <div class="product-description">Sleek contemporary to timeless classic sofas with ergonomic comfort and bold statement designs.</div>
                             <button class="action-button">More</button>
                         </div>
                     </div>
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Accent Chairs" class="product-images">
+                        <img src="assets/images/ultimate-chair.jpg" alt="Accent Chairs" class="product-images">
                         <div class="product-info">
                             <div class="product-category">ACCENT CHAIRS</div>
-                            <div class="product-title">Craft your space with contemporary style</div>
-                            <div class="product-description">with Sofa Designer distinct range diversity to create beautiful space</div>
+                            <div class="product-description">Don't just sit—make a style statement with Space Designs' accent chairs </div>
                             <button class="action-button">More</button>
                         </div>
                     </div>
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Coffee Tables" class="product-images">
+                        <img src="assets/images/ultimate-table.jpg" alt="Coffee Tables" class="product-images">
                         <div class="product-info">
                             <div class="product-category">COFFEE TABLES</div>
-                            <div class="product-title">Craft your space with contemporary style</div>
-                            <div class="product-description">with Sofa Designer distinct range diversity to create beautiful space</div>
+                            <div class="product-description">Discover your perfect coffee table from Space Designs' living room collection</div>
                             <button class="action-button">More</button>
                         </div>
                     </div>
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Media Units" class="product-images">
+                        <img src="assets/images/ultimate-chair.jpg" alt="Media Units" class="product-images">
                         <div class="product-info">
-                            <div class="product-category">MEDIA UNITS</div>
-                            <div class="product-title">Craft your space with contemporary style</div>
-                            <div class="product-description">with Sofa Designer distinct range diversity to create beautiful space</div>
+                            <div class="product-category">END TABLES</div>
+                            <div class="product-description">Complete your living room setup with Space Designs' versatile end tables, </div>
                             <button class="action-button">More</button>
                         </div>
                     </div>
@@ -961,38 +225,34 @@
                 <!-- Slide 2: Premium Collection -->
                 <div class="slide-group">
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&h=300&fit=crop&crop=center" alt="Premium Sofas" class="product-images">
+                        <img src="assets/images/ultimate-mediaunit.jpg" alt="Premium Sofas" class="product-images">
                         <div class="product-info">
-                            <div class="product-category">PREMIUM SOFAS</div>
-                            <div class="product-title">Luxury meets functionality in perfect harmony</div>
-                            <div class="product-description">Experience ultimate comfort with our premium sofa collection</div>
+                            <div class="product-category">MEDIA UNITS</div>
+                            <div class="product-description">Every modern living room deserves a media unit that combines sleek finishes</div>
                             <button class="action-button">More</button>
                         </div>
                     </div>
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Luxury Tables" class="product-images">
+                        <img src="assets/images/ultimate-sofa.jpg" alt="Luxury Tables" class="product-images">
                         <div class="product-info">
-                            <div class="product-category">LUXURY TABLES</div>
-                            <div class="product-title">Statement pieces for sophisticated spaces</div>
-                            <div class="product-description">Transform your room with our exclusive table designs</div>
+                            <div class="product-category">SIDE UNITS</div>
+                            <div class="product-description">Our iconic side units serve as stunning focal points in any living room setting.</div>
                             <button class="action-button">More</button>
                         </div>
                     </div>
                     <div class="product-card">
                         <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Designer Chairs" class="product-images">
                         <div class="product-info">
-                            <div class="product-category">DESIGNER CHAIRS</div>
-                            <div class="product-title">Ergonomic design meets aesthetic appeal</div>
-                            <div class="product-description">Discover comfort redefined with our chair collection</div>
+                            <div class="product-category">CONSOLES</div>
+                            <div class="product-description">Expertly crafted with skillfully designed metallic structures and premium materials</div>
                             <button class="action-button">More</button>
                         </div>
                     </div>
                     <div class="product-card">
                         <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Entertainment Units" class="product-images">
                         <div class="product-info">
-                            <div class="product-category">ENTERTAINMENT UNITS</div>
-                            <div class="product-title">Modern storage solutions for contemporary homes</div>
-                            <div class="product-description">Organize in style with our media unit collection</div>
+                            <div class="product-category">POUFFES</div>
+                            <div class="product-description">Experience luxurious comfort and opulent style with Space Designs' pouffe collection</div>
                             <button class="action-button">More</button>
                         </div>
                     </div>
@@ -1003,80 +263,40 @@
                     <div class="product-card">
                         <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Contemporary Seating" class="product-images">
                         <div class="product-info">
-                            <div class="product-category">CONTEMPORARY SEATING</div>
-                            <div class="product-title">Modern comfort for today's lifestyle</div>
-                            <div class="product-description">Embrace contemporary living with our seating solutions</div>
+                            <div class="product-category">BOOKSHELVES</div>
+                            <div class="product-description">Showcase your favorite books and decorative accents with Space Designs </div>
+                            <button class="action-button">More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Sofa Collection" class="product-images">
+                        <div class="product-info">
+                            <div class="product-category">SOFA COLLECTION</div>
+                            <div class="product-description">Make your space uniquely yours with Space Designs' distinct range of sofas</div>
                             <button class="action-button">More</button>
                         </div>
                     </div>
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Storage Solutions" class="product-images">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Accent Chairs" class="product-images">
                         <div class="product-info">
-                            <div class="product-category">STORAGE SOLUTIONS</div>
-                            <div class="product-title">Innovative storage meets beautiful design</div>
-                            <div class="product-description">Maximize space with our smart storage furniture</div>
+                            <div class="product-category">ACCENT CHAIRS</div>
+                            <div class="product-description">Don't just sit—make a style statement with Space Designs' accent chairs </div>
                             <button class="action-button">More</button>
                         </div>
                     </div>
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Dining Tables" class="product-images">
+                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Coffee Tables" class="product-images">
                         <div class="product-info">
-                            <div class="product-category">DINING TABLES</div>
-                            <div class="product-title">Create memorable dining experiences</div>
-                            <div class="product-description">Gather around our exquisite dining table collection</div>
+                            <div class="product-category">COFFEE TABLES</div>
+                            <div class="product-description">Discover your perfect coffee table from Space Designs' living room collection</div>
                             <button class="action-button">More</button>
                         </div>
                     </div>
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Lounge Furniture" class="product-images">
-                        <div class="product-info">
-                            <div class="product-category">LOUNGE FURNITURE</div>
-                            <div class="product-title">Relax in style with premium comfort</div>
-                            <div class="product-description">Unwind with our luxurious lounge furniture range</div>
-                            <button class="action-button">More</button>
-                        </div>
-                    </div>
+
                 </div>
                 
-                <!-- Slide 4: Executive Collection -->
-                <div class="slide-group">
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Executive Furniture" class="product-images">
-                        <div class="product-info">
-                            <div class="product-category">EXECUTIVE FURNITURE</div>
-                            <div class="product-title">Professional elegance for discerning tastes</div>
-                            <div class="product-description">Command attention with our executive furniture line</div>
-                            <button class="action-button">More</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop&crop=center" alt="Accent Tables" class="product-images">
-                        <div class="product-info">
-                            <div class="product-category">ACCENT TABLES</div>
-                            <div class="product-title">Perfect finishing touches for any room</div>
-                            <div class="product-description">Complete your space with our accent table selection</div>
-                            <button class="action-button">More</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop&crop=center" alt="Luxury Seating" class="product-images">
-                        <div class="product-info">
-                            <div class="product-category">LUXURY SEATING</div>
-                            <div class="product-title">Indulge in the finest seating experience</div>
-                            <div class="product-description">Discover unparalleled comfort and luxury</div>
-                            <button class="action-button">More</button>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop&crop=center" alt="Designer Sofas" class="product-images">
-                        <div class="product-info">
-                            <div class="product-category">DESIGNER SOFAS</div>
-                            <div class="product-title">Signature pieces that define sophistication</div>
-                            <div class="product-description">Make a statement with our designer sofa collection</div>
-                            <button class="action-button">More</button>
-                        </div>
-                    </div>
-                </div>
+                
                 
                 <!-- Individual card slides for mobile (duplicated from above) -->
                 <div class="slide-group mobile-slide">
@@ -1260,13 +480,13 @@
                     </div>
                 </div>
             </div>
+            </div>
      </div>
 
         <div class="navigation-dots">
             <span class="nav-dot active" data-slide="0"></span>
             <span class="nav-dot" data-slide="1"></span>
             <span class="nav-dot" data-slide="2"></span>
-            <span class="nav-dot" data-slide="3"></span>
         </div>
     </div>
 
@@ -1394,9 +614,9 @@
                 this.prevBtn = document.getElementById('prevBtn');
                 this.nextBtn = document.getElementById('nextBtn');
                 this.currentSlide = 0;
-                this.totalDesktopSlides = 4;
-                this.totalMobileSlides = 16;
-                this.totalSlides = 4;
+                this.totalDesktopSlides = 3;
+                this.totalMobileSlides = 9;
+                this.totalSlides = 3;
                 this.autoPlayInterval = null;
                 this.autoPlayDelay = 5000;
                 this.isAutoPlaying = true;
@@ -1449,15 +669,15 @@
                     mobileSlides.forEach(slide => slide.style.display = 'flex');
                     this.totalSlides = this.totalMobileSlides;
                     // Start with first mobile slide (index 4)
-                    if (this.currentSlide < 4) {
-                        this.currentSlide = 4;
+                    if (this.currentSlide < 3) {
+                        this.currentSlide = 3;
                     }
                 } else {
                     // Hide mobile slides
                     mobileSlides.forEach(slide => slide.style.display = 'none');
                     this.totalSlides = this.totalDesktopSlides;
                     // Reset to desktop range if needed
-                    if (this.currentSlide >= 4) {
+                    if (this.currentSlide >= 3) {
                         this.currentSlide = 0;
                     }
                 }
@@ -1480,8 +700,8 @@
                 // Ensure index is within bounds
                 if (this.isMobile()) {
                     // Mobile: slides 4-19 (16 total)
-                    if (index < 4) index = 4;
-                    if (index >= 4 + this.totalMobileSlides) index = 4 + this.totalMobileSlides - 1;
+                    if (index < 3) index = 3;
+                    if (index >= 3 + this.totalMobileSlides) index = 4 + this.totalMobileSlides - 1;
                 } else {
                     // Desktop: slides 0-3
                     if (index < 0) index = 0;
@@ -1497,7 +717,7 @@
                     translateX = -(index * 6.25);
                 } else {
                     // Desktop: 25% per slide
-                    translateX = -(index * 25);
+                    translateX = -(index * 33.33);
                 }
 
                 this.track.style.transform = `translateX(${translateX}%)`;
@@ -1513,7 +733,7 @@
                 let dotIndex;
                 if (this.isMobile()) {
                     // Mobile: map slides 4-19 to dots 0-3
-                    dotIndex = Math.floor((this.currentSlide - 4) / 4);
+                    dotIndex = Math.floor((this.currentSlide - 3) / 3);
                 } else {
                     // Desktop: direct mapping
                     dotIndex = this.currentSlide;
@@ -1528,8 +748,8 @@
                 let nextIndex;
                 if (this.isMobile()) {
                     nextIndex = this.currentSlide + 1;
-                    if (nextIndex >= 4 + this.totalMobileSlides) {
-                        nextIndex = 4; // Loop back to first mobile slide
+                    if (nextIndex >= 3 + this.totalMobileSlides) {
+                        nextIndex = 3; // Loop back to first mobile slide
                     }
                 } else {
                     nextIndex = this.currentSlide + 1;
@@ -1544,8 +764,8 @@
                 let prevIndex;
                 if (this.isMobile()) {
                     prevIndex = this.currentSlide - 1;
-                    if (prevIndex < 4) {
-                        prevIndex = 4 + this.totalMobileSlides - 1; // Loop to last mobile slide
+                    if (prevIndex < 3) {
+                        prevIndex = 3 + this.totalMobileSlides - 1; // Loop to last mobile slide
                     }
                 } else {
                     prevIndex = this.currentSlide - 1;
