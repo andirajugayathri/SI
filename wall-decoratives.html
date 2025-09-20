@@ -205,131 +205,263 @@
         }
  
         /* wall decor section */
-          .space-decor-types-section {
-            padding: 60px;
-            background-color: #f8f9fa;
+         .space-decor-types-section {
+            padding: 60px 0;
         }
 
+           .carousel-container {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+
         .space-decor-main-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #333333;
-            margin-bottom: 20px;
-            text-align: left;
+            font-size: 32px;
+            font-weight: 400;
+            color: #000;
+            text-align: center;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
         .space-decor-highlight {
             color: #C91D25;
+            position: relative;
+            font-weight: 700;
         }
+
+       
 
         .space-decor-subtitle {
-            font-size: 1rem;
+            font-size: 16px;
             color: #626262;
-            margin-bottom: 50px;
-            font-family: "Montserrat";
             font-weight: 400;
-            line-height: 26px;
-
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
         }
+
+        /* .carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        } */
 
         .space-decor-item-card {
-            background: white;
-            border-radius: 0;
             overflow: hidden;
-            margin-bottom: 30px;
-            box-shadow: none;
-            border: 1px solid #e9ecef;
+            transition: all 0.4s ease;
             height: 100%;
+            cursor: pointer;
         }
+
+        /* .space-decor-item-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        } */
 
         .space-decor-card-image {
             width: 100%;
-            height: 250px;
+            height: 260px;
             object-fit: cover;
-            display: block;
+            transition: transform 0.4s ease;
         }
 
+       
+
         .space-decor-card-content {
-            padding: 25px 20px;
-            position: relative;
+            padding: 1.5rem;
         }
 
         .space-decor-card-title {
-            font-size: 20px;
+            font-size: 1.25rem;
             font-weight: 600;
-            color: #C91D25;
-            margin-bottom: 15px;
-            position: relative;
-            padding-right: 30px;
-            font-family: "Inter";
-
+            color: #000;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 1.3;
         }
 
         .space-decor-card-arrow {
-            position: absolute;
-            top: 0;
-            right: 0;
             color: #C91D25;
-            font-size: 1.4rem;
-            font-weight: bold;
-            transform: rotate(45deg);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .space-decor-item-card:hover .space-decor-card-arrow {
+            transform: translate(5px, -5px);
+            opacity: 1;
         }
 
         .space-decor-card-description {
-            font-size: 16px;
-            color: #666666;
+            color: #626262;
             line-height: 1.6;
-            margin-bottom: 20px;
-            font-family: "Montserrat";
-            font-weight: 400;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
         }
 
         .space-decor-card-divider {
-            width: 100%;
-            height: 2px;
-            background-color:  #A27327;
             border: none;
+            height: 2px;
+            background: #A27327;
             margin: 0;
         }
 
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 101%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            gap: 20px;
+            padding: 0 10px;
+            align-items: stretch;
+        }
+
+        .carousel-slide .col {
+            flex: 1;
+        }
+
+        .carousel-nav {
+            display: none;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 2rem;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #dee2e6;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #C91D25;
+            transform: scale(1.2);
+        }
+
+        .carousel-dot:hover {
+            background: #C91D25;
+        }
+
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            .mobile-carousel {
+                display: none;
+            }
+            .desktop-carousel {
+                display: block;
+            }
+        }
+
+        /* Mobile styles */
         @media (max-width: 768px) {
-            .space-decor-types-section {
-                padding: 40px 0;
+            .desktop-carousel {
+                display: none;
+            }
+            .mobile-carousel {
+                display: block;
             }
 
             .space-decor-main-title {
-                font-size: 1.5rem;
+                font-size: 2rem;
+                padding: 0 1rem;
             }
 
             .space-decor-subtitle {
-                font-size: 0.9rem;
-                margin-bottom: 30px;
+                font-size: 1rem;
+                padding: 0 1rem;
+                margin-bottom: 2rem;
             }
 
-            .space-decor-card-image {
-                height: 200px;
+            .mobile-carousel-track {
+                display: flex;
+                transition: transform 0.5s ease;
             }
 
-            .space-decor-card-content {
-                padding: 20px 15px;
+            .mobile-carousel-slide {
+                min-width: 100%;
+                flex-shrink: 0;
+                padding: 0 20px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .mobile-carousel .space-decor-item-card {
+                max-width: 350px;
+                width: 100%;
             }
 
             .space-decor-card-title {
                 font-size: 1.1rem;
             }
-        }
 
-        @media (max-width: 576px) {
-            .space-decor-main-title {
-                font-size: 1.3rem;
+            .space-decor-card-content {
+                padding: 1.25rem;
             }
 
             .space-decor-card-image {
                 height: 180px;
             }
 
+            .mobile-dots {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 2rem;
+            }
+
+            .mobile-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #dee2e6;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-dot.active {
+                background: #e74c3c;
+                transform: scale(1.2);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .space-decor-types-section {
+                padding: 40px 0;
+            }
+
+            .space-decor-main-title {
+                font-size: 1.75rem;
+            }
+
+            .mobile-carousel-slide {
+                padding: 0 15px;
+            }
+
             .space-decor-card-content {
-                padding: 15px;
+                padding: 1rem;
+            }
+
+            .space-decor-card-image {
+                height: 160px;
             }
         }
 
@@ -1024,7 +1156,7 @@
                 <!-- Chair Image Section -->
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="chair-container fade-in">
-                        <img src="assets/images/wall-decorative-chair.png" alt="Beautiful Luxury Chair" class="chair-image">
+                        <img src="assets/images/wall-with-decor.png" alt="Beautiful Luxury Chair" class="chair-image">
                     </div>
                 </div>
                 
@@ -1032,7 +1164,7 @@
                 <div class="col-lg-5 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="content-section fade-in">
                         <h1 class="main-title">
-                            Beautiful Luxury Living Room<br>
+                            Beautiful Luxury Living Room
                             <span class="highlight-text">Wall With Décor</span>
                         </h1>
                         <p class="description">
@@ -1080,107 +1212,255 @@
         <div class="container-fluid">
             <h2 class="space-decor-main-title">Types Of Space Interiors Premium <span class="space-decor-highlight">Wall Decor Items</span></h2>
             <p class="space-decor-subtitle">Wall decorations come in various types and styles, each contributing uniquely to create beautifully decorated walls. Some of the exclusive wall decor categories available through Space Interiors include:</p>
-            
-            <div class="row">
-                <!-- Row 1 -->
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="space-decor-item-card">
-                        <img src="assets/images/flex and floatding.png" alt="Fixed and Floating Shelves" class="space-decor-card-image">
-                        <div class="space-decor-card-content">
-                            <h3 class="space-decor-card-title">
-                                Fixed and Floating Shelves
-                                <span class="space-decor-card-arrow">↗</span>
-                            </h3>
-                            <p class="space-decor-card-description">Wall shelves serve as both smart storage solutions and elegant showcase pieces.</p>
-                            <hr class="space-decor-card-divider">
+           
+            <!-- Desktop Carousel -->
+            <div class="desktop-carousel">
+                <div class="container carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide">
+                            <div class="col">
+                                <div class="space-decor-item-card">
+                                    <img src="assets/images/flex and floatding.png" alt="Fixed and Floating Shelves" class="space-decor-card-image">
+                                    <div class="space-decor-card-content">
+                                        <h3 class="space-decor-card-title">
+                                            Fixed and Floating Shelves
+                                            <span class="space-decor-card-arrow">↗</span>
+                                        </h3>
+                                        <p class="space-decor-card-description">Wall shelves serve as both smart storage solutions and elegant showcase pieces.</p>
+                                        <hr class="space-decor-card-divider">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="space-decor-item-card">
+                                    <img src="assets/images/wall arts and painting.jpg" alt="Wall Art & Paintings" class="space-decor-card-image">
+                                    <div class="space-decor-card-content">
+                                        <h3 class="space-decor-card-title">
+                                            Wall Art & Paintings
+                                            <span class="space-decor-card-arrow">↗</span>
+                                        </h3>
+                                        <p class="space-decor-card-description">Artistic paintings, premium printed frames, and custom painted artwork represent.</p>
+                                        <hr class="space-decor-card-divider">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="space-decor-item-card">
+                                    <img src="assets/images/photoframes.jpg" alt="Photo Frames" class="space-decor-card-image">
+                                    <div class="space-decor-card-content">
+                                        <h3 class="space-decor-card-title">
+                                            Photo Frames
+                                            <span class="space-decor-card-arrow">↗</span>
+                                        </h3>
+                                        <p class="space-decor-card-description">A home truly reflects you and your family's story. Displaying photographs of happy.</p>
+                                        <hr class="space-decor-card-divider">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="space-decor-item-card">
-                        <img src="assets/images/wall arts and painting.jpg" alt="Wall Art & Paintings" class="space-decor-card-image">
-                        <div class="space-decor-card-content">
-                            <h3 class="space-decor-card-title">
-                                Wall Art & Paintings
-                                <span class="space-decor-card-arrow">↗</span>
-                            </h3>
-                            <p class="space-decor-card-description">Artistic paintings, premium printed frames, and custom painted artwork represent.</p>
-                            <hr class="space-decor-card-divider">
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide">
+                            <div class="col">
+                                <div class="space-decor-item-card">
+                                    <img src="assets/images/wall-accents.png" alt="Wall Accents & Decorative Elements" class="space-decor-card-image">
+                                    <div class="space-decor-card-content">
+                                        <h3 class="space-decor-card-title">
+                                            Wall Accents & Decorative Elements
+                                            <span class="space-decor-card-arrow">↗</span>
+                                        </h3>
+                                        <p class="space-decor-card-description">From artistic bird figurines to elegant 3D flowers and sculptural pieces</p>
+                                        <hr class="space-decor-card-divider">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="space-decor-item-card">
+                                    <img src="assets/images/wall-clocks.png" alt="Wall Clocks" class="space-decor-card-image">
+                                    <div class="space-decor-card-content">
+                                        <h3 class="space-decor-card-title">
+                                            Wall Clocks
+                                            <span class="space-decor-card-arrow">↗</span>
+                                        </h3>
+                                        <p class="space-decor-card-description">Wall clocks do so much more than simply tell time! From classic wooden timepieces</p>
+                                        <hr class="space-decor-card-divider">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="space-decor-item-card">
+                                    <img src="assets/images/wall-mirrors.png" alt="Mirrors" class="space-decor-card-image">
+                                    <div class="space-decor-card-content">
+                                        <h3 class="space-decor-card-title">
+                                            Mirrors
+                                            <span class="space-decor-card-arrow">↗</span>
+                                        </h3>
+                                        <p class="space-decor-card-description">Decorative mirrors can make any room feel larger while adding depth and light.</p>
+                                        <hr class="space-decor-card-divider">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="space-decor-item-card">
-                        <img src="assets/images/photoframes.jpg" alt="Photo Frames" class="space-decor-card-image">
-                        <div class="space-decor-card-content">
-                            <h3 class="space-decor-card-title">
-                                Photo Frames
-                                <span class="space-decor-card-arrow">↗</span>
-                            </h3>
-                            <p class="space-decor-card-description">A home truly reflects you and your family's story. Displaying photographs of happy.</p>
-                            <hr class="space-decor-card-divider">
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-slide">
+                            <div class="col">
+                                <div class="space-decor-item-card">
+                                    <img src="assets/images/wall-plates.png" alt="Wall Plates & Artistic Installations" class="space-decor-card-image">
+                                    <div class="space-decor-card-content">
+                                        <h3 class="space-decor-card-title">
+                                            Wall Plates & Artistic Installations
+                                            <span class="space-decor-card-arrow">↗</span>
+                                        </h3>
+                                        <p class="space-decor-card-description">Wall plates designed specifically for decoration bring a unique aesthetic element to your walls.</p>
+                                        <hr class="space-decor-card-divider">
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col">
+                                <div class="space-decor-item-card">
+                                    <img src="assets/images/flex and floatding.png" alt="Fixed and Floating Shelves" class="space-decor-card-image">
+                                    <div class="space-decor-card-content">
+                                        <h3 class="space-decor-card-title">
+                                            Fixed and Floating Shelves
+                                            <span class="space-decor-card-arrow">↗</span>
+                                        </h3>
+                                        <p class="space-decor-card-description">Wall shelves serve as both smart storage solutions and elegant showcase pieces.</p>
+                                        <hr class="space-decor-card-divider">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="space-decor-item-card">
+                                    <img src="assets/images/wall arts and painting.jpg" alt="Wall Art & Paintings" class="space-decor-card-image">
+                                    <div class="space-decor-card-content">
+                                        <h3 class="space-decor-card-title">
+                                            Wall Art & Paintings
+                                            <span class="space-decor-card-arrow">↗</span>
+                                        </h3>
+                                        <p class="space-decor-card-description">Artistic paintings, premium printed frames, and custom painted artwork represent.</p>
+                                        <hr class="space-decor-card-divider">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Row 2 -->
-                <div class="col-lg-4 col-md-6 col-sm-12 mt-4">
-                    <div class="space-decor-item-card">
-                        <img src="assets/images/wallaccents.jpg" alt="Wall Accents & Decorative Elements" class="space-decor-card-image">
-                        <div class="space-decor-card-content">
-                            <h3 class="space-decor-card-title">
-                                Wall Accents & Decorative Elements
-                                <span class="space-decor-card-arrow">↗</span>
-                            </h3>
-                            <p class="space-decor-card-description">Wall shelves serve as both smart storage solutions and elegant showcase pieces.</p>
-                            <hr class="space-decor-card-divider">
-                        </div>
-                    </div>
+                <div class="carousel-dots" id="carouselDots">
+                    <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+                    <button class="carousel-dot" onclick="goToSlide(1)"></button>
+                    <button class="carousel-dot" onclick="goToSlide(2)"></button>
                 </div>
-                
-                <div class="col-lg-4 col-md-6 col-sm-12 mt-4">
-                    <div class="space-decor-item-card">
-                        <img src="assets/images/wallclock.jpg" alt="Wall Clocks" class="space-decor-card-image">
-                        <div class="space-decor-card-content">
-                            <h3 class="space-decor-card-title">
-                                Wall Clocks
-                                <span class="space-decor-card-arrow">↗</span>
-                            </h3>
-                            <p class="space-decor-card-description">Artistic paintings, premium printed frames, and custom painted artwork represent.</p>
-                            <hr class="space-decor-card-divider">
+            </div>
+
+            <!-- Mobile Carousel -->
+            <div class="mobile-carousel">
+                <div class="carousel-container">
+                    <div class="mobile-carousel-track" id="mobileCarouselTrack">
+                        <div class="mobile-carousel-slide">
+                            <div class="space-decor-item-card">
+                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=200&fit=crop" alt="Fixed and Floating Shelves" class="space-decor-card-image">
+                                <div class="space-decor-card-content">
+                                    <h3 class="space-decor-card-title">
+                                        Fixed and Floating Shelves
+                                        <span class="space-decor-card-arrow">↗</span>
+                                    </h3>
+                                    <p class="space-decor-card-description">Wall shelves serve as both smart storage solutions and elegant showcase pieces.</p>
+                                    <hr class="space-decor-card-divider">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 col-sm-12 mt-4">
-                    <div class="space-decor-item-card">
-                        <img src="assets/images/mirrors.jpg" alt="Mirrors" class="space-decor-card-image">
-                        <div class="space-decor-card-content">
-                            <h3 class="space-decor-card-title">
-                                Mirrors
-                                <span class="space-decor-card-arrow">↗</span>
-                            </h3>
-                            <p class="space-decor-card-description">A home truly reflects you and your family's story. Displaying photographs of happy.</p>
-                            <hr class="space-decor-card-divider">
+                        <div class="mobile-carousel-slide">
+                            <div class="space-decor-item-card">
+                                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop" alt="Wall Art & Paintings" class="space-decor-card-image">
+                                <div class="space-decor-card-content">
+                                    <h3 class="space-decor-card-title">
+                                        Wall Art & Paintings
+                                        <span class="space-decor-card-arrow">↗</span>
+                                    </h3>
+                                    <p class="space-decor-card-description">Artistic paintings, premium printed frames, and custom painted artwork represent.</p>
+                                    <hr class="space-decor-card-divider">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-carousel-slide">
+                            <div class="space-decor-item-card">
+                                <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=200&fit=crop" alt="Photo Frames" class="space-decor-card-image">
+                                <div class="space-decor-card-content">
+                                    <h3 class="space-decor-card-title">
+                                        Photo Frames
+                                        <span class="space-decor-card-arrow">↗</span>
+                                    </h3>
+                                    <p class="space-decor-card-description">A home truly reflects you and your family's story. Displaying photographs of happy.</p>
+                                    <hr class="space-decor-card-divider">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-carousel-slide">
+                            <div class="space-decor-item-card">
+                                <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=200&fit=crop" alt="Wall Accents & Decorative Elements" class="space-decor-card-image">
+                                <div class="space-decor-card-content">
+                                    <h3 class="space-decor-card-title">
+                                        Wall Accents & Decorative Elements
+                                        <span class="space-decor-card-arrow">↗</span>
+                                    </h3>
+                                    <p class="space-decor-card-description">From artistic bird figurines to elegant 3D flowers and sculptural pieces</p>
+                                    <hr class="space-decor-card-divider">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-carousel-slide">
+                            <div class="space-decor-item-card">
+                                <img src="https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=400&h=200&fit=crop" alt="Wall Clocks" class="space-decor-card-image">
+                                <div class="space-decor-card-content">
+                                    <h3 class="space-decor-card-title">
+                                        Wall Clocks
+                                        <span class="space-decor-card-arrow">↗</span>
+                                    </h3>
+                                    <p class="space-decor-card-description">Wall clocks do so much more than simply tell time!</p>
+                                    <hr class="space-decor-card-divider">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-carousel-slide">
+                            <div class="space-decor-item-card">
+                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=200&fit=crop" alt="Mirrors" class="space-decor-card-image">
+                                <div class="space-decor-card-content">
+                                    <h3 class="space-decor-card-title">
+                                        Mirrors
+                                        <span class="space-decor-card-arrow">↗</span>
+                                    </h3>
+                                    <p class="space-decor-card-description">Decorative mirrors can make any room feel larger while adding depth and light.</p>
+                                    <hr class="space-decor-card-divider">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-carousel-slide">
+                            <div class="space-decor-item-card">
+                                <img src="https://images.unsplash.com/photo-1567225557594-88d73e55f2cb?w=400&h=200&fit=crop" alt="Wall Plates & Artistic Installations" class="space-decor-card-image">
+                                <div class="space-decor-card-content">
+                                    <h3 class="space-decor-card-title">
+                                        Wall Plates & Artistic Installations
+                                        <span class="space-decor-card-arrow">↗</span>
+                                    </h3>
+                                    <p class="space-decor-card-description">Wall plates designed specifically for decoration bring a unique aesthetic element to your walls.</p>
+                                    <hr class="space-decor-card-divider">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Row 3 -->
-                <div class="col-lg-4 col-md-6 col-sm-12 mt-4">
-                    <div class="space-decor-item-card">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=250&fit=crop" alt="Wall Plates & Artistic Installations" class="space-decor-card-image">
-                        <div class="space-decor-card-content">
-                            <h3 class="space-decor-card-title">
-                                Wall Plates & Artistic Installations
-                                <span class="space-decor-card-arrow">↗</span>
-                            </h3>
-                            <p class="space-decor-card-description">Wall shelves serve as both smart storage solutions.</p>
-                            <hr class="space-decor-card-divider">
-                        </div>
-                    </div>
+                <div class="mobile-dots" id="mobileDots">
+                    <button class="mobile-dot active" onclick="goToMobileSlide(0)"></button>
+                    <button class="mobile-dot" onclick="goToMobileSlide(1)"></button>
+                    <button class="mobile-dot" onclick="goToMobileSlide(2)"></button>
+                    <button class="mobile-dot" onclick="goToMobileSlide(3)"></button>
+                    <button class="mobile-dot" onclick="goToMobileSlide(4)"></button>
+                    <button class="mobile-dot" onclick="goToMobileSlide(5)"></button>
+                    <button class="mobile-dot" onclick="goToMobileSlide(6)"></button>
                 </div>
             </div>
         </div>
@@ -1217,7 +1497,7 @@
                 <div class="card-content-section">
                     <h3 class="decor-category-title">Bedroom Decor</h3>
                     <p class="decor-description-text">
-                        Create statement focal points with large artwork, decorative mirrors, or curated gallery walls.
+                        Keep bedroom wall decor calming and cozy with soft colors in artwork or inspirational framed quotes.
                     </p>
                 </div>
             </div>
@@ -1230,7 +1510,7 @@
                 <div class="card-content-section">
                     <h3 class="decor-category-title">Office & Study Areas</h3>
                     <p class="decor-description-text">
-                        Create statement focal points with large artwork, decorative mirrors, or curated gallery walls.
+                        Select decor that inspires creativity and maintains focus. 
                     </p>
                 </div>
             </div>
@@ -1243,7 +1523,7 @@
                 <div class="card-content-section">
                     <h3 class="decor-category-title">Kitchen & Dining Areas</h3>
                     <p class="decor-description-text">
-                        Create statement focal points with large artwork, decorative mirrors, or curated gallery walls.
+                        Incorporate functional beauty with decorative elements like vintage signs
                     </p>
                 </div>
             </div>
@@ -1278,7 +1558,7 @@
                             <img src="assets/images/wall-decor2.png" alt="">
                         </div>
                         <h3 class="wall-decor-essential-card-title">Optimize Room Functionality and Flow</h3>
-                        <p class="wall-decor-essential-card-description">Wall decor acts as the crucial finishing element that transforms empty walls into design statements.</p>
+                        <p class="wall-decor-essential-card-description">Well-planned wall elements create visual continuity and enhance the natural architecture of your space.</p>
                     </div>
                 </div>
 
@@ -1288,7 +1568,7 @@
                             <img src="assets/images/wall-decor3.png" alt="">
                         </div>
                         <h3 class="wall-decor-essential-card-title">Establish Design Hierarchy</h3>
-                        <p class="wall-decor-essential-card-description">Wall decor acts as the crucial finishing element that transforms empty walls into design statements.</p>
+                        <p class="wall-decor-essential-card-description">Professional wall decor creates clear focal points and visual anchors throughout your home.</p>
                     </div>
                 </div>
 
@@ -1299,7 +1579,7 @@
                             <img src="assets/images/wall-decor4.png" alt="">
                         </div>
                         <h3 class="wall-decor-essential-card-title">Enhance Property Value</h3>
-                        <p class="wall-decor-essential-card-description">Wall decor acts as the crucial finishing element that transforms empty walls into design statements.</p>
+                        <p class="wall-decor-essential-card-description">Well-executed wall decor significantly contributes to your home's overall aesthetic appeal and perceived value. </p>
                     </div>
                 </div>
 
@@ -1309,7 +1589,7 @@
                             <img src="assets/images/wall-decor5.png" alt="">
                         </div>
                         <h3 class="wall-decor-essential-card-title">Define Your Living Environment</h3>
-                        <p class="wall-decor-essential-card-description">Wall decor acts as the crucial finishing element that transforms empty walls into design statements.</p>
+                        <p class="wall-decor-essential-card-description">Wall decor helps establish the function and mood of each space.</p>
                     </div>
                 </div>
 
@@ -1319,8 +1599,7 @@
                             <img src="assets/images/wall-decor6.png" alt="">
                         </div>
                         <h3 class="wall-decor-essential-card-title">Cost-Effective Design Impact</h3>
-                        <p class="wall-decor-essential-card-description">Wall decor acts as the crucial finishing element that transforms empty walls into design statements.</p>
-                    </div>
+                        <p class="wall-decor-essential-card-description">Compared to major renovations or furniture replacement, wall decor offers the highest return on design investment. </p>
                 </div>
             </div>
         </div>
@@ -1343,14 +1622,14 @@
                 <div class="decor-carousel-slide" id="wallart-carousel-slide">
                     <div class="wallstyle-slide-content">
                         <div class="decor-image-circle">
-                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Minimalist decor">
+                            <img src="assets/images/trend1.jpg" alt="Minimalist decor">
                         </div>
                         <h3 class="wallart-slide-title">Minimalist Wall Decor</h3>
                         <p class="wallstyle-description">
                             Clean lines, neutral colors, and sophisticated abstract designs with simple frames and understated art pieces.
                         </p>
                     </div>
-                    <div class="decor-slide-visual" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');">
+                    <div class="decor-slide-visual" style="background-image: url('assets/images/trending1.png');">
                     </div>
                 </div>
             </div>
@@ -1375,7 +1654,7 @@
                         <div class="wcu-icon"><img src="assets/images/icon2.png" alt=""></div>
                     </div>
                     <h3 class="wcu-heading">Personalized Touch</h3>
-                    <p class="wcu-description">Turn your walls into eye-catching focal points that elevate any room.</p>
+                    <p class="wcu-description">Showcase your style, hobbies, and interests with unique décor.</p>
                 </div>
                 <div class="wcu-column">
                     <div class="wcu-icon-wrapper">
@@ -1389,7 +1668,7 @@
                         <div class="wcu-icon"><img src="assets/images/icon4.png" alt=""></div>
                     </div>
                     <h3 class="wcu-heading">Seasonal Flexibility</h3>
-                    <p class="wcu-description">Easily update your walls with seasonal or artistic changes.</p>
+                    <p class="wcu-description">Easily update your walls with seasonal or artistic changes.</p>
                 </div>
             </div>
         </div>
@@ -1467,21 +1746,33 @@
         const wallDecorSlides = [
             {
                 title: "Minimalist Wall Decor",
-                description: "Clean lines, neutral colors, and sophisticated abstract designs with simple frames and understated art pieces.",
-                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                background: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90b"
+                description: "Clean lines, neutral colors, and sophisticated abstract designs with simple frames and understated art pieces",
+                image: "assets/images/trend1.jpg",
+                background: "assets/images/trending1.png"
             },
             {
-                title: "Modern Art Collection",
-                description: "Contemporary artwork featuring bold colors and geometric patterns that create stunning focal points.",
-                image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                background: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                title: "Contemporary Indian Style",
+                description: "Rich textures, cultural elements, and nature-inspired designs that celebrate Indian craftsmanship and artistic traditions",
+                image: "assets/images/trend2.jpg",
+                background: "assets/images/trending2.png"
             },
             {
-                title: "Vintage Gallery Wall",
+                title: "Modern Luxury",
                 description: "Carefully curated vintage prints and photographs arranged in an eclectic gallery wall style.",
-                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                background: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                image: "assets/images/trend3.jpg",
+                background: "assets/images/trending3.png"
+            },
+            {
+                title: "Industrial Chic",
+                description: "Exposed materials, metal accents, and vintage-style elements for those who appreciate urban sophistication",
+                image: "assets/images/trend4.jpg",
+                background: "assets/images/trending4.png"
+            },
+            {
+                title: "Nature-Inspired",
+                description: "Botanical themes, organic shapes, and natural materials that bring the outdoors inside, perfect for creating serene, peaceful environments.",
+                image: "assets/images/trend5.jpg",
+                background: "assets/images/trending5.png"
             }
         ];
 
@@ -1534,6 +1825,157 @@
             }
             updateWallDecorSlide();
         }, 5000);
+    </script>
+        <script>
+        // Desktop Carousel
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+           
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+
+        // Mobile Carousel
+        let currentMobileSlide = 0;
+        const totalMobileSlides = 7;
+        const mobileTrack = document.getElementById('mobileCarouselTrack');
+        const mobileDots = document.querySelectorAll('.mobile-dot');
+
+        function updateMobileCarousel() {
+            if (mobileTrack) {
+                mobileTrack.style.transform = `translateX(-${currentMobileSlide * 100}%)`;
+               
+                mobileDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentMobileSlide);
+                });
+            }
+        }
+
+        function nextMobileSlide() {
+            currentMobileSlide = (currentMobileSlide + 1) % totalMobileSlides;
+            updateMobileCarousel();
+        }
+
+        function goToMobileSlide(slideIndex) {
+            currentMobileSlide = slideIndex;
+            updateMobileCarousel();
+        }
+
+        // Touch/Swipe functionality for mobile
+        let startX = 0;
+        let isDragging = false;
+
+        if (mobileTrack) {
+            mobileTrack.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+
+            mobileTrack.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+            });
+
+            mobileTrack.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+               
+                const endX = e.changedTouches[0].clientX;
+                const diffX = startX - endX;
+               
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        nextMobileSlide();
+                    } else {
+                        currentMobileSlide = (currentMobileSlide - 1 + totalMobileSlides) % totalMobileSlides;
+                        updateMobileCarousel();
+                    }
+                }
+               
+                isDragging = false;
+            });
+        }
+
+        // Auto-play functionality
+        let desktopAutoPlay;
+        let mobileAutoPlay;
+
+        function startDesktopAutoPlay() {
+            desktopAutoPlay = setInterval(() => {
+                nextSlide();
+            }, 4000);
+        }
+
+        function startMobileAutoPlay() {
+            mobileAutoPlay = setInterval(() => {
+                nextMobileSlide();
+            }, 3000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(desktopAutoPlay);
+            clearInterval(mobileAutoPlay);
+        }
+
+        // Pause auto-play on hover/touch
+        const desktopCarousel = document.querySelector('.desktop-carousel');
+        const mobileCarousel = document.querySelector('.mobile-carousel');
+
+        if (desktopCarousel) {
+            desktopCarousel.addEventListener('mouseenter', stopAutoPlay);
+            desktopCarousel.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 768) {
+                    startDesktopAutoPlay();
+                }
+            });
+        }
+
+        if (mobileCarousel) {
+            mobileCarousel.addEventListener('touchstart', stopAutoPlay);
+            mobileCarousel.addEventListener('touchend', () => {
+                setTimeout(() => {
+                    if (window.innerWidth <= 768) {
+                        startMobileAutoPlay();
+                    }
+                }, 2000);
+            });
+        }
+
+        // Initialize carousels and start auto-play
+        updateCarousel();
+        updateMobileCarousel();
+
+        // Start appropriate auto-play based on screen size
+        if (window.innerWidth > 768) {
+            startDesktopAutoPlay();
+        } else {
+            startMobileAutoPlay();
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            stopAutoPlay();
+            if (window.innerWidth > 768) {
+                startDesktopAutoPlay();
+            } else {
+                startMobileAutoPlay();
+            }
+        });
     </script>
 
     <!-- Bootstrap JS -->
