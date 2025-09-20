@@ -156,32 +156,21 @@
         .wpc-check-icon {
             width: 30px;
             height: 30px;
-            background: #fff;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 15px;
             flex-shrink: 0;
-            border: 2px solid;
             position: relative;
         }
 
-        .wpc-feature-ready .wpc-check-icon, .wpc-feature-paint .wpc-check-icon, .wpc-feature-durability .wpc-check-icon  {
-            border-color: #C91D25;
-            color: #C91D25;
-        }
+         .wpc-check-icon img{
+            width: 40px;
+            height: 40px;
+         }
 
-        .wpc-feature-cost .wpc-check-icon {
-            border-color: #c2185b;
-            color: #c2185b;
-        }
-
-        .wpc-check-icon::after {
-            content: '✓';
-            font-weight: bold;
-            font-size: 16px;
-        }
+        
+       
 
         /* Mobile Responsiveness */
         @media (max-width: 991.98px) {
@@ -845,22 +834,22 @@
                 <div class="col-lg-5 col-md-12">
                     <div class="wpc-features-container">
                         <div class="wpc-feature-badge wpc-feature-ready">
-                            <div class="wpc-check-icon"></div>
+                            <div class="wpc-check-icon"><img src="assets/images/cost1.png" alt=""></div>
                             <span>Ready To Use</span>
                         </div>
                         
                         <div class="wpc-feature-badge wpc-feature-paint">
-                            <div class="wpc-check-icon"></div>
+                            <div class="wpc-check-icon"><img src="assets/images/cost2.png" alt=""></div>
                             <span>No Need To Paint</span>
                         </div>
                         
                         <div class="wpc-feature-badge wpc-feature-durability">
-                            <div class="wpc-check-icon"></div>
+                            <div class="wpc-check-icon"><img src="assets/images/cost3.png" alt=""></div>
                             <span>High Durability</span>
                         </div>
                         
                         <div class="wpc-feature-badge wpc-feature-cost">
-                            <div class="wpc-check-icon"></div>
+                            <div class="wpc-check-icon"><img src="assets/images/cost4.png" alt=""></div>
                             <span>Saved Labour & Time Cost</span>
                         </div>
                     </div>

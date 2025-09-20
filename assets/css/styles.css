@@ -6788,11 +6788,12 @@ input {
         }
 
         .collections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* always 4 equal columns */
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+
 
         .collection-card {
             border-radius: 15px;
@@ -6995,7 +6996,7 @@ input {
 
 .living-feature {
     display: flex;
-    gap:10px;
+    gap:22px;
     align-items: center;
     text-align: center;
 }
