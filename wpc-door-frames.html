@@ -8,11 +8,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <style>
         .custom-wpc-section {
             padding: 40px 0;
             text-align: center;
-            background: #f8f9fa;
         }
         .custom-wpc-card {
             border: none;
@@ -40,9 +41,8 @@
             background-color: #c82333;
         }
         .custom-wpc-text {
-            padding: 20px;
-            font-size:24px;
-            color: #333;
+            color: #000;
+            margin-top: 30px;
             font-family: "Montserrat";
             font-weight: 700;
 
@@ -85,12 +85,223 @@
   border-radius: 20px;
   font-family: "Playfair Display";
    font-weight: 700;
-   font-size: 24px;
+   font-size: 16px;
 
 }
+
+.custom-wpc-btns{
+  position: absolute; 
+  bottom: 21%!important;      
+  left: 50%;         
+  transform: translateX(-50%); 
+  background-color: #dc3545;
+  color: white;
+  padding: 14px 84px;
+    width: 75%;
+  border: none;
+  border-radius: 20px;
+  font-family: "Playfair Display";
+   font-weight: 700;
+   font-size: 16px;
+}
+
+.custom-wpc-btnss{
+  position: absolute; 
+  bottom: 9%!important;      
+  left: 50%;         
+  transform: translateX(-50%); 
+  background-color: #dc3545;
+  color: white;
+  padding: 14px 84px;
+    width: 75%;
+  border: none;
+  border-radius: 20px;
+  font-family: "Playfair Display";
+   font-weight: 700;
+   font-size: 16px;
+}
+
 .custom-wpc-btn:hover {
   background-color: #c82333;
 }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.custom-wpc-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  height: 100%;  
+  padding-bottom: 60px;
+}
+
+.custom-wpc-card img {
+  width: 100%;
+  height: 372px; 
+  object-fit: cover; 
+  border-top-left-radius: 0;
+  border-top-right-radius:0;
+  border-bottom-left-radius: 55px;
+  border-bottom-right-radius: 55px;
+}
+.custom-wpc-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* loose frame */
+
+ .loose {
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .content-wrapper {
+            display: flex;
+            min-height: 500px;
+        }
+
+        .image-section {
+            flex: 1;
+            width: 100%;
+            height: 545px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+      
+
+        .image-link:hover {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .text-section {
+            flex: 1;
+            background: white;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+            font-weight: 700;
+
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #C91D25;
+            font-weight: 400;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #626262;
+            font-weight: 400;
+        }
+
+        .features-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #C91D25;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-left: -34px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .feature-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #bf9000 0%, #8d6e00 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .feature-icon::after {
+            content: '\f061';
+            font-family: "Font Awesome 6 Free";
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .feature-text {
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .image-section {
+                min-height: 200px;
+                padding: 30px 20px;
+            }
+            
+            .text-section {
+                padding: 30px 25px;
+            }
+            
+            .title {
+                font-size: 32px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .description {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .title {
+                font-size: 28px;
+            }
+            
+            .text-section {
+                padding: 25px 20px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -98,9 +309,9 @@
     <div id="navbar"></div>
 
     <section class="hero-section">
-         <img src="assets/images/doors.jpg" alt="Hero Banner Mobile" class="hero-image img-fluid d-block d-md-none">
+         <img src="assets/images/solid-frame-banner3.jpg" alt="Hero Banner Mobile" class="hero-image img-fluid d-block d-md-none">
 
-        <img src="assets/images/wpc-doors-banners.png" alt="Hero Banner" class="hero-image img-fluid d-none d-md-block">
+        <img src="assets/images/solid-frame-banner3.jpg" alt="Hero Banner" class="hero-image img-fluid d-none d-md-block">
     </section>
 
     
@@ -184,7 +395,50 @@
             </div>
         </div>
     </section>
-
+<section class="looseframe">
+ <div class="container loose">
+        <div class="content-wrapper">
+            <div class="image-section">
+                <div class="image-placeholder">
+                   <img src="assets/images/looseframe.png" alt=""  class="image-link"> 
+                </div>
+            </div>
+            
+            <div class="text-section">
+                <h1 class="title">WPC LOOSE FRAMES</h1>
+                <h2 class="subtitle">Premium WPC Loose Frames</h2>
+                
+                <p class="description">
+                    Transform your spaces with our premium Wood Plastic Composite (WPC) loose frames, engineered for durability and aesthetic excellence. Our WPC frames combine the natural beauty of wood with the resilience of modern polymers, offering superior resistance to moisture, termites, and weather conditions. Perfect for both interior and exterior applications, these eco-friendly frames require minimal maintenance while delivering long-lasting performance. Available in various profiles and finishes to complement any architectural style.
+                </p>
+                
+                <h3 class="features-title">Key Features:</h3>
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <div class="feature-icon"></div>
+                        <span class="feature-text">101% termite and moisture resistant</span>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon"></div>
+                        <span class="feature-text">Zero maintenance requirements</span>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon"></div>
+                        <span class="feature-text">Eco-friendly and sustainable material</span>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon"></div>
+                        <span class="feature-text">Available in multiple wood grain finishes</span>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-icon"></div>
+                        <span class="feature-text">Easy installation and lightweight structure</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
     
     <section class="wpc-whatwedo-section">
     <div class="container">
@@ -247,26 +501,26 @@
   </section>
 
   <section class="custom-wpc-section">
-        <h2 class="text-danger">Why Space Interiors Recommends WPC Over Wood</h2>
+        <h2 class="section-title">Why Space Interiors Recommends <span class="door-frames" >WPC Over Wood</span></h2>
         <div class="row justify-content-center mt-4">
             <div class="col-md-5 col-12">
                 <div class="custom-wpc-card">
                     <img src="assets/images/wooden-door-frame.png" alt="Wooden Door Frame" class="img-fluid">
-                    <button class="custom-wpc-btn">Wooden Door Frame</button>
+                    <button class="custom-wpc-btns">Wooden Door Frame</button>
                     <p class="custom-wpc-text">Absorbs moisture + Swells & Warps</p>
                 </div>
             </div>
             <div class="col-md-5 col-12">
                 <div class="custom-wpc-card">
                     <img src="assets/images/si-frames.png" alt="Space Interiors WPC Frames" class="img-fluid">
-                    <button class="custom-wpc-btn">Wooden Door Frame</button>
+                    <button class="custom-wpc-btns">Wooden Door Frame</button>
                     <p class="custom-wpc-text">100% Waterproof: Zero water absorption</p>
                 </div>
             </div>
-             <!-- <div class="col-md-5 col-12">
+             <div class="col-md-5 col-12">
                 <div class="custom-wpc-card">
                     <img src="assets/images/wood1.png" alt="Wooden Door Frame" class="img-fluid">
-                    <button class="custom-wpc-btn">Natural wood attracts termites</button>
+                    <button class="custom-wpc-btn">Natural wood attracts<br> termites</button>
                 </div>
             </div>
             <div class="col-md-5 col-12">
@@ -298,7 +552,31 @@
                     <img src="assets/images/wood6.png" alt="Space Interiors WPC Frames" class="img-fluid">
                     <button class="custom-wpc-btn"> Zero Waste: Ready-made, no material wastage</button>
                 </div>
-            </div> -->
+            </div>
+            <div class="col-md-5 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood8.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btn">Hidden Costs: + Carpenter + Paint + Polish + Time</button>
+                </div>
+            </div>
+            <div class="col-md-5 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood9.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btn">Easy Install: Even after construction & painting</button>
+                </div>
+            </div>
+            <div class="col-md-5 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood8.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btnss"> Trees cut for production</button>
+                </div>
+            </div>
+            <div class="col-md-5 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood9.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btnss"> 100% environment friendly</button>
+                </div>
+            </div>
         </div>
     </section>
 

@@ -391,7 +391,6 @@
         .wall-decor-essential-icon {
             width: 60px;
             height: 60px;
-            background-color: #C91D25;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -399,15 +398,15 @@
             margin-bottom: 20px;
         }
 
-        .wall-decor-essential-icon svg {
-            width: 30px;
-            height: 30px;
+        .wall-decor-essential-icon img {
+            width: 53px;
+            height: 53px;
             fill: white;
         }
 
         .wall-decor-essential-card-title {
             font-size: 18px;
-            font-weight: 500;
+            font-weight: 600;
             color: #A27327;
             font-family: "Inter";
             margin-bottom: 15px;
@@ -487,6 +486,525 @@
         }
 
 
+        /* best wall */
+         .decor-showcase-container {
+            background-color: #A27327;
+            padding: 60px 20px 80px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .showcase-header-zone {
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .primary-showcase-title {
+            font-size: 32px;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+
+        }
+
+        .showcase-subtitle-text {
+            font-size: 16px;
+            color: #FFFFFF;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-family: "Montserrat";
+            font-weight: 400;
+
+        }
+
+        .decor-cards-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .individual-decor-card {
+            /* background: rgba(255, 255, 255, 0.95); */
+            overflow: hidden;
+            /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); */
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .individual-decor-card:hover {
+            transform: translateY(-8px);
+            /* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); */
+        }
+
+        /* Specific positioning for each card */
+        .living-room-showcase-card {
+            transform: translateY(40px);
+        }
+
+        .bedroom-design-showcase-card {
+            transform: translateY(-20px);
+        }
+
+        .office-study-showcase-card {
+            transform: translateY(60px);
+        }
+
+        .kitchen-dining-showcase-card {
+            transform: translateY(20px);
+        }
+
+        .card-image-container {
+            width: 100%;
+            /* height: 280px; */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .decor-showcase-image {
+            width: 100%;
+            height: 70vh;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .individual-decor-card:hover .decor-showcase-image {
+            transform: scale(1.05);
+        }
+
+        .card-content-section {
+            padding: 25px 20px;
+            text-align: left;
+        }
+
+        .decor-category-title {
+            font-size: 1.1rem;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .decor-description-text {
+            font-size: 0.95rem;
+            color: white;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 1200px) {
+            .decor-cards-grid-layout {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+                max-width: 800px;
+            }
+
+            .living-room-showcase-card,
+            .bedroom-design-showcase-card,
+            .office-study-showcase-card,
+            .kitchen-dining-showcase-card {
+                transform: translateY(0);
+            }
+
+            .primary-showcase-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .decor-showcase-container {
+                padding: 40px 15px 60px;
+            }
+
+            .decor-cards-grid-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 400px;
+            }
+
+            .primary-showcase-title {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+
+            .showcase-subtitle-text {
+                font-size: 1rem;
+            }
+
+            .card-image-container {
+                height: 240px;
+            }
+
+            .card-content-section {
+                padding: 20px 15px;
+            }
+
+            .decor-category-title {
+                font-size: 1rem;
+            }
+
+            .decor-description-text {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .decor-showcase-container {
+                padding: 30px 10px 50px;
+            }
+
+            .primary-showcase-title {
+                font-size: 1.6rem;
+            }
+
+            .showcase-subtitle-text {
+                font-size: 0.95rem;
+            }
+
+            .card-image-container {
+                height: 200px;
+            }
+        }
+
+        /* why choose */
+         .wcu-section {
+            background-color: #f8eee7;
+            padding: 80px 0;
+        }
+        
+        .wcu-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .wcu-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .wcu-column {
+            text-align: center;
+            width: 200px;
+            position: relative;
+        }
+        
+        /* Alternating vertical positions */
+        .wcu-column:nth-child(1) {
+            margin-top: -40px;
+        }
+        
+        .wcu-column:nth-child(2) {
+            margin-top: 40px;
+        }
+        
+        .wcu-column:nth-child(3) {
+            margin-top: -40px;
+        }
+        
+        .wcu-column:nth-child(4) {
+            margin-top: 40px;
+        }
+        
+        /* Vertical connecting lines between cards */
+        .wcu-column:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -50px;
+            top: 20px;
+            bottom: 20px;
+            width: 1px;
+            background-color: #D9D9D9;
+            z-index: 1;
+        }
+        
+        .wcu-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #b77c2a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            background-color: #f8eee7;
+            position: relative;
+            z-index: 2;
+        }
+        
+       
+        
+        .wcu-heading {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-bottom: 15px;
+        }
+        
+        .wcu-description {
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            color: #666666;
+            line-height: 1.5;
+            max-width: 180px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 992px) {
+            .wcu-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .wcu-column {
+                margin-top: 0 !important;
+                margin-bottom: 50px;
+                width: 250px;
+            }
+            
+            .wcu-column:not(:last-child)::after {
+                display: none;
+            }
+            
+            .wcu-description {
+                max-width: 220px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .wcu-section {
+                padding: 60px 0;
+            }
+            
+            .wcu-title {
+                font-size: 2rem;
+                margin-bottom: 50px;
+            }
+            
+            .wcu-column {
+                width: 280px;
+                margin-bottom: 40px;
+            }
+            
+            .wcu-description {
+                max-width: 250px;
+            }
+        }
+
+       /* trending */
+
+        .decor-header-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .wallstyle-main-title {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #000;
+            margin: 0;
+        }
+
+        .wallstyle-main-title .decor-highlight {
+            color: #dc3545;
+            font-weight: 500;
+        }
+
+        .wallart-carousel-container {
+            position: relative;
+        }
+
+        .decor-carousel-slide {
+            display: flex;
+            align-items: stretch;
+            min-height: 530px;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .wallstyle-slide-content {
+            flex: 1;
+            padding: 60px 50px;
+            background: #3F3322;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .wallstyle-slide-content::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 3px solid #A27327;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .decor-image-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #A27327;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background: #fff;
+        }
+
+        .decor-image-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wallart-slide-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #A27327;
+        }
+
+        .wallstyle-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            max-width: 300px;
+        }
+
+        .decor-slide-visual {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .wallart-carousel-controls {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .decor-nav-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: #dc3545;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .decor-nav-btn:hover {
+            background: #c82333;
+            transform: scale(1.1);
+        }
+
+        .decor-nav-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        @media (max-width: 768px) {
+            .decor-carousel-slide {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .wallstyle-slide-content {
+                padding: 40px 30px;
+                border-right: 6px solid #D4AF37;
+                border-bottom: none;
+            }
+            
+            .decor-slide-visual {
+                min-height: 300px;
+            }
+            
+            .decor-header-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .wallstyle-main-title {
+                font-size: 2rem;
+                text-align: center;
+            }
+            
+            .wallart-slide-title {
+                font-size: 1.5rem;
+            }
+            
+            .decor-image-circle {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .wallart-carousel-controls {
+                position: static;
+                justify-content: center;
+                transform: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .wallart-showcase-section {
+                padding: 40px 0;
+            }
+            
+            .wallstyle-main-title {
+                font-size: 1.7rem;
+            }
+            
+            .wallstyle-slide-content {
+                padding: 30px 20px;
+                border-right: 6px solid #D4AF37;
+                border-bottom: none;
+            }
+            
+            .wallart-slide-title {
+                font-size: 1.3rem;
+            }
+            
+            .wallstyle-description {
+                font-size: 0.9rem;
+            }
+        }
      
 </style>
 <body>
@@ -496,7 +1014,7 @@
      <section class="hero-section">
         <img src="assets/images/wall-decorative banner.png" alt="Hero Banner Mobile" class="hero-image img-fluid d-block d-md-none">
 
-        <img src="assets/images/wall-decorative-banner.png" alt="Hero Banner" class="hero-image img-fluid d-none d-md-block">
+        <img src="assets/images/Space_Wall Decor (1)[1].png" alt="Hero Banner" class="hero-image img-fluid d-none d-md-block">
     </section>
 
 
@@ -669,6 +1187,70 @@
     </section>
 
 
+    <section class="decor-showcase-container">
+        <div class="showcase-header-zone">
+            <h1 class="primary-showcase-title">Best Wall Decor Ideas to Transform Your Home</h1>
+            <p class="showcase-subtitle-text">
+                Space Interiors offers numerous options to choose from, depending on your personal taste, room theme, and design vision.
+            </p>
+        </div>
+
+        <div class="decor-cards-grid-layout">
+            <!-- Living Room Card -->
+            <div class="individual-decor-card living-room-showcase-card">
+                <div class="card-image-container">
+                    <img src="assets/images/bestwall1.jpg" alt="Living Room Decor" class="decor-showcase-image">
+                </div>
+                <div class="card-content-section">
+                    <h3 class="decor-category-title">Living Room Decor</h3>
+                    <p class="decor-description-text">
+                        Create statement focal points with large artwork, decorative mirrors, or curated gallery walls.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bedroom Card -->
+            <div class="individual-decor-card bedroom-design-showcase-card">
+                <div class="card-image-container">
+                    <img src="assets/images/bestwall2.jpg" alt="Bedroom Decor" class="decor-showcase-image">
+                </div>
+                <div class="card-content-section">
+                    <h3 class="decor-category-title">Bedroom Decor</h3>
+                    <p class="decor-description-text">
+                        Create statement focal points with large artwork, decorative mirrors, or curated gallery walls.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Office Study Card -->
+            <div class="individual-decor-card office-study-showcase-card">
+                <div class="card-image-container">
+                    <img src="assets/images/bestwall3.jpg" alt="Office Study Area" class="decor-showcase-image">
+                </div>
+                <div class="card-content-section">
+                    <h3 class="decor-category-title">Office & Study Areas</h3>
+                    <p class="decor-description-text">
+                        Create statement focal points with large artwork, decorative mirrors, or curated gallery walls.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Kitchen Dining Card -->
+            <div class="individual-decor-card kitchen-dining-showcase-card">
+                <div class="card-image-container">
+                    <img src="assets/images/bestwall4.jpg" alt="Kitchen Dining Area" class="decor-showcase-image">
+                </div>
+                <div class="card-content-section">
+                    <h3 class="decor-category-title">Kitchen & Dining Areas</h3>
+                    <p class="decor-description-text">
+                        Create statement focal points with large artwork, decorative mirrors, or curated gallery walls.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
 
 <!-- Why Is Wall Decor section -->
@@ -683,9 +1265,7 @@
                 <div class="wall-decor-essential-card">
                     <div class="wall-decor-essential-card-content">
                         <div class="wall-decor-essential-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
+                            <img src="assets/images/wall-decor1.png" alt="">
                         </div>
                         <h3 class="wall-decor-essential-card-title">Complete Your Interior Design Vision</h3>
                         <p class="wall-decor-essential-card-description">Wall decor acts as the crucial finishing element that transforms empty walls into design statements.</p>
@@ -695,9 +1275,7 @@
                 <div class="wall-decor-essential-card">
                     <div class="wall-decor-essential-card-content">
                         <div class="wall-decor-essential-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
+                            <img src="assets/images/wall-decor2.png" alt="">
                         </div>
                         <h3 class="wall-decor-essential-card-title">Optimize Room Functionality and Flow</h3>
                         <p class="wall-decor-essential-card-description">Wall decor acts as the crucial finishing element that transforms empty walls into design statements.</p>
@@ -707,9 +1285,7 @@
                 <div class="wall-decor-essential-card">
                     <div class="wall-decor-essential-card-content">
                         <div class="wall-decor-essential-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
-                            </svg>
+                            <img src="assets/images/wall-decor3.png" alt="">
                         </div>
                         <h3 class="wall-decor-essential-card-title">Establish Design Hierarchy</h3>
                         <p class="wall-decor-essential-card-description">Wall decor acts as the crucial finishing element that transforms empty walls into design statements.</p>
@@ -720,9 +1296,7 @@
                 <div class="wall-decor-essential-card">
                     <div class="wall-decor-essential-card-content">
                         <div class="wall-decor-essential-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
+                            <img src="assets/images/wall-decor4.png" alt="">
                         </div>
                         <h3 class="wall-decor-essential-card-title">Enhance Property Value</h3>
                         <p class="wall-decor-essential-card-description">Wall decor acts as the crucial finishing element that transforms empty walls into design statements.</p>
@@ -732,9 +1306,7 @@
                 <div class="wall-decor-essential-card">
                     <div class="wall-decor-essential-card-content">
                         <div class="wall-decor-essential-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z"/>
-                            </svg>
+                            <img src="assets/images/wall-decor5.png" alt="">
                         </div>
                         <h3 class="wall-decor-essential-card-title">Define Your Living Environment</h3>
                         <p class="wall-decor-essential-card-description">Wall decor acts as the crucial finishing element that transforms empty walls into design statements.</p>
@@ -744,13 +1316,80 @@
                 <div class="wall-decor-essential-card">
                     <div class="wall-decor-essential-card-content">
                         <div class="wall-decor-essential-icon">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
+                            <img src="assets/images/wall-decor6.png" alt="">
                         </div>
                         <h3 class="wall-decor-essential-card-title">Cost-Effective Design Impact</h3>
                         <p class="wall-decor-essential-card-description">Wall decor acts as the crucial finishing element that transforms empty walls into design statements.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="wallart-showcase-section">
+        <div>
+            <div class="decor-header-wrapper">
+                <h2 class="wallstyle-main-title">
+                    Trending <span class="decor-highlight">Wall Decor Styles</span> with Space Interiors
+                </h2>
+                <div class="wallart-carousel-controls">
+                    <button class="decor-nav-btn" id="wallart-prev-btn">‹</button>
+                    <button class="decor-nav-btn" id="wallart-next-btn">›</button>
+                </div>
+            </div>
+            
+            <div class="wallart-carousel-container">
+                
+                <div class="decor-carousel-slide" id="wallart-carousel-slide">
+                    <div class="wallstyle-slide-content">
+                        <div class="decor-image-circle">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Minimalist decor">
+                        </div>
+                        <h3 class="wallart-slide-title">Minimalist Wall Decor</h3>
+                        <p class="wallstyle-description">
+                            Clean lines, neutral colors, and sophisticated abstract designs with simple frames and understated art pieces.
+                        </p>
+                    </div>
+                    <div class="decor-slide-visual" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="wcu-section">
+        <div class="container-fluid">
+            <h2 class="wcu-title">Why Choose Us</h2>
+            <div class="wcu-container">
+                <div class="wcu-column">
+                    <div class="wcu-icon-wrapper">
+                        <div class="wcu-icon">
+                            <img src="assets/images/icon1.png" alt="">
+                        </div>
+                    </div>
+                    <h3 class="wcu-heading">Aesthetic Appeal</h3>
+                    <p class="wcu-description">Turn your walls into eye-catching focal points that elevate any room.</p>
+                </div>
+                <div class="wcu-column">
+                    <div class="wcu-icon-wrapper">
+                        <div class="wcu-icon"><img src="assets/images/icon2.png" alt=""></div>
+                    </div>
+                    <h3 class="wcu-heading">Personalized Touch</h3>
+                    <p class="wcu-description">Turn your walls into eye-catching focal points that elevate any room.</p>
+                </div>
+                <div class="wcu-column">
+                    <div class="wcu-icon-wrapper">
+                        <div class="wcu-icon"><img src="assets/images/icon3.png" alt=""></div>
+                    </div>
+                    <h3 class="wcu-heading">Complementary Design</h3>
+                    <p class="wcu-description">Décor that blends seamlessly with your furniture and color scheme.</p>
+                </div>
+                <div class="wcu-column">
+                    <div class="wcu-icon-wrapper">
+                        <div class="wcu-icon"><img src="assets/images/icon4.png" alt=""></div>
+                    </div>
+                    <h3 class="wcu-heading">Seasonal Flexibility</h3>
+                    <p class="wcu-description">Easily update your walls with seasonal or artistic changes.</p>
                 </div>
             </div>
         </div>
@@ -823,6 +1462,79 @@
             }
         }, 50);
   </script>
+    <script>
+        // Carousel data
+        const wallDecorSlides = [
+            {
+                title: "Minimalist Wall Decor",
+                description: "Clean lines, neutral colors, and sophisticated abstract designs with simple frames and understated art pieces.",
+                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                background: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+            },
+            {
+                title: "Modern Art Collection",
+                description: "Contemporary artwork featuring bold colors and geometric patterns that create stunning focal points.",
+                image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                background: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            },
+            {
+                title: "Vintage Gallery Wall",
+                description: "Carefully curated vintage prints and photographs arranged in an eclectic gallery wall style.",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                background: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            }
+        ];
+
+        let currentWallDecorSlide = 0;
+
+        function updateWallDecorSlide() {
+            const slide = wallDecorSlides[currentWallDecorSlide];
+            const slideElement = document.getElementById('wallart-carousel-slide');
+            
+            slideElement.innerHTML = `
+                <div class="wallstyle-slide-content">
+                    <div class="decor-image-circle">
+                        <img src="${slide.image}" alt="${slide.title}">
+                    </div>
+                    <h3 class="wallart-slide-title">${slide.title}</h3>
+                    <p class="wallstyle-description">${slide.description}</p>
+                </div>
+                <div class="decor-slide-visual" style="background-image: url('${slide.background}');">
+                </div>
+            `;
+
+            // Update button states
+            document.getElementById('wallart-prev-btn').disabled = currentWallDecorSlide === 0;
+            document.getElementById('wallart-next-btn').disabled = currentWallDecorSlide === wallDecorSlides.length - 1;
+        }
+
+        document.getElementById('wallart-next-btn').addEventListener('click', function() {
+            if (currentWallDecorSlide < wallDecorSlides.length - 1) {
+                currentWallDecorSlide++;
+                updateWallDecorSlide();
+            }
+        });
+
+        document.getElementById('wallart-prev-btn').addEventListener('click', function() {
+            if (currentWallDecorSlide > 0) {
+                currentWallDecorSlide--;
+                updateWallDecorSlide();
+            }
+        });
+
+        // Initialize
+        updateWallDecorSlide();
+
+        // Auto-play carousel
+        setInterval(function() {
+            if (currentWallDecorSlide < wallDecorSlides.length - 1) {
+                currentWallDecorSlide++;
+            } else {
+                currentWallDecorSlide = 0;
+            }
+            updateWallDecorSlide();
+        }, 5000);
+    </script>
 
     <!-- Bootstrap JS -->
       <script src="https://kit.fontawesome.com/7529dd30a8.js" crossorigin="anonymous"></script>

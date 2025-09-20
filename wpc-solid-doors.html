@@ -273,6 +273,263 @@
             transform: scale(1.02);
         }
 
+        /* loose frame */
+
+ .loose {
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .content-wrapper {
+            display: flex;
+            min-height: 500px;
+        }
+
+        .image-section {
+            flex: 1;
+            width: 100%;
+            height: 545px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+      
+
+        .image-link:hover {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .text-section {
+            flex: 1;
+            background: white;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+            font-weight: 700;
+
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #C91D25;
+            font-weight: 400;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #626262;
+            font-weight: 400;
+        }
+
+        .features-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #C91D25;
+            margin-bottom: 20px;
+        }
+
+        .features-lists {
+            list-style: none;
+            margin-left: -34px;
+        }
+
+        .feature-items {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .feature-icons {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #bf9000 0%, #8d6e00 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .feature-icons::after {
+            content: '\f061';
+            font-family: "Font Awesome 6 Free";
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .feature-texts {
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .image-section {
+                min-height: 200px;
+                padding: 30px 20px;
+            }
+            
+            .text-section {
+                padding: 30px 25px;
+            }
+            
+            .title {
+                font-size: 32px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .description {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .title {
+                font-size: 28px;
+            }
+            
+            .text-section {
+                padding: 25px 20px;
+            }
+        }
+
+
+        /* problems with traditional */
+         .problems-section {
+            margin: 0 auto;
+            padding: 0 20px;
+            background-color: #FFF8EE;
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #2c2c2c;
+            text-align: center;
+            padding-top: 40px;
+            margin-bottom: 60px;
+            letter-spacing: 0.5px;
+        }
+
+        .main-title .highlight {
+            color: #dc3545;
+            font-weight: 600;
+        }
+
+        .problem-card {
+            background-color: #FFF8EE;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border: 3px solid #d4af37;
+            height: 620px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .problem-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .problem-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: 0.3px;
+        }
+
+        .problem-description {
+            color: #626262;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .row {
+            margin: 0 -15px;
+        }
+
+        .col-lg-4 {
+            padding: 0 15px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+            
+            .problem-card {
+                padding: 15px;
+                height: 300px;
+            }
+            
+            .problem-title {
+                font-size: 1.3rem;
+            }
+            
+            .problem-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-title {
+                font-size: 1.8rem;
+            }
+            
+            .col-lg-4 {
+                margin-bottom: 25px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -366,6 +623,51 @@
             </div>
         </div>
     </section>
+
+    <section class="looseframe">
+ <div class="container loose">
+        <div class="content-wrapper">
+            <div class="image-section">
+                <div class="image-placeholder">
+                   <img src="assets/images/looseframe.png" alt=""  class="image-link"> 
+                </div>
+            </div>
+            
+            <div class="text-section">
+                <h1 class="title">WPC LOOSE FRAMES</h1>
+                <h2 class="subtitle">Premium WPC Loose Frames</h2>
+                
+                <p class="description">
+                    Transform your spaces with our premium Wood Plastic Composite (WPC) loose frames, engineered for durability and aesthetic excellence. Our WPC frames combine the natural beauty of wood with the resilience of modern polymers, offering superior resistance to moisture, termites, and weather conditions. Perfect for both interior and exterior applications, these eco-friendly frames require minimal maintenance while delivering long-lasting performance. Available in various profiles and finishes to complement any architectural style.
+                </p>
+                
+                <h3 class="features-title">Key Features:</h3>
+                <ul class="features-lists">
+                    <li class="feature-items">
+                        <div class="feature-icons"></div>
+                        <span class="feature-texts">101% termite and moisture resistant</span>
+                    </li>
+                    <li class="feature-items">
+                        <div class="feature-icons"></div>
+                        <span class="feature-texts">Zero maintenance requirements</span>
+                    </li>
+                    <li class="feature-items">
+                        <div class="feature-icons"></div>
+                        <span class="feature-texts">Eco-friendly and sustainable material</span>
+                    </li>
+                    <li class="feature-items">
+                        <div class="feature-icons"></div>
+                        <span class="feature-texts">Available in multiple wood grain finishes</span>
+                    </li>
+                    <li class="feature-items">
+                        <div class="feature-icons"></div>
+                        <span class="feature-texts">Easy installation and lightweight structure</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 
     
     <section class="wpc-whatwedo-section">
@@ -488,6 +790,40 @@
                    
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="problems-section">
+        <div class="container">
+        <h1 class="main-title">
+            Problems With Traditional <span class="highlight">Wooden Doors</span>
+        </h1>
+        
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="problem-card">
+                    <img src="assets/images/moisture.png" alt="Moisture Damage">
+                </div>
+                <h3 class="problem-title">Moisture Damage</h3>
+                <p class="problem-description">Absorbs Water Like a Sponge</p>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="problem-card">
+                    <img src="assets/images/shortlife.png" alt="Short Lifespan">
+                </div>
+                <h3 class="problem-title">Short Lifespan</h3>
+                <p class="problem-description">Frequent Replacement Required</p>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="problem-card">
+                    <img src="assets/images/termite.png" alt="Termite Haven">
+                </div>
+                <h3 class="problem-title">Termite Haven</h3>
+                <p class="problem-description">Wood = Perfect Termite Food</p>
+            </div>
+        </div>
         </div>
     </div>
 
