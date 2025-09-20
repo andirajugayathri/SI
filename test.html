@@ -3,149 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WPC vs Wood</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Product Focus - WPC Boards</title>
     <style>
-        .custom-wpc-section {
-            padding: 40px 0;
+       
+
+        .wpc-showcase-wrapper {
+            background: #ffffff;
+            padding: 60px 200px;
+            font-family: 'Georgia', serif;
+        }
+        .product-focus-container{
+            align-items: center;
+            justify-content: center;
+        }
+        .main-heading-section {
             text-align: center;
-            background: #f8f9fa;
+            margin-bottom: 60px;
         }
-        .custom-wpc-card {
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
-            margin: 0 15px;
+
+        .primary-title-text {
+            font-size: 36px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
         }
-        .custom-wpc-card img {
+
+        .subtitle-description {
+            font-size: 18px;
+            color: #626262;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .boards-display-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .board-image-container {
             width: 100%;
-            height: auto;
-            border-radius: 50px;
-          
         }
-        .custom-wpc-btn {
-            background-color: #dc3545;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: -15px;
+
+        .board-product-image {
+            width: 100%;
+            height: 659px;
+            display: block;
         }
-        .custom-wpc-btn:hover {
-            background-color: #c82333;
-        }
-        .custom-wpc-text {
-            padding: 20px;
-            font-size: 1.1rem;
-            color: #333;
-        }
+
         @media (max-width: 768px) {
-            .custom-wpc-card {
-                margin-bottom: 30px;
+            .primary-title-text {
+                font-size: 2.5rem;
             }
-            .custom-wpc-section h2 {
-                font-size: 1.5rem;
+            
+            .subtitle-description {
+                font-size: 1.1rem;
             }
-            .custom-wpc-text {
-                font-size: 1rem;
+            
+            .boards-display-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
-        .custom-wpc-card {
-  border: none;
-  border-radius: 15px;
-  overflow: hidden;
-  margin: 0 15px;
-  position: relative; /* key change */
-}
-
-.custom-wpc-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 50px;
-}
-
-.custom-wpc-btn {
-  position: absolute; 
-  bottom: 62px;      
-  left: 50%;         
-  transform: translateX(-50%); 
-  background-color: #dc3545;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-.custom-wpc-btn:hover {
-  background-color: #c82333;
-}
-
     </style>
 </head>
 <body>
-    <section class="custom-wpc-section">
-        <h2 class="text-danger">Why Space Interiors Recommends WPC Over Wood</h2>
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-5 col-12">
-                <div class="custom-wpc-card">
-                    <img src="assets/images/flashwood.png" alt="Wooden Door Frame" class="img-fluid">
-                    <button class="custom-wpc-btn">Wooden Door Frame</button>
-                    <p class="custom-wpc-text">Absorbs moisture + Swells & Warps</p>
+    <section class="wpc-showcase-wrapper">
+        <div class="container product-focus-container">
+            <header class="main-heading-section">
+                <h1 class="primary-title-text">Product Focus</h1>
+                <p class="subtitle-description">Complete Range of WPC Boards & Plywood</p>
+            </header>
+
+            <div class="boards-display-grid">
+                <div class="board-image-container">
+                    <img src="assets/images/wood-polymer-composite board.png" alt="Wood Polymer Composite Board" class="board-product-image">
                 </div>
-            </div>
-            <div class="col-md-5 col-12">
-                <div class="custom-wpc-card">
-                    <img src="assets/images/flashwood.png" alt="Space Interiors WPC Frames" class="img-fluid">
-                    <button class="custom-wpc-btn">Wooden Door Frame</button>
-                    <p class="custom-wpc-text">100% Waterproof: Zero water absorption</p>
-                </div>
-            </div>
-             <div class="col-md-5 col-12">
-                <div class="custom-wpc-card">
-                    <img src="assets/images/flashwood.png" alt="Wooden Door Frame" class="img-fluid">
-                    <button class="custom-wpc-btn">Wooden Door Frame</button>
-                    <p class="custom-wpc-text">Absorbs moisture + Swells & Warps</p>
-                </div>
-            </div>
-            <div class="col-md-5 col-12">
-                <div class="custom-wpc-card">
-                    <img src="assets/images/flashwood.png" alt="Space Interiors WPC Frames" class="img-fluid">
-                    <button class="custom-wpc-btn">Wooden Door Frame</button>
-                    <p class="custom-wpc-text">100% Waterproof: Zero water absorption</p>
-                </div>
-            </div>
-             <div class="col-md-5 col-12">
-                <div class="custom-wpc-card">
-                    <img src="assets/images/flashwood.png" alt="Wooden Door Frame" class="img-fluid">
-                    <button class="custom-wpc-btn">Wooden Door Frame</button>
-                    <p class="custom-wpc-text">Absorbs moisture + Swells & Warps</p>
-                </div>
-            </div>
-            <div class="col-md-5 col-12">
-                <div class="custom-wpc-card">
-                    <img src="assets/images/flashwood.png" alt="Space Interiors WPC Frames" class="img-fluid">
-                    <button class="custom-wpc-btn">Wooden Door Frame</button>
-                    <p class="custom-wpc-text">100% Waterproof: Zero water absorption</p>
-                </div>
-            </div>
-             <div class="col-md-5 col-12">
-                <div class="custom-wpc-card">
-                    <img src="assets/images/flashwood.png" alt="Wooden Door Frame" class="img-fluid">
-                    <button class="custom-wpc-btn">Wooden Door Frame</button>
-                    <p class="custom-wpc-text">Absorbs moisture + Swells & Warps</p>
-                </div>
-            </div>
-            <div class="col-md-5 col-12">
-                <div class="custom-wpc-card">
-                    <img src="assets/images/flashwood.png" alt="Space Interiors WPC Frames" class="img-fluid">
-                    <button class="custom-wpc-btn">Wooden Door Frame</button>
-                    <p class="custom-wpc-text">100% Waterproof: Zero water absorption</p>
+
+                <div class="board-image-container">
+                    <img src="assets/images/mineral-polymer-composite-board.png" alt="Mineral Polymer Composite Board" class="board-product-image">
                 </div>
             </div>
         </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
