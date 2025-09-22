@@ -1025,9 +1025,9 @@ input {
 }
 
 @media (max-width: 480px) {
-  .home-schedule-section {
+  /* .home-schedule-section {
     padding: 60px 15px;
-  }
+  } */
 
   .home-schedule-image {
     height: 300px;
@@ -2859,12 +2859,14 @@ input {
 
 .door-frames {
   color: #c91d25;
+  font-weight: 700;
 }
 
 .section-description {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #000;
+  font-weight: 400;
+  color: #626262;
   /* margin-bottom: 60px; */
 }
 
@@ -2926,8 +2928,7 @@ input {
 
   .features-container,
   .showroom-container {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding:15px
   }
 
   .showroom-image {
@@ -2970,7 +2971,8 @@ input {
 .wpc-whatwedo-subtitle {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #000;
+  font-weight: 400;
+  color: #626262;
   margin-bottom: 60px;
 }
 
@@ -3066,7 +3068,7 @@ input {
   }
 
   .wpc-whatwedo-section {
-    padding: 60px 0;
+    padding: 0;
   }
 
   .wpc-whatwedo-grid {
@@ -3810,7 +3812,7 @@ input {
 }
 
 .product-grades-subtitle {
-  color: #000;
+  color: #626262;
   margin-bottom: 40px;
 }
 
@@ -6770,7 +6772,7 @@ input {
             margin-bottom: 50px;
             font-family: "Playfair Display SC";
             font-weight: 400;
-            font-size: 32px;
+            font-size: 36px;
         }
 
         .section-title h2 {
