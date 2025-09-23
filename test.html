@@ -1,92 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Focus - WPC Boards</title>
-    <style>
-       
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WPC Doors - Ready to Fix</title>
+  <style>
+    .rtf-section {
+      background-image: url("/assets/images/readytofix-img.png");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      background-repeat: no-repeat;
+    }
 
-        .wpc-showcase-wrapper {
-            background: #ffffff;
-            padding: 60px 200px;
-            font-family: 'Georgia', serif;
-        }
-        .product-focus-container{
-            align-items: center;
-            justify-content: center;
-        }
-        .main-heading-section {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+    .rtf-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
 
-        .primary-title-text {
-            font-size: 36px;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
+    .rtf-image-box {
+      flex: 1;
+      height: 706px;
+      left: 60px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .subtitle-description {
-            font-size: 18px;
-            color: #626262;
-            font-weight: 400;
-            line-height: 1.5;
-        }
+    .rtf-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
 
-        .boards-display-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
+    .rtf-image-box:hover img {
+      transform: scale(1.02);
+    }
 
-        .board-image-container {
-            width: 100%;
-        }
+    .rtf-content {
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-        .board-product-image {
-            width: 100%;
-            height: 659px;
-            display: block;
-        }
+    .rtf-heading-wrap {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
 
-        @media (max-width: 768px) {
-            .primary-title-text {
-                font-size: 2.5rem;
-            }
-            
-            .subtitle-description {
-                font-size: 1.1rem;
-            }
-            
-            .boards-display-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-    </style>
+    .rtf-heading-wrap::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 32px;
+      bottom: 0;
+      width: 5px;
+      background: #d4a574;
+      border-radius: 2px;
+    }
+
+    .rtf-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .rtf-title .rtf-highlight {
+      color: #e74c3c;
+    }
+
+    .rtf-subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #34495e;
+      margin-bottom: 0;
+    }
+
+    .rtf-description {
+      font-size: 1rem;
+      color: #7f8c8d;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .rtf-benefits-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 25px;
+    }
+
+    .rtf-benefits-list {
+      list-style: none;
+      margin-bottom: 30px;
+      margin-left: -34px;
+    }
+
+    .rtf-benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      color: #5a6c7d;
+    }
+
+    .rtf-benefits-list li::before {
+      content: "●";
+      color: #d4a574;
+      font-size: 1.2rem;
+      margin-right: 15px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .rtf-install-box {
+      background-color: #fff;
+      border-left: 4px solid #e74c3c;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .rtf-install-box strong {
+      color: #e74c3c;
+      font-weight: 600;
+    }
+
+    .rtf-install-box span {
+      color: #5a6c7d;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .rtf-wrapper {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .rtf-image-box {
+        height: 300px;
+      }
+
+      .rtf-content {
+        padding: 30px;
+      }
+
+      .rtf-title {
+        font-size: 2rem;
+      }
+
+      .rtf-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .rtf-benefits-title {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <section class="wpc-showcase-wrapper">
-        <div class="container product-focus-container">
-            <header class="main-heading-section">
-                <h1 class="primary-title-text">Product Focus</h1>
-                <p class="subtitle-description">Complete Range of WPC Boards & Plywood</p>
-            </header>
-
-            <div class="boards-display-grid">
-                <div class="board-image-container">
-                    <img src="assets/images/wood-polymer-composite board.png" alt="Wood Polymer Composite Board" class="board-product-image">
-                </div>
-
-                <div class="board-image-container">
-                    <img src="assets/images/mineral-polymer-composite-board.png" alt="Mineral Polymer Composite Board" class="board-product-image">
-                </div>
-            </div>
+  <section class="rtf-section">
+    <div class="container">
+      <div class="rtf-wrapper">
+        <div class="rtf-image-box">
+          <img src="assets/images/ready-to-fix-img.png" alt="Modern Interior with WPC Doors">
         </div>
-    </section>
+        
+        <div class="rtf-content">
+          <div class="rtf-heading-wrap">
+            <h1 class="rtf-title">WPC DOORS - <span class="rtf-highlight">READY TO FIX</span></h1>
+            <h2 class="rtf-subtitle">Premium WPC Solid Doors</h2>
+          </div>
+          
+          <p class="rtf-description">
+            Upgrade to Space Designs' ready-to-install WPC solid doors - the smart alternative to traditional wooden doors. Our pre-finished doors come with hardware fittings for immediate installation.
+          </p>
+          
+          <h3 class="rtf-benefits-title">Ready-to-Fix Benefits:</h3>
+          
+          <ul class="rtf-benefits-list">
+            <li>100% waterproof & termite-proof guaranteed</li>
+            <li>Fire retardant safety technology</li>
+            <li>Pre-hung with hardware for instant installation</li>
+            <li>20+ premium finishes including teak, oak, walnut</li>
+            <li>Zero painting or polishing required</li>
+            <li>15+ year warranty with minimal maintenance</li>
+            <li>Standard sizes available for immediate delivery</li>
+          </ul>
+          
+          <div class="rtf-install-box">
+            <strong>Installation Time:</strong> <span>Complete setup in just 2 hours per door</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>

@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
         /* loose frame */
-
+         .looseframe{
+            padding: 50px 0;
+         }
  .loose {
             margin: 0 auto;
             overflow: hidden;
@@ -27,8 +29,8 @@
             height: 545px;
         }
 
-        .image-placeholder {
-            width: 100%;
+        .image-placeholder img{
+            /* width: 100%; */
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -123,7 +125,6 @@
             
             .image-section {
                 min-height: 200px;
-                padding: 30px 20px;
             }
             
             .text-section {
@@ -143,6 +144,165 @@
             }
         }
 
+        /* ready to fix */
+         /* .rtf-section {
+      background-image: url("/assets/images/readytofix-img.png");
+      background-size: contain;
+      background-position: center;
+      position: relative;
+      background-repeat: no-repeat;
+    }
+
+    .rtf-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .rtf-image-box {
+      flex: 1;
+      left: -74px;
+      bottom: 9px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rtf-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .rtf-image-box:hover img {
+      transform: scale(1.02);
+    }
+
+    .rtf-content {
+      flex: 1;
+      padding: 50px 0px 50px 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .rtf-heading-wrap {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
+
+    .rtf-heading-wrap::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top:0;
+      bottom: 0;
+      width: 5px;
+      background: #d4a574;
+      border-radius: 2px;
+    }
+
+    .rtf-title {
+      font-size: 38px;
+      font-weight: 400;
+      color: #000;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .rtf-title .rtf-highlight {
+      color: #C91D25;
+      font-weight: 700;
+    }
+
+    .rtf-subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #000;
+      font-family: "Montserrat";
+      margin-bottom: 0;
+    }
+
+    .rtf-description {
+      font-size: 1rem;
+      color: #626262;
+      line-height: 1.7;
+    }
+
+    .rtf-benefits-title {
+      font-size: 24px;
+      font-weight: 400;
+      color: #000;
+      margin-bottom: 25px;
+    }
+
+    .rtf-benefits-list {
+      list-style: none;
+      margin-bottom: 15pxpx;
+      margin-left: -34px;
+    }
+
+    .rtf-benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      color: #626262;
+    }
+
+    .rtf-benefits-list li::before {
+      content: "●";
+      color: #A27327;
+      font-size: 16px;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .rtf-install-box {
+      background-color: #fff;
+      border-left: 4px solid #e74c3c;
+      padding: 20px;
+      font-family: "Montserrat";
+      margin-top: -12px;
+    }
+
+    .rtf-install-box strong {
+      color: #e74c3c;
+      font-weight: 600;
+    }
+
+    .rtf-install-box span {
+      color: #626262;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .rtf-wrapper {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .rtf-image-box {
+        height: 300px;
+      }
+
+      .rtf-content {
+        padding: 30px;
+      }
+
+      .rtf-title {
+        font-size: 2rem;
+      }
+
+      .rtf-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .rtf-benefits-title {
+        font-size: 1.2rem;
+      }
+    } */
     </style>
 </head>
 <body>
@@ -237,49 +397,7 @@
         </div>
     </section>
 
-    <section class="looseframe">
- <div class="container loose">
-        <div class="content-wrapper">
-            <div class="image-section">
-                <div class="image-placeholder">
-                   <img src="assets/images/upvc-looseframe.png" alt=""  class="image-link"> 
-                </div>
-            </div>
-            
-            <div class="text-section">
-                <h1 class="title">UPVC LOOSE FRAMES</h1>
-                <h2 class="subtitle">High-Performance UPVC Loose Frames</h2>
-                
-                <p class="description">
-                    Discover the perfect blend of functionality and style with our UPVC loose frames, designed for modern living spaces that demand both aesthetics and performance. Our Unplasticized Polyvinyl Chloride frames offer exceptional thermal insulation, weather resistance, and color retention properties. Ideal for windows, doors, and partition applications, these frames provide excellent energy efficiency while maintaining their pristine appearance for years without painting or polishing.                </p>
-                </p>
-                <h3 class="features-title">Key Features:</h3>
-                <ul class="features-lists">
-                    <li class="feature-items">
-                        <div class="feature-icons"></div>
-                        <span class="feature-texts">Superior thermal and sound insulation</span>
-                    </li>
-                    <li class="feature-items">
-                        <div class="feature-icons"></div>
-                        <span class="feature-texts">UV resistant with long-lasting color stability</span>
-                    </li>
-                    <li class="feature-items">
-                        <div class="feature-icons"></div>
-                        <span class="feature-texts">Low thermal conductivity for energy efficiency</span>
-                    </li>
-                    <li class="feature-items">
-                        <div class="feature-icons"></div>
-                        <span class="feature-texts">Fire retardant and lead-free composition</span>
-                    </li>
-                    <li class="feature-items">
-                        <div class="feature-icons"></div>
-                        <span class="feature-texts">Wide range of profiles and color options</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+  
 
     
     <section class="wpc-whatwedo-section">
@@ -341,6 +459,50 @@
     </div>
   </section>
 
+  <section class="looseframe">
+ <div class="container loose">
+        <div class="content-wrapper">
+            <div class="image-section">
+                <div class="image-placeholder">
+                   <img src="assets/images/upvc-looseframe.png" alt=""  class="image-link"> 
+                </div>
+            </div>
+            
+            <div class="text-section">
+                <h1 class="title">UPVC LOOSE FRAMES</h1>
+                <h2 class="subtitle">High-Performance UPVC Loose Frames</h2>
+                
+                <p class="description">
+                    Discover the perfect blend of functionality and style with our UPVC loose frames, designed for modern living spaces that demand both aesthetics and performance. Our Unplasticized Polyvinyl Chloride frames offer exceptional thermal insulation, weather resistance, and color retention properties. Ideal for windows, doors, and partition applications, these frames provide excellent energy efficiency while maintaining their pristine appearance for years without painting or polishing.                </p>
+                </p>
+                <h3 class="features-title">Key Features:</h3>
+                <ul class="features-lists">
+                    <li class="feature-items">
+                        <div class="feature-icons"></div>
+                        <span class="feature-texts">Superior thermal and sound insulation</span>
+                    </li>
+                    <li class="feature-items">
+                        <div class="feature-icons"></div>
+                        <span class="feature-texts">UV resistant with long-lasting color stability</span>
+                    </li>
+                    <li class="feature-items">
+                        <div class="feature-icons"></div>
+                        <span class="feature-texts">Low thermal conductivity for energy efficiency</span>
+                    </li>
+                    <li class="feature-items">
+                        <div class="feature-icons"></div>
+                        <span class="feature-texts">Fire retardant and lead-free composition</span>
+                    </li>
+                    <li class="feature-items">
+                        <div class="feature-icons"></div>
+                        <span class="feature-texts">Wide range of profiles and color options</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
   <div class="product-grades-container">
         <div class="container">
             <div class="col-md-8" style="justify-self: center;">
@@ -398,6 +560,43 @@
             </div>
         </div>
     </div>
+
+      
+
+<!-- <section class="rtf-section">
+    <div class="container">
+      <div class="rtf-wrapper">
+        <div class="rtf-image-box">
+          <img src="assets/images/ready-to-fix-img.png" alt="Modern Interior with WPC Doors">
+        </div>
+        <div class="rtf-content">
+          <div class="rtf-heading-wrap">
+            <h1 class="rtf-title">UPVC FRAMES & WINDOWS - <span class="rtf-highlight">READY TO FIX</span></h1>
+            <h2 class="rtf-subtitle">Premium UPVC Solutions for Modern Homes</h2>
+          </div>
+          
+          <p class="rtf-description">
+        Transform your spaces with Space Designs' ready-to-install UPVC frames and windows, engineered for superior performance and lasting beauty. Our high-quality double-glazed solutions offer exceptional thermal insulation, weather resistance, and energy efficiency - perfect for India's diverse climate conditions.       
+       </p>
+          
+          <h3 class="rtf-benefits-title">Ready-to-Fix Features:</h3>
+          
+          <ul class="rtf-benefits-list">
+            <li>Pre-fabricated & measured for quick installation</li>
+            <li>Superior thermal insulation reduces energy </li>
+            <li>Weather & UV resistant with color stability</li>
+            <li>Sound proof technology for peaceful living</li>
+            <li>Multiple styles: Casement, Sliding, Fixed, Arch designs</li>
+            <li>Wood grain finishes: Mahogany, Walnut, Golden Oak, Dark Oak</li>
+          </ul>
+          
+          <div class="rtf-install-box">
+            <strong>Installation Process:</strong> <span>Survey → Design → 2-Day Installation → Lifetime Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
 
      <section class="home-schedule-section">
         <div class="home-schedule-container">
