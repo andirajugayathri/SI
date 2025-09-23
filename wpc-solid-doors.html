@@ -533,6 +533,173 @@
             }
         }
 
+         /* ready to fix */
+       .rtf-section {
+      background-image: url("assets/images/readytofix-img.png"); /* Background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      padding: 60px 0;
+      margin: 60px 0px;
+    }
+
+    .rtf-wrapper {
+      display: flex;
+      /* align-items: center; */
+      justify-content: space-between;
+      /* gap: 60px; */
+    }
+
+    /* Left side door image */
+    .rtf-image-box {
+      flex: 1;
+      max-width: 50%;
+      left: -57px;
+      position: relative;
+    }
+
+    .rtf-image-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Right content */
+    .rtf-content {
+      flex: 1;
+      max-width: 50%;
+      border-radius: 8px;
+    }
+
+    /* Title + subtitle with line */
+    .rtf-heading-wrap {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
+
+    .rtf-heading-wrap::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 0;
+      width: 4px;
+      background: #A27327;
+    }
+
+    .rtf-title {
+      font-size: 40px;
+      font-weight: 400;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .rtf-title .rtf-highlight {
+      color: #e74c3c;
+      font-weight: 700;
+    }
+
+    .rtf-subtitle {
+      font-size: 28px;
+      font-weight: 700;
+      font-family: "Montserrat";
+      color: #000;
+      margin-bottom: 20px;
+    }
+
+    .rtf-description {
+      font-size: 1rem;
+      color: #626262;
+      font-weight: 400;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .rtf-benefits-title {
+      font-size: 24px;
+      font-weight: 400;
+      color: #000;
+      margin-bottom: 15px;
+    }
+
+    .rtf-benefits-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+
+    .rtf-benefits-list li {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #5a6c7d;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .rtf-benefits-list li::before {
+      content: "•";
+      color: #A27327;
+      position: absolute;
+      left: 0;
+      font-size: 30px;
+      margin-top: -10px;
+    }
+
+    .rtf-install-box {
+      background-color: #fff;
+      border-left: 4px solid #C91D25;
+      padding: 20px 20px 20px 10px;
+      font-family: "Montserrat";
+      margin-top: 30px;
+      font-size: 16px;
+      color: #626262;
+    }
+
+    .rtf-install-box strong {
+      color: #C91D25;
+      font-weight: 600;
+    }
+
+     .rtf-image-box.desktop-image {
+    display: block; 
+  }
+
+  .rtf-image-box.mobile-image {
+    display: none; 
+  }
+
+   @media (max-width: 768px) {
+  .rtf-wrapper {
+    flex-direction: column;
+  }
+
+  .rtf-image-box,
+  .rtf-content {
+    max-width: 100%;
+  }
+
+  .rtf-image-box {
+    background-image: url("/assets/images/readyto-fix-mobile.png");
+    background-size: contain;  
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;      
+  }
+  .rtf-image-box{
+    left: 0;
+  }
+  .rtf-image-box.desktop-image {
+    display: none; 
+  }
+
+  .rtf-image-box.mobile-image {
+    display: block;
+    margin-bottom: 30px;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -895,6 +1062,52 @@
         </div>
     </div>
 </section>
+
+
+<section class="rtf-section">
+    <div class="container">
+      <div class="rtf-wrapper">
+        
+        <!-- Left side Door Image -->
+        <div class="rtf-image-box desktop-image">
+                <img src="assets/images/ready-to-fix-img.png" alt="Modern Interior with WPC Doors">
+            </div>
+            
+            <!-- Left side Door Image (Mobile version) -->
+            <div class="rtf-image-box mobile-image">
+                <img src="assets/images/readyto-fix-mobile.png" alt="Modern Interior with WPC Doors">
+            </div>
+        
+        <!-- Right side Text Content -->
+        <div class="rtf-content">
+          <div class="rtf-heading-wrap">
+            <h1 class="rtf-title">WPC DOORS - <span class="rtf-highlight">READY TO FIX</span></h1>
+            <h2 class="rtf-subtitle">Premium WPC Solid Doors</h2>
+          </div>
+
+          <p class="rtf-description">
+            Upgrade to Space Designs' ready-to-install WPC solid doors - the smart alternative to traditional wooden doors. Our pre-finished doors come with hardware fittings for immediate installation.
+          </p>
+
+          <h3 class="rtf-benefits-title">Ready-to-Fix Benefits:</h3>
+          <ul class="rtf-benefits-list">
+            <li>100% waterproof & termite-proof guaranteed</li>
+            <li>Fire retardant safety technology</li>
+            <li>Pre-hung with hardware for instant installation</li>
+            <li>20+ premium finishes including teak, oak, walnut</li>
+            <li>Zero painting or polishing required</li>
+            <li>15+ year warranty with minimal maintenance</li>
+            <li>Standard sizes available for immediate delivery</li>
+          </ul>
+
+          <div class="rtf-install-box">
+            <strong>Installation Time:</strong> Complete setup in just 2 hours per door
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 
      <section class="home-schedule-section">

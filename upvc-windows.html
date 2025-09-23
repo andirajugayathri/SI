@@ -30,7 +30,7 @@
         }
 
         .image-placeholder img{
-            /* width: 100%; */
+            width: 100%;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -145,47 +145,45 @@
         }
 
         /* ready to fix */
-         /* .rtf-section {
-      background-image: url("/assets/images/readytofix-img.png");
-      background-size: contain;
+       .rtf-section {
+      background-image: url("assets/images/readytofix-img.png"); /* Background image */
+      background-size: cover;
       background-position: center;
-      position: relative;
       background-repeat: no-repeat;
+      position: relative;
+      padding: 60px 0;
+      margin: 60px 0px;
     }
 
     .rtf-wrapper {
       display: flex;
-      align-items: center;
+      /* align-items: center; */
+      justify-content: space-between;
+      /* gap: 60px; */
     }
 
+    /* Left side door image */
     .rtf-image-box {
       flex: 1;
-      left: -74px;
-      bottom: 9px;
-      width: 100%;
+      max-width: 50%;
+      left: -57px;
       position: relative;
-      overflow: hidden;
     }
 
     .rtf-image-box img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
+      height: auto;
+      display: block;
     }
 
-    .rtf-image-box:hover img {
-      transform: scale(1.02);
-    }
-
+    /* Right content */
     .rtf-content {
       flex: 1;
-      padding: 50px 0px 50px 0px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      max-width: 50%;
+      border-radius: 8px;
     }
 
+    /* Title + subtitle with line */
     .rtf-heading-wrap {
       position: relative;
       padding-left: 20px;
@@ -196,37 +194,37 @@
       content: "";
       position: absolute;
       left: 0;
-      top:0;
+      top: 8px;
       bottom: 0;
-      width: 5px;
-      background: #d4a574;
-      border-radius: 2px;
+      width: 4px;
+      background: #A27327;
     }
 
     .rtf-title {
-      font-size: 38px;
+      font-size: 40px;
       font-weight: 400;
       color: #000;
       margin-bottom: 10px;
-      line-height: 1.2;
     }
 
     .rtf-title .rtf-highlight {
-      color: #C91D25;
+      color: #e74c3c;
       font-weight: 700;
     }
 
     .rtf-subtitle {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #000;
+      font-size: 28px;
+      font-weight: 700;
       font-family: "Montserrat";
-      margin-bottom: 0;
+      color: #000;
+      margin-bottom: 20px;
     }
 
     .rtf-description {
       font-size: 1rem;
       color: #626262;
+      font-weight: 400;
+      margin-bottom: 30px;
       line-height: 1.7;
     }
 
@@ -234,75 +232,85 @@
       font-size: 24px;
       font-weight: 400;
       color: #000;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
     }
 
     .rtf-benefits-list {
       list-style: none;
-      margin-bottom: 15pxpx;
-      margin-left: -34px;
+      padding: 0;
+      margin: 0 0 20px;
     }
 
     .rtf-benefits-list li {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 15px;
-      font-size: 1rem;
-      color: #626262;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #5a6c7d;
+      position: relative;
+      padding-left: 20px;
     }
 
     .rtf-benefits-list li::before {
-      content: "●";
+      content: "•";
       color: #A27327;
-      font-size: 16px;
-      margin-right: 15px;
-      flex-shrink: 0;
+      position: absolute;
+      left: 0;
+      font-size: 30px;
+      margin-top: -10px;
     }
 
     .rtf-install-box {
       background-color: #fff;
-      border-left: 4px solid #e74c3c;
-      padding: 20px;
+      border-left: 4px solid #C91D25;
+      padding: 20px 20px 20px 10px;
       font-family: "Montserrat";
-      margin-top: -12px;
+      margin-top: 30px;
+      font-size: 16px;
+      color: #626262;
     }
 
     .rtf-install-box strong {
-      color: #e74c3c;
+      color: #C91D25;
       font-weight: 600;
     }
 
-    .rtf-install-box span {
-      color: #626262;
-      font-size: 1rem;
-    }
+     .rtf-image-box.desktop-image {
+    display: block; 
+  }
 
-    @media (max-width: 768px) {
-      .rtf-wrapper {
-        flex-direction: column;
-        min-height: auto;
-      }
+  .rtf-image-box.mobile-image {
+    display: none; 
+  }
 
-      .rtf-image-box {
-        height: 300px;
-      }
+   @media (max-width: 768px) {
+  .rtf-wrapper {
+    flex-direction: column;
+  }
 
-      .rtf-content {
-        padding: 30px;
-      }
+  .rtf-image-box,
+  .rtf-content {
+    max-width: 100%;
+  }
 
-      .rtf-title {
-        font-size: 2rem;
-      }
+  .rtf-image-box {
+    background-image: url("/assets/images/readyto-fix-mobile.png");
+    background-size: contain;  
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;      
+  }
+  .rtf-image-box{
+    left: 0;
+  }
+  .rtf-image-box.desktop-image {
+    display: none; 
+  }
 
-      .rtf-subtitle {
-        font-size: 1.3rem;
-      }
+  .rtf-image-box.mobile-image {
+    display: block;
+    margin-bottom: 30px;
+  }
+}
 
-      .rtf-benefits-title {
-        font-size: 1.2rem;
-      }
-    } */
     </style>
 </head>
 <body>
@@ -561,43 +569,51 @@
         </div>
     </div>
 
-      
-
-<!-- <section class="rtf-section">
+      <section class="rtf-section">
     <div class="container">
       <div class="rtf-wrapper">
-        <div class="rtf-image-box">
-          <img src="assets/images/ready-to-fix-img.png" alt="Modern Interior with WPC Doors">
-        </div>
+        
+        <!-- Left side Door Image -->
+        <div class="rtf-image-box desktop-image">
+                <img src="assets/images/ready-to-fix-img.png" alt="Modern Interior with WPC Doors">
+            </div>
+            
+            <!-- Left side Door Image (Mobile version) -->
+            <div class="rtf-image-box mobile-image">
+                <img src="assets/images/readyto-fix-mobile.png" alt="Modern Interior with WPC Doors">
+            </div>
+        
+        <!-- Right side Text Content -->
         <div class="rtf-content">
           <div class="rtf-heading-wrap">
             <h1 class="rtf-title">UPVC FRAMES & WINDOWS - <span class="rtf-highlight">READY TO FIX</span></h1>
             <h2 class="rtf-subtitle">Premium UPVC Solutions for Modern Homes</h2>
           </div>
-          
+
           <p class="rtf-description">
-        Transform your spaces with Space Designs' ready-to-install UPVC frames and windows, engineered for superior performance and lasting beauty. Our high-quality double-glazed solutions offer exceptional thermal insulation, weather resistance, and energy efficiency - perfect for India's diverse climate conditions.       
-       </p>
-          
+            Transform your spaces with Space Designs' ready-to-install UPVC frames and windows, engineered for superior performance and lasting beauty. Our high-quality double-glazed solutions offer exceptional thermal insulation, weather resistance, and energy efficiency - perfect for India's diverse climate conditions.
+          </p>
+
           <h3 class="rtf-benefits-title">Ready-to-Fix Features:</h3>
-          
           <ul class="rtf-benefits-list">
             <li>Pre-fabricated & measured for quick installation</li>
-            <li>Superior thermal insulation reduces energy </li>
-            <li>Weather & UV resistant with color stability</li>
+            <li>Superior thermal insulation reduces energy costs</li>
+            <li>Weather & UV resistant with color stability </li>
             <li>Sound proof technology for peaceful living</li>
             <li>Multiple styles: Casement, Sliding, Fixed, Arch designs</li>
             <li>Wood grain finishes: Mahogany, Walnut, Golden Oak, Dark Oak</li>
           </ul>
-          
+
           <div class="rtf-install-box">
-            <strong>Installation Process:</strong> <span>Survey → Design → 2-Day Installation → Lifetime Support</span>
+            <strong>Installation Process:</strong> Survey → Design → 2-Day Installation → Lifetime Support
           </div>
         </div>
+
       </div>
     </div>
-  </section> -->
+  </section>
 
+     
      <section class="home-schedule-section">
         <div class="home-schedule-container">
             <div class="home-schedule-image-wrapper">

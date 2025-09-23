@@ -6,47 +6,44 @@
   <title>WPC Doors - Ready to Fix</title>
   <style>
     .rtf-section {
-      background-image: url("/assets/images/readytofix-img.png");
+      background-image: url("assets/images/readytofix-img.png"); /* Background image */
       background-size: cover;
       background-position: center;
-      position: relative;
       background-repeat: no-repeat;
+      position: relative;
+      padding: 60px 0;
     }
 
     .rtf-wrapper {
       display: flex;
-      align-items: center;
+      /* align-items: center; */
+      justify-content: space-between;
       gap: 60px;
     }
 
+    /* Left side door image */
     .rtf-image-box {
       flex: 1;
-      height: 706px;
+      max-width: 50%;
       left: 60px;
-      width: 100%;
       position: relative;
-      overflow: hidden;
     }
 
     .rtf-image-box img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
+      height: auto;
+      display: block;
     }
 
-    .rtf-image-box:hover img {
-      transform: scale(1.02);
-    }
-
+    /* Right content */
     .rtf-content {
       flex: 1;
-      padding: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      max-width: 50%;
+      padding: 0px 40px;
+      border-radius: 8px;
     }
 
+    /* Title + subtitle with line */
     .rtf-heading-wrap {
       position: relative;
       padding-left: 20px;
@@ -57,110 +54,88 @@
       content: "";
       position: absolute;
       left: 0;
-      top: 32px;
+      top: 8px;
       bottom: 0;
       width: 5px;
-      background: #d4a574;
+      background: #A27327;
       border-radius: 2px;
     }
 
     .rtf-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #2c3e50;
+      font-size: 40px;
+      font-weight: 400;
+      color: #000;
       margin-bottom: 10px;
-      line-height: 1.2;
     }
 
     .rtf-title .rtf-highlight {
       color: #e74c3c;
+      font-weight: 700;
     }
 
     .rtf-subtitle {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #34495e;
-      margin-bottom: 0;
+      font-size: 28px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 20px;
     }
 
     .rtf-description {
       font-size: 1rem;
-      color: #7f8c8d;
-      margin-bottom: 40px;
+      color: #626262;
+      font-weight: 400;
+      margin-bottom: 30px;
       line-height: 1.7;
     }
 
     .rtf-benefits-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #2c3e50;
-      margin-bottom: 25px;
+      font-size: 24px;
+      font-weight: 400;
+      color: #000;
+      margin-bottom: 15px;
     }
 
     .rtf-benefits-list {
       list-style: none;
-      margin-bottom: 30px;
-      margin-left: -34px;
+      padding: 0;
+      margin: 0 0 20px;
     }
 
     .rtf-benefits-list li {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 15px;
-      font-size: 1rem;
+      margin-bottom: 10px;
+      font-size: 16px;
       color: #5a6c7d;
+      position: relative;
+      padding-left: 20px;
     }
 
     .rtf-benefits-list li::before {
-      content: "●";
-      color: #d4a574;
-      font-size: 1.2rem;
-      margin-right: 15px;
-      margin-top: 2px;
-      flex-shrink: 0;
+      content: "•";
+      color: #A27327;
+      position: absolute;
+      left: 0;
     }
 
     .rtf-install-box {
       background-color: #fff;
-      border-left: 4px solid #e74c3c;
+      border-left: 4px solid #C91D25;
       padding: 20px;
-      margin-top: 20px;
+      font-size: 16px;
+      color: #626262;
     }
 
     .rtf-install-box strong {
-      color: #e74c3c;
+      color: #C91D25;
       font-weight: 600;
-    }
-
-    .rtf-install-box span {
-      color: #5a6c7d;
-      font-size: 1rem;
     }
 
     @media (max-width: 768px) {
       .rtf-wrapper {
         flex-direction: column;
-        min-height: auto;
       }
-
-      .rtf-image-box {
-        height: 300px;
-      }
-
+      .rtf-image-box,
       .rtf-content {
-        padding: 30px;
-      }
-
-      .rtf-title {
-        font-size: 2rem;
-      }
-
-      .rtf-subtitle {
-        font-size: 1.3rem;
-      }
-
-      .rtf-benefits-title {
-        font-size: 1.2rem;
+        max-width: 100%;
       }
     }
   </style>
@@ -169,22 +144,24 @@
   <section class="rtf-section">
     <div class="container">
       <div class="rtf-wrapper">
+        
+        <!-- Left side Door Image -->
         <div class="rtf-image-box">
           <img src="assets/images/ready-to-fix-img.png" alt="Modern Interior with WPC Doors">
         </div>
         
+        <!-- Right side Text Content -->
         <div class="rtf-content">
           <div class="rtf-heading-wrap">
             <h1 class="rtf-title">WPC DOORS - <span class="rtf-highlight">READY TO FIX</span></h1>
             <h2 class="rtf-subtitle">Premium WPC Solid Doors</h2>
           </div>
-          
+
           <p class="rtf-description">
             Upgrade to Space Designs' ready-to-install WPC solid doors - the smart alternative to traditional wooden doors. Our pre-finished doors come with hardware fittings for immediate installation.
           </p>
-          
+
           <h3 class="rtf-benefits-title">Ready-to-Fix Benefits:</h3>
-          
           <ul class="rtf-benefits-list">
             <li>100% waterproof & termite-proof guaranteed</li>
             <li>Fire retardant safety technology</li>
@@ -194,11 +171,12 @@
             <li>15+ year warranty with minimal maintenance</li>
             <li>Standard sizes available for immediate delivery</li>
           </ul>
-          
+
           <div class="rtf-install-box">
-            <strong>Installation Time:</strong> <span>Complete setup in just 2 hours per door</span>
+            <strong>Installation Time:</strong> Complete setup in just 2 hours per door
           </div>
         </div>
+
       </div>
     </div>
   </section>
