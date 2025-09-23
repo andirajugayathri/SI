@@ -158,7 +158,7 @@ input {
 
 .home-about .section-description {
   font-size: 16px;
-  color: #666;
+  color: #626262;
   line-height: 1.8;
   margin-bottom: 40px;
   max-width: 600px;
@@ -238,7 +238,7 @@ input {
   align-items: center;
   background: white;
   border-radius: 30px;
-  padding: 20px 10px;
+  padding: 15px 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   max-width: 800px;
   margin: 30px auto;
@@ -357,6 +357,9 @@ input {
   .home-about .decorative-frames,
   .home-about .decorative-furniture {
     display: none;
+  }
+  .hero-title{
+    margin: 10px;
   }
 }
 
@@ -815,7 +818,7 @@ input {
 
 .home-schedule-section {
   background: #f8f9fa;
-  padding: 20px;
+  padding: 20px 0px 60px 0px;
 }
 
 .home-schedule-container {
@@ -833,7 +836,7 @@ input {
 
 .home-schedule-image {
   width: 100%;
-  height: 400px;
+  height: 500px;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -1022,6 +1025,12 @@ input {
   .home-schedule-warranty-text {
     font-size: 0.8rem;
   }
+  .home-schedule-warranty-badge {
+    width: 80px;
+    height: 80px;
+    bottom: -15px;
+    right: 0px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1037,7 +1046,7 @@ input {
     width: 80px;
     height: 80px;
     bottom: -15px;
-    right: -15px;
+    right: 0px;
   }
 
   .home-schedule-warranty-number {
@@ -1498,7 +1507,7 @@ input {
 }
 
 .about-function-title {
-  font-size: 3rem;
+  font-size: 36px;
   color: #000;
   margin-bottom: 15px;
   font-weight: 400;
@@ -1506,12 +1515,12 @@ input {
 
 .about-function-title-highlight {
   color: #c91d25;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .about-function-subtitle {
   font-size: 18px;
-  color: #000;
+  color: #626262;
   max-width: 1100px;
   margin: 0 auto;
   line-height: 1.6;
@@ -1985,6 +1994,11 @@ input {
   padding: 0 15px;
 }
 
+.features-container{
+  padding: 20px;
+  border-radius: 10px;
+}
+
 .abt-features-content {
   display: flex;
   align-items: center;
@@ -2358,7 +2372,7 @@ input {
   max-width: 700px;
   font-size: 1rem;
   line-height: 1.6;
-  color: #666;
+  color: #626262;
   margin-top: 20px;
 }
 
@@ -2866,7 +2880,7 @@ input {
   font-size: 1.1rem;
   line-height: 1.6;
   font-weight: 400;
-  color: #626262;
+  color: #626262!important;
   /* margin-bottom: 60px; */
 }
 
@@ -2910,11 +2924,16 @@ input {
 }
 
 .showroom-image {
-  width: 100%;
+  width: 102%;
   height: 450px;
   object-fit: cover;
-  border-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.showroom{
+  height: 590px;
 }
 
 .showroom-container {
@@ -2934,6 +2953,9 @@ input {
   .showroom-image {
     height: 350px;
     margin-top: 30px;
+  }
+  .showroom-image{
+    border-radius: 15px;
   }
 }
 
