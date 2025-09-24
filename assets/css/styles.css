@@ -225,10 +225,16 @@ input {
   transition: all 0.3s ease;
 }
 .heros-title{
+  margin: 0px 192px;
+  font-size: 38px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
-  /* font-size: 57px; */
+
+}
+
+.top-50{
+  top:48%;
 }
 
 .feature-box-container {
