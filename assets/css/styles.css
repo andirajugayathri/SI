@@ -6758,14 +6758,14 @@ input {
             
             
             .main-heading {
-                font-size: 2rem;
+                font-size: 1.8rem;
                 margin-bottom: 0px!important;
                 margin-top: 50px;
                 text-align: center;
             }
 
             .luxury-living-room {
-                padding: 60px 0!important;
+                padding: 60px 0px 0px 0px!important;
             }
 
             .text-section{
@@ -6779,6 +6779,13 @@ input {
             .description,
             .detailed-description {
                 font-size: 1rem;
+            }
+
+            .section-title h2{
+              font-size: 1.8rem;
+            }
+            .section-title .highlight {
+              font-size: 1.8rem;
             }
         }
 /* 
@@ -6910,6 +6917,7 @@ input {
         @media (max-width: 768px) {
             .collections-grid {
                flex-direction: column;
+               grid-template-columns: auto;
                 gap: 20px;
             }
             
@@ -6946,7 +6954,7 @@ input {
             }
             
             .card-title {
-                font-size: 0.9rem;
+                font-size: 1.2rem;
             }
             
             .product-image {
@@ -7039,12 +7047,18 @@ input {
 /* Responsive */
 @media (max-width: 768px) {
    .living-section{
-    padding: 50px 0;
+    padding: 0px 0px 40px 0px;
    }
     
     .living-heading {
-        font-size: 1.8rem;
+        font-size: 24px;
+        text-align: left;
         margin-bottom: 30px;
+    }
+
+    .living-heading .highlight {
+      font-size: 24px;
+      text-align: left;
     }
     
     .living-description {
@@ -7273,7 +7287,7 @@ input {
             }
             
             .showcase-header .header-subtitle {
-                font-size: 18px;
+                font-size: 24px;
             }
 
             .slider-track {
@@ -7292,7 +7306,7 @@ input {
             }
 
             .product-image {
-                height: 280px;
+                height: 153px;
             }
 
             .product-info {
