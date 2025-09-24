@@ -1885,7 +1885,7 @@ input {
 
 .abt-main-images {
   position: relative;
-  height: 500px;
+  /* height: 500px; */
 }
 
 .abt-main-image-top {
@@ -1967,9 +1967,9 @@ input {
     margin-top: 40px;
   }
 
-  .abt-main-images {
+  /* .abt-main-images {
     height: 400px;
-  }
+  } */
 
   .abt-main-title {
     font-size: 2rem;
@@ -1977,9 +1977,9 @@ input {
 }
 
 @media (max-width: 576px) {
-  .abt-main-images {
+  /* .abt-main-images {
     height: 300px;
-  }
+  } */
 
   .abt-main-title {
     font-size: 1.75rem;
@@ -7375,4 +7375,8 @@ input {
                 display: none;
             }
         }
-
+       @media (min-width: 950px) and (max-width: 1180px) {
+          .living-features {
+            gap:30px;
+          }
+        }
