@@ -1,184 +1,581 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WPC Doors - Ready to Fix</title>
-  <style>
-    .rtf-section {
-      background-image: url("assets/images/readytofix-img.png"); /* Background image */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
-      padding: 60px 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Furniture Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+       
 
-    .rtf-wrapper {
-      display: flex;
-      /* align-items: center; */
-      justify-content: space-between;
-      gap: 60px;
-    }
+        .luxury-showcase {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    /* Left side door image */
-    .rtf-image-box {
-      flex: 1;
-      max-width: 50%;
-      left: 60px;
-      position: relative;
-    }
+        .showcase-header {
+            margin-bottom: 40px;
+        }
 
-    .rtf-image-box img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+        .showcase-header h1 {
+            font-size: 32px;
+            font-weight: 400;
+            color: #2c2c2c;
+            margin-bottom: 8px;
+        }
 
-    /* Right content */
-    .rtf-content {
-      flex: 1;
-      max-width: 50%;
-      padding: 0px 40px;
-      border-radius: 8px;
-    }
+        .showcase-header .header-subtitle {
+            font-size: 32px;
+            color: #c8102e;
+            font-weight: 700;
+        }
 
-    /* Title + subtitle with line */
-    .rtf-heading-wrap {
-      position: relative;
-      padding-left: 20px;
-      margin-bottom: 30px;
-    }
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
 
-    .rtf-heading-wrap::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 8px;
-      bottom: 0;
-      width: 5px;
-      background: #A27327;
-      border-radius: 2px;
-    }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
 
-    .rtf-title {
-      font-size: 40px;
-      font-weight: 400;
-      color: #000;
-      margin-bottom: 10px;
-    }
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            .slider-track {
+                width: 300%; /* 3 slides for desktop */
+            }
+            
+            .slide-group {
+                min-width: 33.33%;
+                display: flex;
+                height: 428px;
+                gap: 50px;
+                padding: 0;
+            }
+            
+            .slide-group .product-card:nth-child(4) {
+                display: none; /* Hide 4th card, show only 3 per slide */
+            }
+            
+            .mobile-slide {
+                display: none !important;
+            }
+        }
 
-    .rtf-title .rtf-highlight {
-      color: #e74c3c;
-      font-weight: 700;
-    }
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .luxury-showcase {
+                padding: 40px 15px;
+            }
+            
+            .showcase-header h1 {
+                font-size: 24px;
+            }
+            
+            .showcase-header .header-subtitle {
+                font-size: 24px;
+            }
+            
+            .slider-track {
+                width: 900%; /* 9 slides for mobile */
+            }
+            
+            .slide-group:not(.mobile-slide) {
+                display: none !important;
+            }
+            
+            .slide-group.mobile-slide {
+                min-width: 11.11%; /* 100% / 9 slides */
+                display: flex !important;
+                height: 350px;
+                padding: 0;
+                justify-content: center;
+            }
+        }
 
-    .rtf-subtitle {
-      font-size: 28px;
-      font-weight: 700;
-      color: #000;
-      margin-bottom: 20px;
-    }
+        .product-card {
+            flex: 1;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            /* max-width: 300px; */
+        }
 
-    .rtf-description {
-      font-size: 1rem;
-      color: #626262;
-      font-weight: 400;
-      margin-bottom: 30px;
-      line-height: 1.7;
-    }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
 
-    .rtf-benefits-title {
-      font-size: 24px;
-      font-weight: 400;
-      color: #000;
-      margin-bottom: 15px;
-    }
+        .product-images {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .rtf-benefits-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 20px;
-    }
+        .product-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 20px;
+            border-radius: 15px;
+            background-color: #A27327;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
 
-    .rtf-benefits-list li {
-      margin-bottom: 10px;
-      font-size: 16px;
-      color: #5a6c7d;
-      position: relative;
-      padding-left: 20px;
-    }
+        @media (max-width: 768px) {
+            .product-info {
+                margin: 15px;
+                padding: 12px;
+            }
+        }
 
-    .rtf-benefits-list li::before {
-      content: "•";
-      color: #A27327;
-      position: absolute;
-      left: 0;
-    }
+        .product-category {
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-family: "Playfair Display", serif;
+            font-weight: 400;
+            font-size: 16px;
+        }
 
-    .rtf-install-box {
-      background-color: #fff;
-      border-left: 4px solid #C91D25;
-      padding: 20px;
-      font-size: 16px;
-      color: #626262;
-    }
+        @media (max-width: 768px) {
+            .product-category {
+                font-size: 14px;
+            }
+        }
 
-    .rtf-install-box strong {
-      color: #C91D25;
-      font-weight: 600;
-    }
+        .product-description {
+            opacity: 0.9;
+            margin-bottom: 10px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 1.4;
+        }
 
-    @media (max-width: 768px) {
-      .rtf-wrapper {
-        flex-direction: column;
-      }
-      .rtf-image-box,
-      .rtf-content {
-        max-width: 100%;
-      }
-    }
-  </style>
+        @media (max-width: 768px) {
+            .product-description {
+                font-size: 11px;
+                line-height: 1.3;
+            }
+        }
+
+        .slider-arrow {
+            display: none; /* Hide arrows completely */
+        }
+
+        .navigation-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #c8102e;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .nav-dot {
+                display: block !important;
+            }
+            
+            .nav-dot[data-slide="3"],
+            .nav-dot[data-slide="4"], 
+            .nav-dot[data-slide="5"],
+            .nav-dot[data-slide="6"],
+            .nav-dot[data-slide="7"],
+            .nav-dot[data-slide="8"] {
+                display: block !important;
+            }
+        }
+    </style>
 </head>
 <body>
-  <section class="rtf-section">
-    <div class="container">
-      <div class="rtf-wrapper">
-        
-        <!-- Left side Door Image -->
-        <div class="rtf-image-box">
-          <img src="assets/images/ready-to-fix-img.png" alt="Modern Interior with WPC Doors">
+    <div class="luxury-showcase">
+        <div class="container">
+            <div class="showcase-header">
+                <h1>The Ultimate Collection of Luxury</h1>
+                <div class="header-subtitle">Living Room Furniture</div>
+            </div>
+            
+            <div class="slider-container">
+                <div class="slider-track" id="sliderTrack">
+                    <!-- Desktop Slides -->
+                    <div class="slide-group">
+                      <div class="product-card">
+                        <img src="assets/images/ultimate1.jpg" alt="Sofa Collection" class="product-images">
+                        <div class="product-info">
+                            <div class="product-category">BED</div>
+                            <div class="product-description">Create your dream bedroom with our designer bed collection.</div>
+                            <!--<button class="action-button">More</button> -->
+                        </div>
+                      </div>
+                    <div class="product-card">
+                        <img src="assets/images/ultimate2.jpg" alt="Accent Chairs" class="product-images">
+                        <div class="product-info">
+                            <div class="product-category">MATTRESS</div>
+                            <div class="product-description">Experience premium comfort with our curated mattress collection</div>
+                            <!--<button class="action-button">More</button> -->
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/images/ultimate3.jpg" alt="Coffee Tables" class="product-images">
+                        <div class="product-info">
+                            <div class="product-category">BEDSIDE TABLE</div>
+                            <div class="product-description">Complete your bedroom setup with our elegant bedside tables</div>
+                            <!--<button class="action-button">More</button> -->
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <div class="slide-group">
+                        <div class="product-card">
+                          <img src="assets/images/ultimate4.jpg" alt="Media Units" class="product-images">
+                          <div class="product-info">
+                              <div class="product-category">BENCH</div>
+                              <div class="product-description">Add functionality and elegance with our bedroom benches, perfect for seating or as a stylish accent piece at the foot of your bed.</div>
+                              <!--<button class="action-button">More</button> -->
+                          </div>
+                      </div>
+                      <div class="product-card">
+                          <img src="assets/images/ultimate5.jpg" alt="Premium Sofas" class="product-images">
+                          <div class="product-info">
+                              <div class="product-category">CONSOLE</div>
+                              <div class="product-description">Enhance your bedroom with our versatile consoles</div>
+                              <!--<button class="action-button">More</button> -->
+                          </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/images/ultimate6.jpg" alt="Luxury Tables" class="product-images">
+                        <div class="product-info">
+                            <div class="product-category">DESK</div>
+                            <div class="product-description">Create a productive workspace in your bedroom with our stylish desks</div>
+                            <!--<button class="action-button">More</button> -->
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <div class="slide-group">
+                         <div class="product-card">
+                            <img src="assets/images/ultimate7.jpg" alt="Designer Chairs" class="product-images">
+                            <div class="product-info">
+                                <div class="product-category">POUFFE</div>
+                                <div class="product-description">Experience luxury comfort with our bedroom pouffes</div>
+                                <!--<button class="action-button">More</button> -->
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/images/ultimate8.jpg" alt="Entertainment Units" class="product-images">
+                            <div class="product-info">
+                                <div class="product-category">MEDIA UNIT</div>
+                                <div class="product-description">Organize your bedroom entertainment with our sleek media units</div>
+                                <!--<button class="action-button">More</button> -->
+                            </div>
+                        </div>
+                        <div class="product-card">
+                          <img src="assets/images/ultimate1.jpg" alt="Sofa Collection" class="product-images">
+                          <div class="product-info">
+                              <div class="product-category">BED</div>
+                              <div class="product-description">Create your dream bedroom with our designer bed collection.</div>
+                              <!--<button class="action-button">More</button> -->
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Slides (Individual cards) -->
+                    <div class="slide-group mobile-slide">
+                        <div class="product-card">
+                            <img src="assets/images/ultimate1.jpg" alt="Sofa Collection" class="product-images">
+                            <div class="product-info">
+                                <div class="product-category">BED</div>
+                                <div class="product-description">Create your dream bedroom with our designer bed collection.</div>
+                                <!--<button class="action-button">More</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide-group mobile-slide">
+                        <div class="product-card">
+                            <img src="assets/images/ultimate2.jpg" alt="Accent Chairs" class="product-images">
+                            <div class="product-info">
+                                <div class="product-category">MATTRESS</div>
+                                <div class="product-description">Experience premium comfort with our curated mattress collection</div>
+                                <!--<button class="action-button">More</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide-group mobile-slide">
+                         <div class="product-card">
+                            <img src="assets/images/ultimate3.jpg" alt="Coffee Tables" class="product-images">
+                          <div class="product-info">
+                              <div class="product-category">BEDSIDE TABLE</div>
+                              <div class="product-description">Complete your bedroom setup with our elegant bedside tables</div>
+                              <!--<button class="action-button">More</button> -->
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide-group mobile-slide">
+                        <div class="product-card">
+                             <img src="assets/images/ultimate4.jpg" alt="Media Units" class="product-images">
+                              <div class="product-info">
+                                  <div class="product-category">BENCH</div>
+                                  <div class="product-description">Add functionality and elegance with our bedroom benches, perfect for seating or as a stylish accent piece at the foot of your bed.</div>
+                                  <!--<button class="action-button">More</button> -->
+                              </div>
+                         </div>
+                    </div>
+                    
+                    <div class="slide-group mobile-slide">
+                        <div class="product-card">
+                            <img src="assets/images/ultimate5.jpg" alt="Premium Sofas" class="product-images">
+                            <div class="product-info">
+                                <div class="product-category">CONSOLE</div>
+                                <div class="product-description">Enhance your bedroom with our versatile consoles</div>
+                                <!--<button class="action-button">More</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide-group mobile-slide">
+                        <div class="product-card">
+                            <img src="assets/images/ultimate6.jpg" alt="Luxury Tables" class="product-images">
+                            <div class="product-info">
+                                <div class="product-category">DESK</div>
+                                <div class="product-description">Create a productive workspace in your bedroom with our stylish desks</div>
+                                <!--<button class="action-button">More</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide-group mobile-slide">
+                         <div class="product-card">
+                            <img src="assets/images/ultimate7.jpg" alt="Designer Chairs" class="product-images">
+                            <div class="product-info">
+                                <div class="product-category">POUFFE</div>
+                                <div class="product-description">Experience luxury comfort with our bedroom pouffes</div>
+                                <!--<button class="action-button">More</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slide-group mobile-slide">
+                       <div class="product-card">
+                           <img src="assets/images/ultimate8.jpg" alt="Entertainment Units" class="product-images">
+                            <div class="product-info">
+                                <div class="product-category">MEDIA UNIT</div>
+                                <div class="product-description">Organize your bedroom entertainment with our sleek media units</div>
+                                <!--<button class="action-button">More</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-dots">
+                <span class="nav-dot active" data-slide="0"></span>
+                <span class="nav-dot" data-slide="1"></span>
+                <span class="nav-dot" data-slide="2"></span>
+                <span class="nav-dot" data-slide="3" style="display: none;"></span>
+                <span class="nav-dot" data-slide="4" style="display: none;"></span>
+                <span class="nav-dot" data-slide="5" style="display: none;"></span>
+                <span class="nav-dot" data-slide="6" style="display: none;"></span>
+                <span class="nav-dot" data-slide="7" style="display: none;"></span>
+            </div>
         </div>
-        
-        <!-- Right side Text Content -->
-        <div class="rtf-content">
-          <div class="rtf-heading-wrap">
-            <h1 class="rtf-title">WPC DOORS - <span class="rtf-highlight">READY TO FIX</span></h1>
-            <h2 class="rtf-subtitle">Premium WPC Solid Doors</h2>
-          </div>
-
-          <p class="rtf-description">
-            Upgrade to Space Designs' ready-to-install WPC solid doors - the smart alternative to traditional wooden doors. Our pre-finished doors come with hardware fittings for immediate installation.
-          </p>
-
-          <h3 class="rtf-benefits-title">Ready-to-Fix Benefits:</h3>
-          <ul class="rtf-benefits-list">
-            <li>100% waterproof & termite-proof guaranteed</li>
-            <li>Fire retardant safety technology</li>
-            <li>Pre-hung with hardware for instant installation</li>
-            <li>20+ premium finishes including teak, oak, walnut</li>
-            <li>Zero painting or polishing required</li>
-            <li>15+ year warranty with minimal maintenance</li>
-            <li>Standard sizes available for immediate delivery</li>
-          </ul>
-
-          <div class="rtf-install-box">
-            <strong>Installation Time:</strong> Complete setup in just 2 hours per door
-          </div>
-        </div>
-
-      </div>
     </div>
-  </section>
+
+    <script>
+        class LuxuryShowcase {
+            constructor() {
+                this.track = document.getElementById('sliderTrack');
+                this.dots = document.querySelectorAll('.nav-dot');
+                this.currentSlide = 0;
+                this.autoPlayInterval = null;
+                this.autoPlayDelay = 5000;
+                this.isAutoPlaying = true;
+                this.touchStartX = 0;
+                this.touchEndX = 0;
+                this.minSwipeDistance = 50;
+                
+                this.init();
+                this.updateLayout();
+                this.handleResize();
+            }
+
+            init() {
+                // Add click handlers to dots
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                // Start autoplay
+                this.startAutoPlay();
+
+                // Pause autoplay on hover
+                const container = document.querySelector('.luxury-showcase');
+                container.addEventListener('mouseenter', () => this.stopAutoPlay());
+                container.addEventListener('mouseleave', () => this.startAutoPlay());
+
+                // Touch events
+                this.addTouchEvents();
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                });
+            }
+
+            isMobile() {
+                return window.innerWidth <= 768;
+            }
+
+            updateLayout() {
+                // Reset to first slide when switching between mobile/desktop
+                this.currentSlide = 0;
+                
+                // Show/hide appropriate dots
+                this.dots.forEach((dot, index) => {
+                    if (this.isMobile()) {
+                        // Show all 9 dots for mobile
+                        dot.style.display = 'block';
+                    } else {
+                        // Show only first 3 dots for desktop
+                        dot.style.display = index < 3 ? 'block' : 'none';
+                    }
+                });
+                
+                this.goToSlide(0);
+            }
+
+            handleResize() {
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => {
+                        this.updateLayout();
+                    }, 250);
+                });
+            }
+
+            goToSlide(index) {
+                if (this.isMobile()) {
+                    // Mobile: 9 slides (0-8)
+                    index = Math.max(0, Math.min(index, 7));
+                } else {
+                    // Desktop: 3 slides (0-2)
+                    index = Math.max(0, Math.min(index, 2));
+                }
+                
+                this.currentSlide = index;
+                
+                // Calculate transform based on current mode
+                let translateX;
+                if (this.isMobile()) {
+                    // Mobile: each slide is 11.11% wide
+                    translateX = -(index * 11.11);
+                } else {
+                    // Desktop: each slide is 33.33% wide
+                    translateX = -(index * 33.33);
+                }
+
+                this.track.style.transform = `translateX(${translateX}%)`;
+                this.updateDots();
+            }
+
+            updateDots() {
+                this.dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+
+            nextSlide() {
+                const maxSlides = this.isMobile() ? 8 : 3;
+                const nextIndex = (this.currentSlide + 1) % maxSlides;
+                this.goToSlide(nextIndex);
+            }
+
+            prevSlide() {
+                const maxSlides = this.isMobile() ? 8 : 3;
+                const prevIndex = (this.currentSlide - 1 + maxSlides) % maxSlides;
+                this.goToSlide(prevIndex);
+            }
+
+            startAutoPlay() {
+                if (this.isAutoPlaying) {
+                    this.stopAutoPlay(); // Clear any existing interval
+                    this.autoPlayInterval = setInterval(() => {
+                        this.nextSlide();
+                    }, this.autoPlayDelay);
+                }
+            }
+
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            }
+
+            addTouchEvents() {
+                const carousel = document.querySelector('.slider-container');
+                
+                carousel.addEventListener('touchstart', (e) => {
+                    this.touchStartX = e.touches[0].clientX;
+                    this.stopAutoPlay();
+                }, { passive: true });
+
+                carousel.addEventListener('touchmove', (e) => {
+                    // Prevent scrolling while swiping
+                    e.preventDefault();
+                }, { passive: false });
+
+                carousel.addEventListener('touchend', (e) => {
+                    this.touchEndX = e.changedTouches[0].clientX;
+                    this.handleSwipe();
+                    this.startAutoPlay();
+                }, { passive: true });
+            }
+
+            handleSwipe() {
+                const swipeDistance = this.touchStartX - this.touchEndX;
+                
+                if (Math.abs(swipeDistance) >= this.minSwipeDistance) {
+                    if (swipeDistance > 0) {
+                        // Swiped left - go to next slide
+                        this.nextSlide();
+                    } else {
+                        // Swiped right - go to previous slide
+                        this.prevSlide();
+                    }
+                }
+            }
+        }
+
+        // Initialize carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new LuxuryShowcase();
+        });
+    </script>
 </body>
 </html>
