@@ -14,21 +14,21 @@
 </head>
 <style>
 .luxury-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding:60px;
-            min-height: 100vh;
+           
+            padding:40px 60px;
+            /* min-height: 100vh; */
             display: flex;
             align-items: center;
         }
         
         .chair-container {
-            background: #f5f1e8;
-            border-radius: 20px;
-            padding: 60px 40px;
+            background: #FFF4E2;
+            /* padding: 60px 40px; */
             display: flex;
+            margin-top: 3rem;
             align-items: center;
             justify-content: center;
-            min-height: 400px;
+            /* min-height: 400px; */
         }
         
         .chair-image {
@@ -44,7 +44,7 @@
         .main-title {
             font-size: 40px;
             font-weight: 400;
-            color: #2c3e50;
+            color: #000000;
             margin-bottom: 10px;
             line-height: 1.2;
             font-family: "Playfair Display";
@@ -67,7 +67,7 @@
         
         .living-room-container {
             position: relative;
-            border-radius: 15px;
+            /* border-radius: 15px; */
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
         }
@@ -102,6 +102,9 @@
             .description {
                 font-size: 1rem;
                 margin-bottom: 25px;
+            }
+            .chair-container{
+                margin-top: 0;
             }
         }
         
@@ -206,7 +209,7 @@
  
         /* wall decor section */
          .space-decor-types-section {
-            padding: 60px 0;
+            padding: 0px 0px 60px 0px;
         }
 
            .carousel-container {
@@ -475,8 +478,8 @@
 
         .wall-decor-essential-title {
             font-size: 32px;
-            font-weight: 700;
-            color: #333333;
+            font-weight: 400;
+            color: #000;
             text-align: center;
             margin-bottom: 40px;
             line-height: 1.2;
@@ -484,6 +487,7 @@
 
         .wall-decor-essential-highlight {
             color: #C91D25;
+            font-weight: 700;
         }
 
         .wall-decor-essential-subtitle {
@@ -578,6 +582,8 @@
             .wall-decor-essential-grid {
                 grid-template-columns: 1fr;
                 gap: 25px;
+                margin-left: 0;
+                margin-right: 0;
             }
 
             .wall-decor-essential-card-content {
@@ -717,16 +723,17 @@
         }
 
         .decor-category-title {
-            font-size: 1.1rem;
+            font-size: 18px;
             color: white;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .decor-description-text {
-            font-size: 0.95rem;
+            font-size: 15px;
+            font-weight: 400;
             color: white;
             line-height: 1.6;
             opacity: 0.8;
@@ -814,7 +821,7 @@
         }
         
         .wcu-title {
-            font-size: 28px;
+            font-size: 40px;
             font-weight: 700;
             color: #000;
             text-align: center;
@@ -826,13 +833,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            max-width: 1200px;
+            gap: 50px;
+            /* max-width: 1200px; */
             margin: 0 auto;
         }
         
         .wcu-column {
             text-align: center;
-            width: 200px;
+            /* width: 200px; */
             position: relative;
         }
         
@@ -882,25 +890,24 @@
        
         
         .wcu-heading {
-            font-family: 'Times New Roman', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2c2c2c;
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
             margin-bottom: 15px;
         }
         
         .wcu-description {
-            font-family: Arial, sans-serif;
-            font-size: 0.9rem;
-            color: #666666;
+            font-size: 16px;
+            color: #626262;
+            font-weight: 400;
             line-height: 1.5;
-            max-width: 180px;
+            /* max-width: 180px; */
             margin: 0 auto;
         }
         
         @media (max-width: 992px) {
             .wcu-container {
-                flex-direction: column;
+                /* flex-direction: column; */
                 align-items: center;
             }
             
@@ -923,6 +930,11 @@
             .wcu-section {
                 padding: 60px 0;
             }
+
+             .wcu-container {
+                flex-direction: column;
+                align-items: center;
+            }
             
             .wcu-title {
                 font-size: 2rem;
@@ -937,6 +949,9 @@
             .wcu-description {
                 max-width: 250px;
             }
+             .wcu-container {
+                gap:0px;
+             }
         }
 
        /* trending */
@@ -950,15 +965,15 @@
         }
 
         .wallstyle-main-title {
-            font-size: 2.5rem;
+            font-size: 32px;
             font-weight: 400;
             color: #000;
             margin: 0;
         }
 
         .wallstyle-main-title .decor-highlight {
-            color: #dc3545;
-            font-weight: 500;
+            color: #C91D25;
+            font-weight: 700;
         }
 
         .wallart-carousel-container {
@@ -1114,9 +1129,9 @@
         }
 
         @media (max-width: 576px) {
-            .wallart-showcase-section {
+            /* .wallart-showcase-section {
                 padding: 40px 0;
-            }
+            } */
             
             .wallstyle-main-title {
                 font-size: 1.7rem;
@@ -1163,8 +1178,8 @@
                 <div class="col-lg-5 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="content-section fade-in">
                         <h1 class="main-title">
-                            Beautiful Luxury Living Room
-                            <span class="highlight-text">Wall With Décor</span>
+                            Beautiful Wall Decor Items for Your 
+                            <span class="highlight-text">Dream Home</span>
                         </h1>
                         <p class="description">
                             Walls are essential to creating a house, but beautifully decorated walls are what transform it into a home! Walls adorned with elegant wall shelves, artistic artifacts, stunning wall art & paintings, and tasteful accents lend warmth to any space, creating an atmosphere that is both relaxing and inviting.
@@ -1757,7 +1772,7 @@
             },
             {
                 title: "Modern Luxury",
-                description: "Carefully curated vintage prints and photographs arranged in an eclectic gallery wall style.",
+                description: "Premium materials, statement pieces, and sophisticated color palettes that create an upscale, hotel-like ambiance.",
                 image: "assets/images/trend3.jpg",
                 background: "assets/images/trending3.png"
             },
@@ -1917,13 +1932,13 @@
         function startDesktopAutoPlay() {
             desktopAutoPlay = setInterval(() => {
                 nextSlide();
-            }, 4000);
+            }, 6000);
         }
 
         function startMobileAutoPlay() {
             mobileAutoPlay = setInterval(() => {
                 nextMobileSlide();
-            }, 3000);
+            }, 5000);
         }
 
         function stopAutoPlay() {
@@ -1951,7 +1966,7 @@
                     if (window.innerWidth <= 768) {
                         startMobileAutoPlay();
                     }
-                }, 2000);
+                }, 5000);
             });
         }
 
