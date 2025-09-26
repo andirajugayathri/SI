@@ -3,299 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WPC Doors - Ready to Fix</title>
+    <title>WPC vs Wood Door Frames</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .custom-wpc-section {
+            padding: 40px;
+            text-align: center;
         }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-        }
-
-        .container-fluid {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .ready-to-fix {
-            min-height: 100vh;
-            background-image: url(/assets/images/readytofix-img.png);
-            padding: 40px 0;
-        }
-
-        .wpc-section {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            min-height: 70vh;
-        }
-
-        .image-container {
-            flex: 1;
-            height: 600px;
-            position: relative;
+        .custom-wpc-card {
+            border: none;
+            border-radius: 15px;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+            margin: 0 15px;
         }
-
-        .image-container img {
+        .custom-wpc-card img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+            height: auto;
+            border-radius: 50px;
         }
-
-        .image-container:hover img {
-            transform: scale(1.02);
+        .custom-wpc-btn {
+            background-color: #C91D25;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: -15px;
         }
-
-        .content-container {
-            flex: 1;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .custom-wpc-btn:hover {
+            background-color: #C91D25;
         }
-
-        .title-section {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 30px;
-        }
-
-        .title-section::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 5px;
-            background: #d4a574;
-            border-radius: 2px;
-        }
-
-        .title {
-            font-size: 2.5rem;
+        .custom-wpc-text {
+            color: #000;
+            margin-top: 30px;
+            font-family: "Montserrat";
             font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            line-height: 1.2;
         }
-
-        .title .highlight {
-            color: #e74c3c;
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #34495e;
-            margin-bottom: 0;
-        }
-
-        .description {
-            font-size: 1rem;
-            color: #7f8c8d;
-            margin-bottom: 40px;
-            line-height: 1.7;
-        }
-
-        .benefits-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 25px;
-        }
-
-        .benefits-list {
-            list-style: none;
-            margin-bottom: 30px;
-            padding-left: 0;
-        }
-
-        .benefits-list li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            font-size: 1rem;
-            color: #5a6c7d;
-        }
-
-        .benefits-list li::before {
-            content: "●";
-            color: #d4a574;
-            font-size: 1.2rem;
-            margin-right: 15px;
-            margin-top: 2px;
-            flex-shrink: 0;
-        }
-
-        .installation-time {
-            background-color: #fff;
-            border-left: 4px solid #e74c3c;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .installation-time strong {
-            color: #e74c3c;
-            font-weight: 600;
-        }
-
-        .installation-time span {
-            color: #5a6c7d;
-            font-size: 1rem;
-        }
-
-        /* Tablet Styles */
-        @media (max-width: 1024px) {
-            .wpc-section {
-                gap: 40px;
-            }
-            
-            .title {
-                font-size: 2.2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.4rem;
-            }
-        }
-
-        /* Mobile Styles */
         @media (max-width: 768px) {
-            .container-fluid {
-                padding: 0 15px;
-            }
-
-            .ready-to-fix {
-                padding: 20px 0;
-            }
-
-            .wpc-section {
-                flex-direction: column;
-                gap: 30px;
-                min-height: auto;
-            }
-
-            .image-container {
-                height: 300px;
-                width: 100%;
-                order: 1;
-            }
-
-            .content-container {
-                padding: 0;
-                order: 2;
-            }
-
-            .title {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 1.3rem;
-            }
-
-            .benefits-title {
-                font-size: 1.2rem;
-            }
-
-            .description {
-                font-size: 0.95rem;
+            .custom-wpc-card {
                 margin-bottom: 30px;
             }
-
-            .benefits-list li {
-                font-size: 0.95rem;
-                margin-bottom: 12px;
+            .custom-wpc-section h2 {
+                font-size: 1.5rem;
             }
-
-            .installation-time {
-                padding: 15px;
-                margin-top: 15px;
+            .custom-wpc-text {
+                font-size: 1rem;
             }
         }
-
-        /* Small Mobile Styles */
-        @media (max-width: 480px) {
-            .container-fluid {
-                padding: 0 10px;
+        .custom-wpc-card {
+            border: none;
+            overflow: hidden;
+            margin: 0 15px;
+            position: relative; /* key change */
+        }
+        .custom-wpc-card img {
+            width: 100%;
+            height: auto;
+        }
+        .custom-wpc-btn {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #C91D25;
+            color: white;
+            padding: 14px 50px;
+            width: 85%;
+            border: none;
+            border-radius: 20px;
+            font-family: "Montserrat";
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .custom-wpc-btns{
+            position: absolute;
+            bottom: 5%!important;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #C91D25;
+            color: white;
+            padding: 14px 84px;
+            width: 75%;
+            border: none;
+            border-radius: 20px;
+            font-family: "Montserrat";
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .custom-wpc-btnss{
+            position: absolute;
+            bottom: 5%!important;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #C91D25;
+            color: white;
+            padding: 14px 84px;
+            width: 75%;
+            border: none;
+            border-radius: 20px;
+            font-family: "Montserrat";
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .custom-wpc-btn:hover {
+            background-color: #C91D25;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .custom-wpc-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            padding-bottom: 60px;
+        }
+        .custom-wpc-card img {
+            width: 100%;
+            height: 372px;
+            object-fit: cover;
+            border-top-left-radius: 0;
+            border-top-right-radius:0;
+            border-bottom-left-radius: 55px;
+            border-bottom-right-radius: 55px;
+        }
+        .custom-wpc-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .over-wood{
+            background-color:#A27327;
+            padding: 10px 0;
+            font-weight: 700;
+            font-size: 32px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        @media (max-width: 768px){
+            .custom-wpc-btns{
+                padding: 5px;
+                font-size: 16px;
             }
-
-            .title {
-                font-size: 1.8rem;
+            .custom-wpc-btn{
+                padding: 5px;
+                font-size: 16px;
             }
-
-            .subtitle {
-                font-size: 1.2rem;
+            .custom-wpc-btnss{
+                padding: 5px;
+                font-size: 16px;
             }
-
-            .title-section {
-                padding-left: 15px;
-                margin-bottom: 25px;
+            .custom-wpc-card img{
+                height: 100%;
             }
-
-            .image-container {
-                height: 250px;
-            }
-
-            .benefits-list li {
-                font-size: 0.9rem;
-            }
-
-            .installation-time {
-                padding: 12px;
+            .product-grades-series{
+                text-align: left;
             }
         }
         
+        .section-title {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            color: #333;
+        }
+        .door-frames {
+            color: #A27327;
+        }
     </style>
 </head>
 <body>
-<section class="ready-to-fix">
-    <div class="container-fluid">
-        <div class="wpc-section">
-            <div class="image-container">
-                <img src="assets/images/ready-to-fix-img.png" alt="Modern Interior with WPC Doors">
+    <section class="custom-wpc-section">
+        <h2 class="section-title">Why Space Designs Recommends <span class="door-frames">WPC Over Wood</span></h2>
+        <div class="row justify-content-center mt-4">
+            
+            <!-- All Left Side Cards (Wooden) - Will appear first on mobile -->
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <h2 class="over-wood">Wooden Door Frames</h2>
+                    <img src="assets/images/wooden-door-frame.png" alt="Wooden Door Frame" class="img-fluid">
+                    <button class="custom-wpc-btns">Water Damage<br>Absorbs moisture + Swells & Warps</button>
+                </div>
             </div>
             
-            <div class="content-container">
-                <div class="title-section">
-                    <h1 class="title">WPC DOORS - <span class="highlight">READY TO FIX</span></h1>
-                    <h2 class="subtitle">Premium WPC Solid Doors</h2>
-                </div>
-                
-                <p class="description">
-                    Upgrade to Space Designs' ready-to-install WPC solid doors - the smart alternative to traditional wooden doors. Our pre-finished doors come with hardware fittings for immediate installation.
-                </p>
-                
-                <h3 class="benefits-title">Ready-to-Fix Benefits:</h3>
-                
-                <ul class="benefits-list">
-                    <li>100% waterproof & termite-proof guaranteed</li>
-                    <li>Fire retardant safety technology</li>
-                    <li>Pre-hung with hardware for instant installation</li>
-                    <li>20+ premium finishes including teak, oak, walnut</li>
-                    <li>Zero painting or polishing required</li>
-                    <li>15+ year warranty with minimal maintenance</li>
-                    <li>Standard sizes available for immediate delivery</li>
-                </ul>
-                
-                <div class="installation-time">
-                    <strong>Installation Time:</strong> <span>Complete setup in just 2 hours per door</span>
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/termite-attack3.png" alt="Wooden Door Frame" class="img-fluid">
+                    <button class="custom-wpc-btn">Termite Attack<br>Natural wood attracts termites</button>
                 </div>
             </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood3.png" alt="Wooden Door Frame" class="img-fluid">
+                    <button class="custom-wpc-btn">Wooden Fire Hazard<br>Catches fire easily, spreads flames</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood5.png" alt="Wooden Door Frame" class="img-fluid">
+                    <button class="custom-wpc-btn">Wastage<br>Huge wood wastage in production</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood8.png" alt="Wooden Door Frame" class="img-fluid">
+                    <button class="custom-wpc-btn">Hidden Costs<br>Carpenter + Paint + Polish + Time</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood9.jpg" alt="Wooden Door Frame" class="img-fluid">
+                    <button class="custom-wpc-btnss">Environmental<br> Trees cut for production</button>
+                </div>
+            </div>
+            
+            <!-- All Right Side Cards (WPC) - Will appear second on mobile -->
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                     <h2 class="over-wood">Space Eco Plast WPC Frames</h2>
+                    <img src="assets/images/si-frames.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btns">101% Waterproof<br>Zero water absorption</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/termite-proof3.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btn">Termite Proof <br>Complete termite immunity</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood4.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btn">Fire Retardant<br>Never catches or spreads fire</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood6.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btn"> Zero Waste<br>Ready-made, no material wastage</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood9.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btn">Cost Effective<br>No carpenter, paint, or polish needed</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood10.jpg" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btnss"> Eco-Friendly<br>100% environment friendly</button>
+                </div>
+            </div>
+            
         </div>
-    </div>
-</section>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

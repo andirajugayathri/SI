@@ -77,7 +77,7 @@
   background-color: #C91D25;
   color: white;
   padding: 14px 50px;
-    width: 85%;
+    width: 80%;
   border: none;
   border-radius: 20px;
  font-family: "Montserrat";
@@ -94,7 +94,7 @@
   background-color: #C91D25;
   color: white;
   padding: 14px 84px;
-    width: 75%;
+    width: 80%;
   border: none;
   border-radius: 20px;
  font-family: "Montserrat";
@@ -102,21 +102,6 @@
    font-size: 18px;
 }
 
-.custom-wpc-btnss{
-  position: absolute; 
-  bottom: 5%!important;      
-  left: 50%;         
-  transform: translateX(-50%); 
-  background-color: #C91D25;
-  color: white;
-  padding: 14px 84px;
-    width: 75%;
-  border: none;
-  border-radius: 20px;
-  font-family: "Montserrat";
-   font-weight: 700;
-   font-size: 18px;
-}
 
 .custom-wpc-btn:hover {
   background-color: #C91D25;
@@ -171,7 +156,7 @@
         padding: 5px;
         font-size: 16px;
     }
-     .custom-wpc-btnss{
+     .custom-wpc-btns{
         padding: 5px;
         font-size: 16px;
     }
@@ -337,7 +322,7 @@
        .rtf-section {
       background-image: url("assets/images/readytofix-img.png"); /* Background image */
       background-size: cover;
-      background-position: center;
+      background-position: left;
       background-repeat: no-repeat;
       position: relative;
       padding: 60px 0;
@@ -355,7 +340,7 @@
     .rtf-image-box {
       flex: 1;
       max-width: 50%;
-      height: 699px;
+      height: auto;
       left: -57px;
       position: relative;
     }
@@ -377,7 +362,6 @@
     .rtf-heading-wrap {
       position: relative;
       padding-left: 20px;
-      margin-bottom: 30px;
     }
 
     .rtf-heading-wrap::before {
@@ -414,7 +398,6 @@
       font-size: 1rem;
       color: #626262;
       font-weight: 400;
-      margin-bottom: 30px;
       line-height: 1.7;
     }
 
@@ -422,13 +405,12 @@
       font-size: 24px;
       font-weight: 400;
       color: #000;
-      margin-bottom: 15px;
     }
 
     .rtf-benefits-list {
       list-style: none;
       padding: 0;
-      margin: 0 0 20px;
+      margin: 0 0 0;
     }
 
     .rtf-benefits-list li {
@@ -451,9 +433,9 @@
     .rtf-install-box {
       background-color: #fff;
       border-left: 4px solid #C91D25;
-      padding: 20px 20px 20px 10px;
+      padding: 15px 15px 15px 10px;
       font-family: "Montserrat";
-      margin-top: 30px;
+      margin-top: 20px;
       font-size: 16px;
       color: #626262;
     }
@@ -474,6 +456,9 @@
    @media (max-width: 768px) {
   .rtf-wrapper {
     flex-direction: column;
+  }
+  .rtf-section{
+    background-position: center;
   }
 
   .rtf-image-box,
@@ -655,7 +640,7 @@
     </div>
   </section>
 
-  <section class="custom-wpc-section">
+  <section class="custom-wpc-section d-none d-md-block">
         <h2 class="section-title">Why Space Designs Recommends <span class="door-frames">WPC Over Wood</span></h2>
         <div class="row justify-content-center mt-4">
             <div class="col-md-6 col-12">
@@ -711,28 +696,98 @@
             </div>
             <div class="col-md-6 col-12">
                 <div class="custom-wpc-card">
-                    <img src="assets/images/wood8.png" alt="Space Interiors WPC Frames" class="img-fluid">
-                    <button class="custom-wpc-btn">Hidden Costs<br>Carpenter + Paint + Polish + Time</button>
-                </div>
-            </div>
-            <div class="col-md-6 col-12">
-                <div class="custom-wpc-card">
-                    <img src="assets/images/wood9.png" alt="Space Interiors WPC Frames" class="img-fluid">
-                    <button class="custom-wpc-btn">Cost Effective<br>No carpenter, paint, or polish needed</button>
-                </div>
-            </div>
-            <div class="col-md-6 col-12">
-                <div class="custom-wpc-card">
                     <img src="assets/images/wood9.jpg" alt="Space Interiors WPC Frames" class="img-fluid">
-                    <button class="custom-wpc-btnss">Environmental<br> Trees cut for production</button>
+                    <button class="custom-wpc-btns">Environmental<br> Trees cut for production</button>
                 </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="custom-wpc-card">
                     <img src="assets/images/wood10.jpg" alt="Space Interiors WPC Frames" class="img-fluid">
-                    <button class="custom-wpc-btnss"> Eco-Friendly<br>100% environment friendly</button>
+                    <button class="custom-wpc-btns"> Eco-Friendly<br>100% environment friendly</button>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="custom-wpc-section d-block d-md-none">
+        <h2 class="section-title">Why Space Designs Recommends <span class="door-frames">WPC Over Wood</span></h2>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <h2 class="over-wood">Wooden Door Frames</h2>
+                    <img src="assets/images/wooden-door-frame.png" alt="Wooden Door Frame" class="img-fluid">
+                    <button class="custom-wpc-btns">Water Damage<br>Absorbs moisture + Swells & Warps</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/termite-attack3.png" alt="Wooden Door Frame" class="img-fluid">
+                    <button class="custom-wpc-btn">Termite Attack<br>Natural wood attracts termites</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood3.png" alt="Wooden Door Frame" class="img-fluid">
+                    <button class="custom-wpc-btn">Wooden Fire Hazard<br>Catches fire easily, spreads flames</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood5.png" alt="Wooden Door Frame" class="img-fluid">
+                    <button class="custom-wpc-btn">Wastage<br>Huge wood wastage in production</button>
+                </div>
+            </div>
+            
+            
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood9.jpg" alt="Wooden Door Frame" class="img-fluid">
+                    <button class="custom-wpc-btns">Environmental<br> Trees cut for production</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12 mt-5">
+                <div class="custom-wpc-card">
+                     <h2 class="over-wood">Space Eco Plast WPC Frames</h2>
+                    <img src="assets/images/si-frames.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btns">101% Waterproof<br>Zero water absorption</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/termite-proof3.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btn">Termite Proof <br>Complete termite immunity</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood4.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btn">Fire Retardant<br>Never catches or spreads fire</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood6.png" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btn"> Zero Waste<br>Ready-made, no material wastage</button>
+                </div>
+            </div>
+            
+           
+            
+            <div class="col-md-6 col-12">
+                <div class="custom-wpc-card">
+                    <img src="assets/images/wood10.jpg" alt="Space Interiors WPC Frames" class="img-fluid">
+                    <button class="custom-wpc-btns"> Eco-Friendly<br>100% environment friendly</button>
+                </div>
+            </div>
+            
         </div>
     </section>
 
@@ -864,26 +919,39 @@
         <div class="rtf-content">
           <div class="rtf-heading-wrap">
             <h1 class="rtf-title">WPC FRAMES - <span class="rtf-highlight">READY TO FIX</span></h1>
-            <h2 class="rtf-subtitle">Premium WPC Loose Frames</h2>
+            <h2 class="rtf-subtitle">Premium WPC Frames</h2>
           </div>
 
           <p class="rtf-description">
             Experience hassle-free installation with Space Designs' ready-to-fix WPC frames, combining natural wood aesthetics with modern polymer durability. Our pre-engineered frames are perfect for both interior and exterior applications.
-          </p>
+           </p>
+
+           <h3 class="rtf-benefits-title">Available Door Frames:</h3>
+            <ul class="row rtf-benefits-list">
+            <li class="col-lg-6">Main Door Entry Frames</li>
+            <li class="col-lg-6">Bedroom Frames</li>
+            <li class="col-lg-6">Bathroom Frames</li>
+            <li class="col-lg-6">Wash Area Door Frames</li>
+            <li class="col-lg-6">Pooja Door Frames</li>
+            <li class="col-lg-6">All Windows Sizes</li>
+            <li class="col-lg-12">Ventilator</li>
+            </ul>
+
 
           <h3 class="rtf-benefits-title">Ready-to-Fix Advantages:</h3>
           <ul class="rtf-benefits-list">
-            <li>100% termite & moisture resistant construction </li>
+            <li>No carpenter required – comes fully ready to fix</li>
+            <li>No maintenance hassle – long-lasting without extra cost</li>
+            <li>Quick installation – saves time and labor</li>
+            <li>Eco-friendly material – protects environment</li>
+            <li>101% Waterproof & Termite Proof Protection</li>
             <li>Lightweight design for easy handling</li>
             <li>Pre-cut profiles with precise measurements</li>
-            <li>Zero maintenance requirements</li>
-            <li>Multiple wood grain finishes available </li>
-            <li>Eco-friendly sustainable materials</li>
-            <li>Quick installation - same day completion possible</li>
+            <li>Multiple wood grain finishes available</li>
           </ul>
 
           <div class="rtf-install-box">
-            <strong>Perfect for:</strong> Door frames, window frames, partition applications
+            <strong>Perfect for:</strong> All residential and commercial door frame applications with guaranteed durability and premium finish.
           </div>
         </div>
 
