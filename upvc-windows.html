@@ -7,6 +7,7 @@
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
         /* loose frame */
@@ -167,8 +168,8 @@
         } */
 
         .content-box {
-            padding: 10px;
-            border: 20px solid #D7B39A;
+            padding: 15px;
+            border: 10px solid #D7B39A;
             position: relative;
         }
 
@@ -606,7 +607,10 @@
         }
 
         .section-title {
-           font-family: "Playfair Display";
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title1 {
             text-align: center;
             margin-bottom: 50px;
         }
@@ -616,9 +620,21 @@
             color: #000;
             font-weight: 400;
             margin-bottom: 0;
+            text-align: left;
         }
 
+        .section-title1 h1 {
+            font-size: 40px;
+            color: #000;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
         .section-title .highlight {
+            color: #c8102e;
+            font-size: 40px;
+            font-weight: 700;
+        }
+        .section-title1 .highlight1 {
             color: #c8102e;
             font-size: 40px;
             font-weight: 700;
@@ -742,6 +758,9 @@
             .section-title h1 {
                 font-size: 1.8rem;
             }
+            .section-title1 h1 {
+                font-size: 1.8rem;
+            }
 
             .upvc-section {
                 padding: 40px 15px;
@@ -763,6 +782,10 @@
                 font-size: 1.5rem;
             }
 
+            .section-title1 h1 {
+                font-size: 1.5rem;
+            }
+
             .image-section {
                 min-height: 300px;
             }
@@ -770,13 +793,6 @@
             .image-placeholder {
                 height: 300px;
             }
-        }
-
-        /* we design with your needs */
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
         .sliding-door-hero-section {
@@ -804,7 +820,7 @@
         }
 
         .sliding-door-header h1 .highlight-text {
-            color: #c8463f;
+            color: #C91D25;
             font-weight: 700;
         }
 
@@ -1020,9 +1036,9 @@
 
 .space-designs-content-box{
     position: absolute;
-    width: 1030px;
-    height: 530px;
-    top: 69px;
+    max-width: 1030px;
+    height: auto;
+    top: 15%;
     left: 486px;
     background: #fff;
     padding: 60px 50px;
@@ -1053,12 +1069,17 @@
 .space-designs-step-card {
     flex: 1;
 }
+.process{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .space-designs-icon-box {
     width: 60px;
     height: 60px;
     margin-bottom: 20px;
-    border: 2px solid #d4a574;
+    border: 1px solid #D28F5159;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1066,10 +1087,11 @@
 }
 
 .space-designs-step-num {
-    font-size: 4.5rem;
-    color: #f5e6d3;
-    font-weight: 200;
+    font-size: 60px;
+    color: #D28F51;
+    font-weight: 500;
     margin-bottom: 15px;
+    font-family: "Space Grotesk";
     line-height: 1;
     letter-spacing: -1px;
 }
@@ -1392,7 +1414,7 @@
                         <div class="wood-option" data-finish="walnut">
                             <div class="wood-circle walnut"></div>
                             <p>Walnut</p>
-                        </div><br>
+                        </div>
 
                         <div class="wood-option" data-finish="rustic-oak">
                             <div class="wood-circle rustic-oak"></div>
@@ -1420,8 +1442,8 @@
     <!-- upvc product range -->
       <section class="upvc-section">
         <div class="container-fluid">
-            <div class="section-title">
-                <h1>Our <span class="highlight">UPVC Product Range</span></h1>
+            <div class="section-title1">
+                <h1>Our <span class="highlight1">UPVC Product Range</span></h1>
             </div>
 
             <div class="content-wrapper">
@@ -1543,28 +1565,33 @@
         
         <div class="space-designs-steps-grid">
             <div class="space-designs-step-card">
-                <div class="space-designs-icon-box">
-                    <img src="assets/images/survey.png" alt="">
+                <div class="process">
+                    <div class="space-designs-icon-box">
+                        <img src="assets/images/survey.png" alt="">
+                    </div>
+                    <div class="space-designs-step-num">01</div>
                 </div>
-                <div class="space-designs-step-num">01</div>
                 <h3 class="space-designs-step-heading">Survey & Design</h3>
                 <p class="space-designs-step-text">Whether you order one window or thousands, we'll customize the perfect solution for you. Our expert team conducts detailed surveys to understand your specific requirements.</p>
             </div>
             
             <div class="space-designs-step-card">
+                <div class="process">
                 <div class="space-designs-icon-box">
                      <img src="assets/images/survey2.png" alt="">
                 </div>
                 <div class="space-designs-step-num">02</div>
+                </div>
                 <h3 class="space-designs-step-heading">Fabrication & Delivery</h3>
                 <p class="space-designs-step-text">We manufacture UPVC windows and doors with the highest quality materials and advanced processes, ensuring precision and durability in every product.</p>
             </div>
             
             <div class="space-designs-step-card">
+                <div class="process">
                 <div class="space-designs-icon-box">
                      <img src="assets/images/survey3.png" alt="">
                 </div>
-                <div class="space-designs-step-num">03</div>
+                <div class="space-designs-step-num">03</div></div>
                 <h3 class="space-designs-step-heading">Installation & Maintenance</h3>
                 <p class="space-designs-step-text">Our end-to-end service extends beyond delivery to professional installation and ongoing maintenance support.</p>
             </div>
@@ -1578,7 +1605,7 @@
     <!-- Row 1 -->
     <div class="row benefits-complete-grid">
       <!-- Title (6 cols) -->
-      <div class="col-lg-6 benefits-title-card">
+      <div class="col-lg-5 benefits-title-card">
         <h2 class="benefits-main-heading">
           Why Choose <span class="benefits-brand-name">Space Designs UPVC</span>
         </h2>
@@ -1588,7 +1615,7 @@
       </div>
 
       <!-- Sound Proof (3 cols) -->
-      <div class="col-lg-3 benefit-info-card">
+      <div class="col-lg-3 benefit-info-card mx-5">
         <div class="benefit-icon-box">
           <img src="assets/images/up-icon1.png" alt="icon">
         </div>
@@ -1758,7 +1785,6 @@ function toggleFAQ(button) {
     }
 }
 </script>
-<img src="assets/images/laminated1 (1).png" alt="">
 <!-- laminated section js code  -->
    <script>
         const woodOptions = document.querySelectorAll('.wood-option');
