@@ -553,6 +553,244 @@
             }
         }
 
+
+         /* Hero Section */
+        .hero-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 543px;
+            border-radius: 20px;
+        }
+
+        .hero-content1  h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero-content1  h1 span {
+             color: #c94c3f;
+        }
+
+        .hero-content1  h2 {
+            font-size: 20px;
+            color: #A27327;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-content1  p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* Advanced 3D Section */
+        .advanced-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .advanced-section h3 {
+            font-size: 24px;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .advanced-section p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .door-samples-single {
+            width: 100%;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .door-samples-single img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+
+        /* Key Features Section */
+        .features-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .features-header h2 {
+            font-size: 38px;
+            color: #c94c3f;
+            font-weight: 700;
+        }
+
+        .features-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .features-left, .features-right {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            gap: 30px;
+        }
+
+         .features-left .feature-item h3 {
+            color: #A27327;
+            font-size: 20px;
+            margin-bottom: 8px;
+            text-align: left!important;
+             align-items: left!important;
+            font-weight: 700;
+        }
+    
+          
+         .features-right .feature-item p {
+            color: #626262;
+            font-size: 14px;
+            line-height: 1.6;
+            font-family: "Montserrat";
+            font-weight: 400;
+
+        }
+          .features-right .feature-item h3 {
+            color: #A27327;
+            font-size: 20px;
+            margin-bottom: 8px;
+            text-align: left!important;
+             align-items: left!important;
+            font-weight: 700;
+        }
+    
+
+         .features-left .feature-item p {
+            color: #626262;
+            font-size: 14px;
+            line-height: 1.6;
+            font-family: "Montserrat";
+            font-weight: 400;
+
+        }
+
+
+        .feature-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center-door-image {
+    width: 452px;         /* fixed size */
+    height: 452px;        /* same as width for perfect circle */
+    border-radius: 50%;   /* makes it circular */
+    object-fit: cover;    /* keeps image inside circle without stretching */
+    display: block;
+}
+
+        /* Versatile Applications */
+        .applications-section {
+            margin-bottom: 50px;
+        }
+
+        .applications-section h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .applications-section > p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 40px;
+        }
+
+        .application-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bullet {
+            width: 8px;
+            height: 8px;
+            background-color: #c94c3f;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .application-item span {
+            color: #333;
+            font-size: 15px;
+        }
+
+        /* Customization Section */
+        .customization-section h2 {
+            font-size: 32px;
+            color: #c94c3f;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .customization-section p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-sections {
+                grid-template-columns: 1fr;
+            }
+
+            .advanced-section {
+                grid-template-columns: 1fr;
+            }
+
+            .features-content {
+                grid-template-columns: 1fr;
+            }
+
+            .applications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content1  h1 {
+                font-size: 32px;
+            }
+
+            .features-header h2 {
+                font-size: 28px;
+            }
+        }
+
+        .keysfeatures{
+            padding: 0 50px;
+        }
        
 
     </style>
@@ -879,6 +1117,8 @@
 </section>
 
 
+
+
 <section class="rtf-section">
     <div class="container">
       <div class="rtf-wrapper">
@@ -923,6 +1163,127 @@
       </div>
     </div>
   </section>
+
+
+  <section class="3d-features">
+    <div class="container-fluidc:\Users\andir\Downloads\Rectangle 4431.png">
+        <!-- Hero Section -->
+        <div class="hero-sections">
+            <div class="hero-image-containers">
+                <img src="assets/images/3d-wpc-door.png" alt="3D Textured WPC Door" class="hero-image">
+            </div>
+            <div class="hero-content1">
+                <h1><span>3D TEXTURED</span> WPC DOORS</h1>
+                <h2>Revolutionary Design Meets Ultimate Durability</h2>
+                <p>Transform your spaces with Space Designs' innovative 3D Textured WPC Doors that combine cutting-edge surface technology with superior performance. Experience the perfect blend of contemporary aesthetics and practical functionality.</p>
+                <!-- Advanced 3D Section -->
+                <div class="advanced-section">
+                    <div class="advanced-content">
+                        <h3>Advanced 3D Surface Technology</h3>
+                        <p>Our revolutionary 3D textured finish provides elegant patterns, embossed textures, and designer effects that beautifully resemble natural wood or contemporary art. Each door features sophisticated surface detailing that adds depth and visual interest to any space.</p>
+                    </div>
+                    <div class="door-samples-single">
+                        <img src="assets/images/3d-img1.png" alt="3D Textured Door Samples">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features Section -->
+         <div class="keysfeatures">
+        <div class="features-header">
+            <h2>Key Features & Benefits</h2>
+        </div>
+
+        <div class="features-content">
+            <div class="features-left">
+                <div class="feature-item">
+                    <h3>Stylish Design</h3>
+                    <p>Modern look with embossed 3D patterns that create stunning visual appeal</p>
+                </div>
+                <div class="feature-item">
+                    <h3>100% Waterproof</h3>
+                    <p>Complete moisture resistance for all weather conditions</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Termite-Proof</h3>
+                    <p>Built-in protection against pest damage and deterioration</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Custom Options</h3>
+                    <p>Multiple shades, sizes, and bespoke designs available</p>
+                </div>
+            </div>
+
+            <div class="feature-center">
+                <img src="assets/images/3d-img2.jpg" alt="Featured Door" class="center-door-image">
+            </div>
+
+            <div class="features-right">
+                <div class="feature-item">
+                    <h3>Elegant Textures</h3>
+                    <p>Wood-like finishes and designer effects for premium appearance</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Eco-Friendly</h3>
+                    <p>Made from recyclable composite materials for sustainable living</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Zero Maintenance</h3>
+                    <p>Long-lasting strength with no warping, cracking, or seasonal issues</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Versatile Applications -->
+        <div class="applications-section">
+            <h2>Versatile Applications</h2>
+            <p>Perfect for diverse installation needs across residential and commercial spaces:</p>
+            
+            <div class="applications-grid">
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Main entrance doors</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Bedroom doors</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Bathroom doors</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Kitchen entrances</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Office doors</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Office doors</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Designer partitions</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Interior applications</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customization Excellence -->
+        <div class="customization-section">
+            <h2>Customization Excellence</h2>
+            <p>Choose from our extensive range of shades, patterns, and sizes to perfectly match your interior design vision and personal preferences. Our 3D textured doors seamlessly integrate with any décor style while maintaining superior performance standards.</p>
+        </div>
+        </div>
+    </div>
+    </section>
 
 
      <section class="home-schedule-section">

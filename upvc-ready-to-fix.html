@@ -3,1379 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Designs</title>
-    <link rel="icon" href="assets/images/logo.png" type="image/png">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-
-
+    <title>3D Textured WPC Doors</title>
     <style>
-       /* laminated section */
-        .laminated-section {
-            background-color: #f5e6d3;
-            padding: 60px 20px;
-        }
+        
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h1 {
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 0;
-        }
-
-        .section-title .highlight {
-            color: #c8102e;
-        }
-
-        .premium-title {
-            color: #b8860b;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 40px;
-        }
-
-        .wood-options {
-            display: flex;
-            flex-wrap: wrap;
+        /* Hero Section */
+        .hero-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
 
-        .wood-option {
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .wood-option:hover {
-            transform: scale(1.05);
-        }
-
-        .wood-circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            border: 3px solid transparent;
-            transition: border-color 0.3s ease;
-        }
-
-        .wood-option.active .wood-circle {
-            border-color: #c8102e;
-            box-shadow: 0 0 15px rgba(200, 16, 46, 0.3);
-        }
-
-        .wood-option p {
-            font-size: 1.1rem;
-            color: #333;
-            margin: 0;
-            font-weight: 500;
-        }
-
-        .mahogany {
-            background-color: #4a2c2a;
-        }
-
-        .golden-oak {
-            background: linear-gradient(135deg, #d4a574 0%, #f4d03f 50%, #d4a574 100%);
-        }
-
-        .walnut {
-            background-color: #5c4033;
-        }
-
-        .rustic-oak {
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23d2a679" width="100" height="100"/><path d="M20 30 Q40 20 60 30" stroke="%238B4513" stroke-width="2" fill="none"/><path d="M30 60 Q50 50 70 60" stroke="%238B4513" stroke-width="2" fill="none"/></svg>');
-            background-size: cover;
-            background-color: #d2a679;
-        }
-
-        .dark-oak {
-            background-color: #3e2723;
-        }
-
-        .door-display {
-            text-align: center;
-            position: relative;
-            min-height: 400px;
-        }
-
-        .door-display img {
-            max-width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: contain;
-        }
-
-        .door-placeholder {
+        .hero-image {
             width: 100%;
-            max-width: 400px;
-            height: 500px;
-            background-color: #fff;
-            border: 2px solid #ddd;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 1.2rem;
+            height: 543px;
+            border-radius: 20px;
         }
 
-        @media (max-width: 768px) {
-            .section-title h1 {
-                font-size: 1.8rem;
-            }
-
-            .premium-title {
-                font-size: 1.2rem;
-            }
-
-            .wood-options {
-                gap: 30px;
-                justify-content: center;
-            }
-
-            .wood-circle {
-                width: 80px;
-                height: 80px;
-            }
-
-            .wood-option p {
-                font-size: 0.95rem;
-            }
-
-            .laminated-section {
-                padding: 40px 15px;
-            }
-
-            .door-placeholder {
-                height: 400px;
-            }
+        .hero-content1  h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
 
-        @media (max-width: 576px) {
-            .section-title h1 {
-                font-size: 1.5rem;
-            }
-
-            .wood-circle {
-                width: 70px;
-                height: 70px;
-            }
-
-            .wood-options {
-                gap: 20px;
-            }
-        }
-        /* ******************* */
-
-        /* upvc product range */
-        .upvc-section {
-            background-color: #faf8f5;
-            padding: 60px 20px;
+        .hero-content1  h1 span {
+             color: #c94c3f;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h1 {
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 0;
-        }
-
-        .section-title .highlight {
-            color: #c8102e;
-        }
-
-        .content-wrapper {
-            display: flex;
-            gap: 0;
-            align-items: stretch;
-        }
-
-        .menu-section {
-            flex: 0 0 280px;
-            background-color: #fff;
-            padding: 0;
-        }
-
-        .menu-item {
-            padding: 20px 25px;
-            border-left: 4px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            color: #333;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .menu-item:hover {
-            background-color: #f8f8f8;
-            border-left-color: #d4a574;
-        }
-
-        .menu-item.active {
-            background-color: #fff;
-            border-left-color: #d4a574;
-            color: #d4a574;
+        .hero-content1  h2 {
+            font-size: 20px;
+            color: #A27327;
+            margin-bottom: 20px;
             font-weight: 600;
         }
 
-        .image-section {
-            flex: 1;
-            position: relative;
-            min-height: 500px;
+        .hero-content1  p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
         }
 
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .image-placeholder {
-            width: 100%;
-            height: 500px;
-            background-color: #e0e0e0;
-            display: flex;
+        /* Advanced 3D Section */
+        .advanced-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 1.2rem;
+            margin-bottom: 60px;
         }
 
-        .image-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.85);
-            color: #fff;
-            padding: 20px 30px;
-            text-align: center;
-            font-size: 1rem;
-        }
-
-        @media (max-width: 992px) {
-            .content-wrapper {
-                flex-direction: column;
-            }
-
-            .menu-section {
-                flex: 1;
-                width: 100%;
-            }
-
-            .menu-item {
-                padding: 15px 20px;
-                border-left: none;
-                border-bottom: 1px solid #f0f0f0;
-                border-top: 4px solid transparent;
-            }
-
-            .menu-item.active {
-                border-left: none;
-                border-top-color: #d4a574;
-            }
-
-            .menu-item:hover {
-                border-left: none;
-                border-top-color: #d4a574;
-            }
-
-            .image-section {
-                min-height: 400px;
-            }
-
-            .image-placeholder {
-                height: 400px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section-title h1 {
-                font-size: 1.8rem;
-            }
-
-            .upvc-section {
-                padding: 40px 15px;
-            }
-
-            .menu-item {
-                padding: 12px 15px;
-                font-size: 0.95rem;
-            }
-
-            .image-caption {
-                padding: 15px 20px;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .section-title h1 {
-                font-size: 1.5rem;
-            }
-
-            .image-section {
-                min-height: 300px;
-            }
-
-            .image-placeholder {
-                height: 300px;
-            }
-        }
-
-        /* we design with your needs */
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .sliding-door-hero-section {
-            background-color: #faf7f4;
-            padding: 80px 20px;
-            font-family: 'Georgia', serif;
-        }
-
-        .sliding-door-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .sliding-door-header {
-            text-align: center;
+        .advanced-section h3 {
+            font-size: 24px;
+            color: #333;
+            font-weight: 700;
             margin-bottom: 20px;
         }
 
-        .sliding-door-header h1 {
-            font-size: 42px;
-            font-weight: 400;
-            color: #2c2c2c;
-            line-height: 1.3;
-            margin-bottom: 25px;
+        .advanced-section p {
+            color: #666;
+            line-height: 1.8;
         }
 
-        .sliding-door-header h1 .highlight-text {
-            color: #c8463f;
-            font-weight: 400;
+        .door-samples-single {
+            width: 100%;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
         }
 
-        .sliding-door-intro-text {
-            font-size: 16px;
-            color: #6b6b6b;
-            line-height: 1.6;
+        .door-samples-single img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+
+        /* Key Features Section */
+        .features-header {
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto 10px;
-            font-family: 'Arial', sans-serif;
+            margin-bottom: 50px;
         }
 
-        .sliding-door-intro-text .product-highlight {
-            color: #c8463f;
-            font-weight: 600;
+        .features-header h2 {
+            font-size: 38px;
+            color: #c94c3f;
+            font-weight: 700;
         }
 
-        .sliding-door-content-wrapper {
+        .features-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
             align-items: center;
-            margin-top: 60px;
+            margin-bottom: 60px;
         }
 
-        .sliding-door-features {
-            padding-right: 20px;
-        }
-
-        .sliding-door-features h2 {
-            font-size: 32px;
-            color: #c8463f;
-            font-weight: 400;
-            margin-bottom: 25px;
-            font-family: 'Georgia', serif;
-        }
-
-        .sliding-door-description {
-            font-size: 15px;
-            color: #5a5a5a;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .sliding-door-feature-list {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .sliding-door-feature-item {
+        .features-left, .features-right {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 18px;
-            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        .sliding-door-feature-icon {
-            width: 0;
-            height: 0;
-            border-top: 6px solid transparent;
-            border-bottom: 6px solid transparent;
-            border-left: 10px solid #c8463f;
-            margin-right: 15px;
-            margin-top: 6px;
-            flex-shrink: 0;
+        .feature-item h3 {
+            color: #A27327;
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 700;
         }
 
-        .sliding-door-feature-text {
-            font-size: 15px;
-            color: #5a5a5a;
+        .feature-item p {
+            color: #626262;
+            font-size: 14px;
             line-height: 1.6;
+            font-family: "Montserrat";
+            font-weight: 400;
+
         }
 
-        .sliding-door-conclusion {
-            font-size: 15px;
-            color: #5a5a5a;
-            line-height: 1.7;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .sliding-door-image-area {
-            position: relative;
-            min-height: 500px;
+        .feature-center {
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: flex-end;
         }
 
-        /* Blueprint background image - architectural drawing */
-        .sliding-door-blueprint-bg {
-            position: absolute;
-            left: -80px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 75%;
-            height: 85%;
-            background-image: url('assets/images/background\ architect.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center left;
-            opacity: 0.3;
-            z-index: 1;
-        }
-
-       
-
-
-        /* Fallback styling if no image */
-      
-
-        @media (max-width: 968px) {
-            .sliding-door-hero-section {
-                padding: 60px 20px;
-            }
-
-            .sliding-door-header h1 {
-                font-size: 32px;
-            }
-
-            .sliding-door-content-wrapper {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .sliding-door-features {
-                padding-right: 0;
-            }
-
-            .sliding-door-features h2 {
-                font-size: 28px;
-            }
-
-            .sliding-door-main-image {
-                width: 320px;
-                height: 380px;
-                margin: 0 auto;
-            }
-
-            .sliding-door-image-area {
-                min-height: 400px;
-                justify-content: center;
-            }
-
-            .sliding-door-blueprint-bg {
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 90%;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .sliding-door-hero-section {
-                padding: 40px 15px;
-            }
-
-            .sliding-door-header h1 {
-                font-size: 26px;
-            }
-
-            .sliding-door-intro-text {
-                font-size: 14px;
-            }
-
-            .sliding-door-features h2 {
-                font-size: 24px;
-            }
-
-            .sliding-door-description,
-            .sliding-door-feature-text,
-            .sliding-door-conclusion {
-                font-size: 14px;
-            }
-
-            /* .sliding-door-main-image {
-                width: 280px;
-                height: 330px;
-                border-width: 8px;
-            } */
-
-            .sliding-door-image-area {
-                min-height: 350px;
-            }
-
-            .sliding-door-content-wrapper {
-                gap: 30px;
-                margin-top: 40px;
-            }
-
-            .sliding-door-blueprint-bg {
-                width: 100%;
-            }
-        
-        }
-
-        /* space design process */
-       .space-designs-wrapper {
-    position: relative;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.space-designs-image-box {
-    width: 100%;
-    min-height: 600px;
-}
-
-.space-designs-image-box img {
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
+        .center-door-image {
+    width: 452px;         /* fixed size */
+    height: 452px;        /* same as width for perfect circle */
+    border-radius: 50%;   /* makes it circular */
+    object-fit: cover;    /* keeps image inside circle without stretching */
     display: block;
 }
 
-.space-designs-content-box{
-    position: absolute;
-    width: 954px;
-    height: 460px;
-    top: 69px;
-    left: 486px;
-    background: #fff;
-    padding: 60px 50px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    opacity: 1;
-    transform: rotate(0deg);
-}
-
-.space-designs-heading {
-    font-size: 2.6rem;
-    margin-bottom: 40px;
-    font-weight: 400;
-    color: #000;
-    letter-spacing: -0.5px;
-}
-
-.space-designs-heading-highlight {
-    color: #c92a2a;
-    font-weight: 600;
-}
-
-.space-designs-steps-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-.space-designs-step-card {
-    flex: 1;
-}
-
-.space-designs-icon-box {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 20px;
-    border: 2px solid #d4a574;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.space-designs-step-num {
-    font-size: 4.5rem;
-    color: #f5e6d3;
-    font-weight: 200;
-    margin-bottom: 15px;
-    line-height: 1;
-    letter-spacing: -1px;
-}
-
-.space-designs-step-heading {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 15px;
-    letter-spacing: 0.3px;
-}
-
-.space-designs-step-text {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.6;
-    letter-spacing: 0.2px;
-}
-
-
-@media (max-width: 1024px) {
-    .space-designs-content-box {
-        position: relative;
-        top: 0;
-        right: 0;
-        transform: none;
-        width: 100%;
-        padding: 50px 40px;
-        box-shadow: none;
-    }
-
-    .space-designs-heading {
-        font-size: 2.2rem;
-        margin-bottom: 35px;
-        text-align: center;
-    }
-
-    .space-designs-steps-grid {
-        gap: 30px;
-    }
-
-    .space-designs-step-num {
-        font-size: 4rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .space-designs-steps-grid {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .space-designs-step-card {
-        max-width: 420px;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .space-designs-icon-box {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .space-designs-heading {
-        font-size: 1.9rem;
-    }
-
-    .space-designs-step-num {
-        font-size: 3.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .space-designs-image-box {
-        min-height: 280px;
-    }
-
-    .space-designs-content-box {
-        padding: 35px 20px;
-    }
-
-    .space-designs-heading {
-        font-size: 1.6rem;
-        margin-bottom: 25px;
-    }
-
-    .space-designs-icon-box {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 15px;
-    }
-
-    .space-designs-step-num {
-        font-size: 2.6rem;
-        margin-bottom: 12px;
-    }
-
-    .space-designs-step-heading {
-        font-size: 1rem;
-        margin-bottom: 10px;
-    }
-
-    .space-designs-step-text {
-        font-size: 0.85rem;
-    }
-}
-
-
-/* why choose us */
-.whychoose{
-    background-color: #FAF7F5;
-}
-.upvc-benefits-section {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Versatile Applications */
+        .applications-section {
+            margin-bottom: 50px;
         }
 
-        .benefits-complete-grid {
+        .applications-section h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .applications-section > p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .applications-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 40px;
         }
 
-        .benefits-title-card {
-            background-color: white;
-            padding: 20px;
+        .application-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .benefits-main-heading {
-            font-size: 2rem;
-            font-weight: 300;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            line-height: 1.3;
+        .bullet {
+            width: 8px;
+            height: 8px;
+            background-color: #c94c3f;
+            border-radius: 50%;
+            flex-shrink: 0;
         }
 
-        .benefits-brand-name {
-            color: #c41e3a;
-            font-weight: 600;
+        .application-item span {
+            color: #333;
+            font-size: 15px;
         }
 
-        .benefits-intro-paragraph {
-            font-size: 0.9rem;
+        /* Customization Section */
+        .customization-section h2 {
+            font-size: 32px;
+            color: #c94c3f;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .customization-section p {
             color: #666;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
-        .benefit-info-card {
-            background-color: transparent;
-            padding: 0;
-        }
-
-        .benefit-icon-box {
-            width: 45px;
-            height: 45px;
-            margin-bottom: 18px;
-        }
-
-        .benefit-icon-image {
-            width: 100%;
-            height: 100%;
-        }
-
-        .benefit-card-title {
-            font-size: 1.1rem;
-            color: #1a1a1a;
-            font-weight: 600;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .benefit-card-description {
-            font-size: 0.88rem;
-            color: #666;
-            line-height: 1.6;
-        }
-
+        /* Responsive Design */
         @media (max-width: 968px) {
-            .benefits-complete-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .benefits-main-heading {
-                font-size: 1.7rem;
-            }
-
-            .benefits-complete-grid {
+            .hero-sections {
                 grid-template-columns: 1fr;
-                gap: 35px;
+            }
+
+            .advanced-section {
+                grid-template-columns: 1fr;
+            }
+
+            .features-content {
+                grid-template-columns: 1fr;
+            }
+
+            .applications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content1  h1 {
+                font-size: 32px;
+            }
+
+            .features-header h2 {
+                font-size: 28px;
             }
         }
 
-        @media (max-width: 480px) {
-            .benefits-main-heading {
-                font-size: 1.5rem;
-            }
+        .keysfeatures{
+            padding: 0 50px;
         }
-
-
-        /* design flexibility */
-        .design-flexibility-wrapper {
-    background-color: #fff;
-    padding: 80px 20px;
-    text-align: center;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.design-flexibility-heading {
-    font-size: 2rem;
-    font-weight: 500;
-    color: #000;
-    margin-bottom: 20px;
-    letter-spacing: -0.3px;
-}
-
-.design-flexibility-heading .highlight {
-    color: #c92a2a;
-    font-weight: 600;
-}
-
-.design-flexibility-text {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.7;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-
-
     </style>
-
-
-
-
-
-
 </head>
 <body>
-    
-    <div id="navbar"></div>
-
-<!-- laminated section -->
-
-    <section class="laminated-section">
-        <div class="container">
-            <div class="section-title">
-                <h1>Laminated <span class="highlight">Windows & Doors - Texture Options</span></h1>
+    <section class="3d-features">
+    <div class="container-fluidc:\Users\andir\Downloads\Rectangle 4431.png">
+        <!-- Hero Section -->
+        <div class="hero-sections">
+            <div class="hero-image-containers">
+                <img src="assets/images/3d-wpc-door.png" alt="3D Textured WPC Door" class="hero-image">
             </div>
-
-            <div class="row">
-                <div class="col-lg-6">
-                    <h2 class="premium-title">Premium Wood Finishes Available:</h2>
-                    
-                    <div class="wood-options">
-                        <div class="wood-option active" data-finish="mahogany">
-                            <div class="wood-circle mahogany"></div>
-                            <p>Mahogany</p>
-                        </div>
-
-                        <div class="wood-option" data-finish="golden-oak">
-                            <div class="wood-circle golden-oak"></div>
-                            <p>Golden Oak</p>
-                        </div>
-
-                        <div class="wood-option" data-finish="walnut">
-                            <div class="wood-circle walnut"></div>
-                            <p>Walnut</p>
-                        </div>
-
-                        <div class="wood-option" data-finish="rustic-oak">
-                            <div class="wood-circle rustic-oak"></div>
-                            <p>Rustic Oak</p>
-                        </div>
-
-                        <div class="wood-option" data-finish="dark-oak">
-                            <div class="wood-circle dark-oak"></div>
-                            <p>Dark Oak</p>
-                        </div>
+            <div class="hero-content1">
+                <h1><span>3D TEXTURED</span> WPC DOORS</h1>
+                <h2>Revolutionary Design Meets Ultimate Durability</h2>
+                <p>Transform your spaces with Space Designs' innovative 3D Textured WPC Doors that combine cutting-edge surface technology with superior performance. Experience the perfect blend of contemporary aesthetics and practical functionality.</p>
+                <!-- Advanced 3D Section -->
+                <div class="advanced-section">
+                    <div class="advanced-content">
+                        <h3>Advanced 3D Surface Technology</h3>
+                        <p>Our revolutionary 3D textured finish provides elegant patterns, embossed textures, and designer effects that beautifully resemble natural wood or contemporary art. Each door features sophisticated surface detailing that adds depth and visual interest to any space.</p>
                     </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="door-display">
-                        <div class="door-placeholder" id="doorImage">
-                            Door Image Preview
-                        </div>
+                    <div class="door-samples-single">
+                        <img src="assets/images/3d-img1.png" alt="3D Textured Door Samples">
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- upvc product range -->
-      <section class="upvc-section">
-        <div class="container-fluid">
-            <div class="section-title">
-                <h1>Our <span class="highlight">UPVC Product Range</span></h1>
+        <!-- Key Features Section -->
+         <div class="keysfeatures">
+        <div class="features-header">
+            <h2>Key Features & Benefits</h2>
+        </div>
+
+        <div class="features-content">
+            <div class="features-left">
+                <div class="feature-item">
+                    <h3>Stylish Design</h3>
+                    <p>Modern look with embossed 3D patterns that create stunning visual appeal</p>
+                </div>
+                <div class="feature-item">
+                    <h3>100% Waterproof</h3>
+                    <p>Complete moisture resistance for all weather conditions</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Termite-Proof</h3>
+                    <p>Built-in protection against pest damage and deterioration</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Custom Options</h3>
+                    <p>Multiple shades, sizes, and bespoke designs available</p>
+                </div>
             </div>
 
-            <div class="content-wrapper">
-                <div class="menu-section">
-                    <div class="menu-item active" data-product="casement">
-                        UPVC Casement Windows & Doors
-                    </div>
-                    <div class="menu-item" data-product="special">
-                        Special UPVC Windows & Doors
-                    </div>
-                    <div class="menu-item" data-product="sliding">
-                        Sliding UPVC Windows & Doors
-                    </div>
-                    <div class="menu-item" data-product="coloured">
-                        Coloured UPVC Windows & Doors
-                    </div>
-                    <div class="menu-item" data-product="arch">
-                        Arch Windows
-                    </div>
-                </div>
+            <div class="feature-center">
+                <img src="assets/images/3d-img2.jpg" alt="Featured Door" class="center-door-image">
+            </div>
 
-                <div class="image-section">
-                    <div class="image-container">
-                        <div class="image-placeholder" id="productImage">
-                            Product Image
-                        </div>
-                        <div class="image-caption" id="productCaption">
-                            Traditional and reliable opening solutions for every space
-                        </div>
-                    </div>
+            <div class="features-right">
+                <div class="feature-item">
+                    <h3>Elegant Textures</h3>
+                    <p>Wood-like finishes and designer effects for premium appearance</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Eco-Friendly</h3>
+                    <p>Made from recyclable composite materials for sustainable living</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Zero Maintenance</h3>
+                    <p>Long-lasting strength with no warping, cracking, or seasonal issues</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- we design with your needs -->
-     <section class="sliding-door-hero-section">
-        <div class="sliding-door-container">
-            <div class="sliding-door-header">
-                <h1>We Design With <span class="highlight-text">Your Needs In Mind</span></h1>
-                <p class="sliding-door-intro-text">
-                    Our goal is to empower you to transform your home with not just the right kind of windows but also doors that perfectly complement your lifestyle. One of our superior products is the <span class="product-highlight">10 Feet Sliding Door</span> that helps you create the style you want to achieve for your
-                </p>
-            </div>
-
-            <div class="sliding-door-content-wrapper">
-                <div class="sliding-door-features">
-                    <h2>10 Feet Sliding Doors - Features & Benefits</h2>
-                    
-                    <p class="sliding-door-description">
-                        10 feet sliding doors comprise of two or more frames that can slide horizontally, to the left or right on tracks. They operate smoothly since they are slightly raised above the track, preventing dust from settling in the track.
-                    </p>
-
-                    <ul class="sliding-door-feature-list">
-                        <li class="sliding-door-feature-item">
-                            <div class="sliding-door-feature-icon"></div>
-                            <span class="sliding-door-feature-text">Nylon rollers in the bottom to ensure smooth movement</span>
-                        </li>
-                        <li class="sliding-door-feature-item">
-                            <div class="sliding-door-feature-icon"></div>
-                            <span class="sliding-door-feature-text">Touch lock feature for easy locking</span>
-                        </li>
-                        <li class="sliding-door-feature-item">
-                            <div class="sliding-door-feature-icon"></div>
-                            <span class="sliding-door-feature-text">Multi chambered for extra strength and better thermal conductivity</span>
-                        </li>
-                        <li class="sliding-door-feature-item">
-                            <div class="sliding-door-feature-icon"></div>
-                            <span class="sliding-door-feature-text">More opening for better sunlight and natural air circulation</span>
-                        </li>
-                        <li class="sliding-door-feature-item">
-                            <div class="sliding-door-feature-icon"></div>
-                            <span class="sliding-door-feature-text">Rain track for a free-flow drain system</span>
-                        </li>
-                        <li class="sliding-door-feature-item">
-                            <div class="sliding-door-feature-icon"></div>
-                            <span class="sliding-door-feature-text">Hurricane bar option to withstand heavy storms and weather</span>
-                        </li>
-                        <li class="sliding-door-feature-item">
-                            <div class="sliding-door-feature-icon"></div>
-                            <span class="sliding-door-feature-text">Superior soundproofing capabilities</span>
-                        </li>
-                        <li class="sliding-door-feature-item">
-                            <div class="sliding-door-feature-icon"></div>
-                            <span class="sliding-door-feature-text">Variety of design, colors and hardware options</span>
-                        </li>
-                    </ul>
-
-                    <p class="sliding-door-conclusion">
-                        10 feet Sliding UPVC doors are a perfect fit if you are looking to make your space look well-lit and spacious.
-                    </p>
-                </div>
-
-                <div class="sliding-door-image-area">
-                    <!-- Background blueprint/architectural drawing -->
-                    <div class="sliding-door-blueprint-bg"></div>
-                    
-                    <!-- Main interior photo with curved border -->
-                    <div class="sliding-door-main-image">
-                        <div class="sliding-door-image-placeholder">
-                            <img src="assets/images/interior .png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- space design process -->
-  <section class="space-designs-wrapper">
-    <div class="space-designs-image-box">
-        <img src="assets/images/space design-bed.png" alt="Bedroom Design">
-    </div>
-    
-    <div class="space-designs-content-box">
-        <h2 class="space-designs-heading">The Space <span class="space-designs-heading-highlight">Designs Process</span></h2>
-        
-        <div class="space-designs-steps-grid">
-            <div class="space-designs-step-card">
-                <div class="space-designs-icon-box">
-                    <!-- Icon placeholder -->
-                </div>
-                <div class="space-designs-step-num">01</div>
-                <h3 class="space-designs-step-heading">Survey & Design</h3>
-                <p class="space-designs-step-text">Whether you order one window or thousands, we'll customize the perfect solution for you</p>
-            </div>
+        <!-- Versatile Applications -->
+        <div class="applications-section">
+            <h2>Versatile Applications</h2>
+            <p>Perfect for diverse installation needs across residential and commercial spaces:</p>
             
-            <div class="space-designs-step-card">
-                <div class="space-designs-icon-box">
-                    <!-- Icon placeholder -->
+            <div class="applications-grid">
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Main entrance doors</span>
                 </div>
-                <div class="space-designs-step-num">02</div>
-                <h3 class="space-designs-step-heading">Survey & Design</h3>
-                <p class="space-designs-step-text">Whether you order one window or thousands, we'll customize the perfect solution for you</p>
-            </div>
-            
-            <div class="space-designs-step-card">
-                <div class="space-designs-icon-box">
-                    <!-- Icon placeholder -->
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Bedroom doors</span>
                 </div>
-                <div class="space-designs-step-num">03</div>
-                <h3 class="space-designs-step-heading">Survey & Design</h3>
-                <p class="space-designs-step-text">Whether you order one window or thousands, we'll customize the perfect solution for you</p>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Bathroom doors</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Kitchen entrances</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Office doors</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Office doors</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Designer partitions</span>
+                </div>
+                <div class="application-item">
+                    <div class="bullet"></div>
+                    <span>Interior applications</span>
+                </div>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- why choose us -->
- <section class="whychoose">
-  <div class="upvc-benefits-section">
-        <!-- All Cards in One Grid -->
-        <div class="benefits-complete-grid">
-            <!-- Title Card -->
-            <div class="benefits-title-card">
-                <h2 class="benefits-main-heading">
-                    Why Choose <span class="benefits-brand-name">Space Designs UPVC</span>
-                </h2>
-                <p class="benefits-intro-paragraph">
-                    Space Designs is committed to providing customers with the best solutions in functionality and design. Along with promising physical appeal, our UPVC solutions offer numerous advantages.
-                </p>
-            </div>
-
-            <!-- Sound Proof Card -->
-            <div class="benefit-info-card">
-                <div class="benefit-icon-box">
-                   <img src="" alt="icon">
-                </div>
-                <h3 class="benefit-card-title">Sound Proof</h3>
-                <p class="benefit-card-description">Superior acoustic insulation for peaceful interiors</p>
-            </div>
-
-            <!-- Weather Proof Card -->
-            <div class="benefit-info-card">
-                <div class="benefit-icon-box">
-                  <img src="" alt="icon">
-                </div>
-                <h3 class="benefit-card-title">Weather Proof</h3>
-                <p class="benefit-card-description">Complete protection against harsh weather conditions</p>
-            </div>
-
-            <!-- Environment Friendly Card -->
-            <div class="benefit-info-card">
-                <div class="benefit-icon-box">
-                    <img src="" alt="icon">
-                </div>
-                <h3 class="benefit-card-title">Environment Friendly</h3>
-                <p class="benefit-card-description">Eco-conscious materials and energy-efficient design</p>
-            </div>
-
-            <!-- Energy Efficient Card -->
-            <div class="benefit-info-card">
-                <div class="benefit-icon-box">
-                   <img src="" alt="icon">
-                </div>
-                <h3 class="benefit-card-title">Energy Efficient</h3>
-                <p class="benefit-card-description">Excellent thermal insulation reduces energy consumption</p>
-            </div>
-
-            <!-- Low Maintenance Card -->
-            <div class="benefit-info-card">
-                <div class="benefit-icon-box">
-                    <img src="" alt="icon">
-                </div>
-                <h3 class="benefit-card-title">Low Maintenance</h3>
-                <p class="benefit-card-description">Minimal upkeep required for long-lasting performance</p>
-            </div>
-
-            <!-- Aesthetically Pleasing Card -->
-            <div class="benefit-info-card">
-                <div class="benefit-icon-box">
-                    <img src="" alt="icon">
-                </div>
-                <h3 class="benefit-card-title">Aesthetically Pleasing, Practical & Secure</h3>
-                <p class="benefit-card-description">Beautiful designs that don't compromise on functionality and safety</p>
-            </div>
+        <!-- Customization Excellence -->
+        <div class="customization-section">
+            <h2>Customization Excellence</h2>
+            <p>Choose from our extensive range of shades, patterns, and sizes to perfectly match your interior design vision and personal preferences. Our 3D textured doors seamlessly integrate with any décor style while maintaining superior performance standards.</p>
+        </div>
         </div>
     </div>
     </section>
-
-
-
-    <section class="design-flexibility-wrapper">
-  <div class="design-flexibility-content">
-    <h2 class="design-flexibility-heading">
-      Design <span class="highlight">Flexibility</span>
-    </h2>
-    <p class="design-flexibility-text">
-      The availability of colors and textures allows our UPVC windows and doors 
-      to easily adjust to any dimension and style of interior. The frames can 
-      be laminated with numerous options to enhance beauty and match your 
-      architectural vision.
-    </p>
-  </div>
-</section>
-
-    
- 
-
-
-    
- 
-
-    
-   
-
- 
-
-    
-
-   
-
- 
-
-    
-
-    <div id="footer"></div>
-
- <script>
-    fetch('navbar.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('navbar').innerHTML = data);
-
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-
-      function setActiveNavbarLink() {
-            // Get current page filename (e.g., 'wardbose.html')
-            const path = window.location.pathname;
-            const page = path.substring(path.lastIndexOf('/') + 1);
-
-            // Wait for navbar to be loaded
-            const navbar = document.getElementById('navbar');
-            if (!navbar) return;
-
-            // Find all nav links and dropdown items
-            const navLinks = navbar.querySelectorAll('.nav-link');
-            const dropdownItems = navbar.querySelectorAll('.dropdown-item');
-
-            let foundActive = false;
-
-            // Check top-level nav links
-            navLinks.forEach(link => {
-                // Ignore dropdown toggles
-                if (link.classList.contains('dropdown-toggle')) return;
-                const href = link.getAttribute('href');
-                if (href && href !== '#' && page === href) {
-                    link.classList.add('active');
-                    foundActive = true;
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-
-            // Check dropdown items
-            dropdownItems.forEach(item => {
-                const href = item.getAttribute('href');
-                if (href && href !== '#' && page === href) {
-                    item.classList.add('active');
-                    // Also highlight parent dropdown toggle
-                    const parentDropdown = item.closest('.dropdown');
-                    if (parentDropdown) {
-                        const toggle = parentDropdown.querySelector('.nav-link.dropdown-toggle');
-                        if (toggle) toggle.classList.add('active');
-                    }
-                    foundActive = true;
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-
-        // After navbar is loaded, set active link
-        const navbarInterval = setInterval(() => {
-            const navbar = document.getElementById('navbar');
-            if (navbar && navbar.querySelector('.nav-link')) {
-                setActiveNavbarLink();
-                clearInterval(navbarInterval);
-            }
-        }, 50);
-  </script>
-
-
-
-
-
-
-
-
-  <script>
-function toggleFAQ(button) {
-    const faqItem = button.parentElement;
-    const answer = faqItem.querySelector('.home-faq__answer');
-    const toggleIcon = button.querySelector('.home-faq__toggle');
-
-    if (answer.style.maxHeight) {
-        answer.style.maxHeight = null;
-        toggleIcon.textContent = '+';
-    } else {
-        // Close all open FAQs (optional)
-        document.querySelectorAll('.home-faq__answer').forEach(el => {
-            el.style.maxHeight = null;
-        });
-        document.querySelectorAll('.home-faq__toggle').forEach(el => {
-            el.textContent = '+';
-        });
-
-        // Open the selected one
-        answer.style.maxHeight = answer.scrollHeight + "px";
-        toggleIcon.textContent = '−';
-    }
-}
-</script>
-<!-- laminated section js code  -->
-   <script>
-        const woodOptions = document.querySelectorAll('.wood-option');
-        const doorImage = document.getElementById('doorImage');
-
-        const doorImages = {
-            'mahogany': 'mahogany-door.jpg',
-            'golden-oak': 'golden-oak-door.jpg',
-            'walnut': 'walnut-door.jpg',
-            'rustic-oak': 'rustic-oak-door.jpg',
-            'dark-oak': 'dark-oak-door.jpg'
-        };
-
-        woodOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                woodOptions.forEach(opt => opt.classList.remove('active'));
-                this.classList.add('active');
-                
-                const finish = this.getAttribute('data-finish');
-                doorImage.innerHTML = `Door Preview: ${finish.charAt(0).toUpperCase() + finish.slice(1).replace('-', ' ')}`;
-            });
-        });
-    </script>
-
-
-<!-- upvc product range js code -->
- <script>
-        const menuItems = document.querySelectorAll('.menu-item');
-        const productImage = document.getElementById('productImage');
-        const productCaption = document.getElementById('productCaption');
-
-        const productData = {
-            'casement': {
-                image: 'casement-windows.jpg',
-                caption: 'Traditional and reliable opening solutions for every space'
-            },
-            'special': {
-                image: 'special-windows.jpg',
-                caption: 'Unique designs for distinctive architectural requirements'
-            },
-            'sliding': {
-                image: 'sliding-windows.jpg',
-                caption: 'Space-saving and modern sliding window solutions'
-            },
-            'coloured': {
-                image: 'coloured-windows.jpg',
-                caption: 'Vibrant color options to match your aesthetic preferences'
-            },
-            'arch': {
-                image: 'arch-windows.jpg',
-                caption: 'Elegant arched windows for classic and contemporary homes'
-            }
-        };
-
-        menuItems.forEach(item => {
-            item.addEventListener('click', function() {
-                menuItems.forEach(i => i.classList.remove('active'));
-                this.classList.add('active');
-                
-                const product = this.getAttribute('data-product');
-                const data = productData[product];
-                
-                productCaption.textContent = data.caption;
-                productImage.textContent = `${this.textContent.trim()} Image`;
-            });
-        });
-    </script>
-
-
-
-
-
-
-
-<!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
-
-
 </body>
 </html>
