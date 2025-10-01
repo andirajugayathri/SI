@@ -561,7 +561,7 @@
             gap: 40px;
         }
 
-        .hero-image {
+        .hero-images {
             width: 100%;
             height: 543px;
             border-radius: 20px;
@@ -693,17 +693,121 @@
 
         .feature-center {
             display: flex;
+            width: 452px;         /* fixed size */
+            height: 452px;  
             justify-content: center;
             align-items: center;
         }
 
         .center-door-image {
-    width: 452px;         /* fixed size */
-    height: 452px;        /* same as width for perfect circle */
-    border-radius: 50%;   /* makes it circular */
-    object-fit: cover;    /* keeps image inside circle without stretching */
-    display: block;
+            width:100%;
+            height: 100%;   /* same as width for perfect circle */
+            border-radius: 50%;   /* makes it circular */
+            object-fit: cover;    /* keeps image inside circle without stretching */
+            display: block;
+        }
+
+        /* ========= Media Queries ========= */
+
+/* Large tablets & small desktops (max-width: 1200px) */
+@media (max-width: 1200px) {
+    .features-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .feature-center {
+        width: 380px;
+        height: 380px;
+    }
 }
+
+/* Tablets (max-width: 992px) */
+@media (max-width: 992px) {
+    .features-header h2 {
+        font-size: 32px;
+    }
+
+    .features-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .features-left, .features-right {
+        align-items: center;
+        text-align: center;
+    }
+
+    .features-left .feature-item h3,
+    .features-right .feature-item h3 {
+        text-align: center !important;
+    }
+
+    .features-left .feature-item p,
+    .features-right .feature-item p {
+        text-align: center;
+    }
+
+    .feature-center {
+        width: 320px;
+        height: 320px;
+        margin: 0 auto 30px;
+    }
+}
+
+/* Mobiles (max-width: 768px) */
+@media (max-width: 768px) {
+    .features-header h2 {
+        font-size: 28px;
+    }
+
+    .feature-center {
+        width: 250px;
+        height: 250px;
+    }
+
+    .features-left, .features-right {
+        gap: 20px;
+    }
+
+    .features-left .feature-item h3,
+    .features-right .feature-item h3 {
+        font-size: 18px;
+    }
+
+    .features-left .feature-item p,
+    .features-right .feature-item p {
+        font-size: 14px;
+    }
+}
+
+/* Small Mobiles (max-width: 480px) */
+@media (max-width: 480px) {
+    .features-header h2 {
+        font-size: 24px;
+    }
+
+    .feature-center {
+        width: 200px;
+        height: 200px;
+    }
+
+    .features-left, .features-right {
+        gap: 15px;
+    }
+
+    .features-left .feature-item h3,
+    .features-right .feature-item h3 {
+        font-size: 16px;
+    }
+
+    .features-left .feature-item p,
+    .features-right .feature-item p {
+        font-size: 13px;
+    }
+}
+
+       
 
         /* Versatile Applications */
         .applications-section {
@@ -761,6 +865,19 @@
         .customization-section p {
             color: #626262;
             line-height: 1.8;
+            font-weight: 400;
+        }
+
+          @media (max-width: 768px) {
+         .keysfeatures{
+            padding: 0!important;}
+           .d-features{
+            padding:30px!important;
+           }  
+
+        /* .hero-content1{
+            padding: 0 30px;
+        } */
         }
 
         /* Responsive Design */
@@ -788,6 +905,12 @@
             .features-header h2 {
                 font-size: 28px;
             }
+            .applications-section h2 {
+                font-size: 26px;
+            }
+            .customization-section h2 {
+                font-size: 23px;
+            }
         }
         .d-features{
             padding-bottom: 40px;
@@ -796,6 +919,7 @@
         .keysfeatures{
             padding: 0 50px;
         }
+        
         
        
 
@@ -1176,7 +1300,7 @@
         <!-- Hero Section -->
         <div class="hero-sections">
             <div class="hero-image-containers">
-                <img src="assets/images/3d-wpc-door.png" alt="3D Textured WPC Door" class="hero-image">
+                <img src="assets/images/3d-wpc-door.png" alt="3D Textured WPC Door" class="hero-images">
             </div>
             <div class="hero-content1">
                 <h1><span>3D TEXTURED</span> WPC DOORS</h1>
