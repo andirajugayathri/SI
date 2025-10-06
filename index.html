@@ -840,7 +840,7 @@
         </h1>
         <p class="subtitle">Calculate the approximate cost of doing up your home interiors</p>
         <!-- Popup Overlay -->
-        <div class="interior-popup-overlay" id="interiorPopupOverlay" onclick="closeInteriorPopupOnOverlay(event)">
+        <div class="interior-popup-overlay" id="interiorPopupOverlay" onclick="closeInteriorPopupOnOverlay(event)" >
             <div class="interior-popup-container">
                 <div class="interior-popup-header">
                     <h2>Get Your Free Consultation</h2>
@@ -2952,7 +2952,7 @@
                 </div>
             </div>
 
-            <div class="home-schedule-form-section">
+            <div class="home-schedule-form-section" id="homeform">
                 <div class="home-schedule-form-header">
                     <div class="home-schedule-subtitle">GET FREE QUOTE</div>
                     <h2 class="home-schedule-title">
@@ -2976,9 +2976,9 @@
                         </div>
                         <div class="home-schedule-form-group">
                             <select class="home-schedule-select" required>
-                                <option value="">Select City</option>
-                                <option value="hyderabad">Hyderabad</option>
-                                <option value="bangalore">Vijayawada</option>
+                                <option value="" class="d-none">Select State</option>
+                                <option value="andhrapradesh">Andhra Pradesh</option>
+                                <option value="telangana">Telangana</option>
                             </select>
                         </div>
                     </div>
@@ -2995,14 +2995,12 @@
                             </select>
                         </div>
                         <div class="home-schedule-form-group">
-                            <select class="home-schedule-select" required>
-                                <option value="">Services Required</option>
+                            <select class="home-schedule-select" required placeholder="Services Required">
+                                <option value="" class="d-none">Services Required</option>
                                 <option value="interior-design">Interior Design</option>
-                                <option value="modular-kitchen">Modular Kitchen</option>
-                                <option value="furniture">Custom Furniture</option>
-                                <option value="renovation">Home Renovation</option>
-                                <option value="consultation">Design Consultation</option>
-                                <option value="complete-home">Complete Home Interior</option>
+                                <option value="wpc">WPC (Doors, Frames & Windows) </option>
+                                <option value="upvc">uPVC (Doors & Windows)</option>
+                                <option value="furniture">Furniture</option>
                             </select>
                         </div>
                     </div>
