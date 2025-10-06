@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $headers .= "Reply-To: $mobile\r\n";
 
     if (mail($to, $subject, $message, $headers)) {
-        header("Location: thankyou.html");
+        header("Location: thank-you.html");
         exit;
     } else {
         echo "Error sending email. Please try again.";
