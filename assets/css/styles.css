@@ -3124,7 +3124,7 @@ input {
 }
 
 .process-section {
-  height: 80vh;
+  height: 90vh;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   position: relative;
   overflow: hidden;
@@ -3453,7 +3453,10 @@ input {
     bottom: 20px;
   }
 }
-
+@media (max-width: 991px) {
+.process-section .steps-container{
+  top: 50%;
+}}
 .kitchen-gallery-section {
   padding: 60px 0;
   background-color: #fff;
