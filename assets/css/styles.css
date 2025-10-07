@@ -3124,8 +3124,7 @@ input {
 }
 
 .process-section {
-  min-height: 100vh;
-  height: auto;
+  height: 80vh;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   position: relative;
   overflow: hidden;
